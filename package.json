@@ -1,0 +1,31 @@
+{
+  "name": "documentation",
+  "version": "1.0.0",
+  "description": "Synapse Cmf project documentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synapse-cmf/documentation.git"
+  },
+  "keywords": [
+    "synapse",
+    "cmf",
+    "symfony",
+    "framework",
+    "content",
+    "management",
+    "documentation"
+  ],
+  "author": "Nyxis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/synapse-cmf/documentation/issues"
+  },
+  "homepage": "https://github.com/synapse-cmf/documentation#readme",
+  "dependencies": {
+    "gitbook-cli": "^2.3.0"
+  }
+}

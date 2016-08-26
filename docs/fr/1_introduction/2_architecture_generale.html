@@ -1,0 +1,274 @@
+
+<!DOCTYPE HTML>
+<html lang="fr" >
+    <head>
+        <title>Architecture générale · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="1_preambule.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Tapez pour rechercher" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Accueil
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Introduction</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="1_preambule.html">
+            
+                <a href="1_preambule.html">
+            
+                    
+                    Préambule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="2_architecture_generale.html">
+            
+                <a href="2_architecture_generale.html">
+            
+                    
+                    Architecture générale
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Installation</li>
+        
+        
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Publié avec GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Architecture générale</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="architecture-et-partis-pris">Architecture et partis pris</h1><p>Rentrons maintenant dans le d&#xE9;tail : comment Synapse permet de disposer &#xE0; la fois d&apos;une gestion de contenu puissante mais sans couplage fort ?
+En premier lieu, gr&#xE2;ce &#xE0; deux design patterns tr&#xE8;s utilis&#xE9;s actuellement, en particulier dans Symfony : Decorator (composant Templating) et Prototype (composant Form).
+Et d&apos;autre part, gr&#xE2;ce &#xE0; une application des principes SOLID, en particulier la maitrise des d&#xE9;pendances des objets.</p><p>Le mod&#xE8;le de Synapse d&#xE9;coule de ces deux &#xE9;l&#xE9;ments d&apos;architecture, d&#xE9;taill&#xE9;e dans les rubriques suivantes.</p><h2 id="inversion-de-contr&#xF4;le">Inversion de contr&#xF4;le</h2><p>Comme d&#xE9;crit plus haut, Synapse n&apos;est pas intrusif dans le mod&#xE8;le du projet qui l&apos;utilise.
+Pour ce faire, une inversion de contr&#xF4;le a &#xE9;t&#xE9; impl&#xE9;ment&#xE9;e entre les objets m&#xE9;tiers et le mod&#xE8;le de Synapse, &#xE0; travers la notion de type de contenu.</p><p>Traditionellement, quand il est possible d&apos;impl&#xE9;menter des mod&#xE8;les personalis&#xE9;s, la cons&#xE9;quence est l&apos;inclusion en d&#xFB;r de code de la librairie de gestion de contenu dans le mod&#xE8;le m&#xE9;tier, soit par classes abstraites / h&#xE9;ritage, soit par composition. Dans les deux cas, le mod&#xE8;le m&#xE9;tier est li&#xE9; &#xE0; la librairie, de mani&#xE8;re forte : des m&#xE9;thodes d&#xE9;di&#xE9;es sont pr&#xE9;sentes dans les objets et de fait, l&apos;architecture du projet est contrainte.</p><p>Synapse prend le contrepied de ces habitudes en s&apos;affranchissant du lien fort avec l&apos;objet m&#xE9;tier : il n&apos;interviendra jamais dessus directement, et se contentera de le d&#xE9;corer &#xE0; l&apos;aide de son propre mod&#xE8;le. L&apos;objet d&#xE9;cor&#xE9; doit simplement impl&#xE9;menter une interface, puis &#xEA;tre r&#xE9;f&#xE9;renc&#xE9; dans une configuration (voir la <a href="">configuration des types de contenu</a>).</p><p>Gr&#xE2;ce &#xE0; ces &#xE9;l&#xE9;ments, Synapse dispose de quoi abstraire n&apos;importe quel objet m&#xE9;tier derri&#xE8;re la notion de Contenu et de Type de Contenu, lien entre les mod&#xE8;les, comme l&apos;illuste le diagramme de classes ci-dessous.</p><p>Il est donc possible de d&#xE9;corer n&apos;importe quel objet m&#xE9;tier gr&#xE2;ce &#xE0; Synapse, et ce sans corrompre son identit&#xE9; logicielle, allant d&apos;une simple page web (comme dans la distribution <a href="">PageBundle</a>), &#xE0; un article de presse, en passant par un produit e-commerce avec de nombreuses d&#xE9;pendances.</p><h2 id="diagramme-de-classes---mod&#xE8;le-dentit&#xE9;s">Diagramme de classes - Mod&#xE8;le d&apos;entit&#xE9;s</h2><p>-- diagramme ici --</p><p>Le diagramme ci-dessus repr&#xE9;sente le mod&#xE8;le interne de Synapse, ainsi que ses int&#xE9;raction avec les objets m&#xE9;tiers du projet.</p><p>Quatres &#xE9;l&#xE9;ments importants se distinguent :</p><ul><li>Les th&#xE8;mes : namespace des &#xE9;l&#xE9;ments Synapse, chaque &#xE9;l&#xE9;ment sous-jacent est toujours r&#xE9;f&#xE9;renc&#xE9; &#xE0; l&apos;int&#xE9;rieur d&apos;un th&#xE8;me. Physiquement, il correspond au bundle Symfony qui d&#xE9;clare le th&#xE8;me et les templates.
+</li>
+<li>les templates : gabarits de pages, layout, coeur du pattern decorator, il est en particulier le template Twig dans lequel sera rendu le contenu, et est compos&#xE9; de zones.
+</li>
+<li>les zones : espaces dans un template, d&#xE9;clar&#xE9;s via des tags similaires &#xE0; des blocks Twig, dans lequelles il est possible d&apos;ajouter et de rendre des composants.
+</li>
+<li>les composants : &#xE9;l&#xE9;ments de d&#xE9;coration d&apos;un contenu, ajout&#xE9;s dans une zone et porteurs de donn&#xE9;es utilisables dans leur contexte de rendu seulement.
+</li></ul>
+<p>Ces &#xE9;l&#xE9;ments sont chacun adjoints d&apos;un &quot;type&quot;. Ces types sont cr&#xE9;&#xE9;s depuis la configuration, le prototypage, des th&#xE8;mes. Ils d&#xE9;finissent les informations sp&#xE9;cifiques au rendu d&apos;un template, comme en particulier les templates Twig &#xE0; appeler, les configurations par d&#xE9;faut, les composants autoris&#xE9;s pour telle ou telle zone, les formats d&apos;images etc...</p><p>Le prototypage des ces &#xE9;l&#xE9;ments permet de disposer d&apos;une grande flexibilit&#xE9; sur le mod&#xE8;le et le moteur de rendu de Synapse, sans pour autant &#xE9;crire la moindre ligne de code Php : les d&#xE9;veloppeurs en charge du front peuvent donc reprendre leurs droits sur le param&#xE9;trage de leurs rendus, et ainsi maitriser toute la chaine de d&#xE9;coration d&apos;un contenu.</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1_preambule.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Préambule">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Architecture générale","level":"2.2","depth":1,"previous":{"title":"Préambule","level":"2.1","depth":1,"path":"1_introduction/1_preambule.md","ref":"1_introduction/1_preambule.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"1_introduction/2_architecture_generale.md","mtime":"2016-08-25T13:26:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-25T13:28:52.419Z"},"basePath":"..","book":{"language":"fr"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

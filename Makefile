@@ -1,5 +1,6 @@
 build: bin/gitbook
 	bin/gitbook build
+	rm -rf docs/*
 	mv _book/* docs
 	rm -r _book
 

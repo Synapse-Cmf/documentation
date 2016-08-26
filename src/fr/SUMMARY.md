@@ -15,7 +15,20 @@
 
 ### Configuration
 
-* [SynapseCmfBundle](2_installation/2_cmf_bundle.md)
-* [SynapseAdminBundle](2_installation/3_admin_bundle.md)
-* [SynapsePageBundle](2_installation/4_page_bundle.md)
+* [SynapseCmfBundle](3_configuration/2_cmf_bundle.md)
+* [SynapseAdminBundle](3_configuration/3_admin_bundle.md)
+* [SynapsePageBundle](3_configuration/4_page_bundle.md)
+
+### Modules
+
+* [Décorateur](4_modules/1_decorator)
+    * [Types de contenus](4_modules/1_decorator/1_content_types.md)
+    * [Themes](4_modules/1_decorator/2_themes.md)
+    * [Moteur](4_modules/1_decorator/3_engine.md)
+    * [Bridges](4_modules/1_decorator/4_bridges.md)
+* [Mediatheque](4_modules/2_mediatheque)
+    * [Synchronisation des fichiers](4_modules/2_mediatheque/1_filer_interaction.md)
+    * [Images](4_modules/2_mediatheque/2_images.md)
+
+### Tutoriels
 

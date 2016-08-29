@@ -188,9 +188,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="../3_configuration/2_cmf_bundle.md">
+        <li class="chapter " data-level="4.1" data-path="../3_configuration/1_cmf_bundle.html">
             
-                <span>
+                <a href="../3_configuration/1_cmf_bundle.html">
             
                     
                     SynapseCmfBundle
@@ -201,9 +201,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="../3_configuration/3_admin_bundle.md">
+        <li class="chapter " data-level="4.2" data-path="../3_configuration/2_admin_bundle.html">
             
-                <span>
+                <a href="../3_configuration/2_admin_bundle.html">
             
                     
                     SynapseAdminBundle
@@ -214,9 +214,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="../3_configuration/4_page_bundle.md">
+        <li class="chapter " data-level="4.3" data-path="../3_configuration/3_page_bundle.html">
             
-                <span>
+                <a href="../3_configuration/3_page_bundle.html">
             
                     
                     SynapsePageBundle
@@ -402,7 +402,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="distributions">Distributions</h1><p>Pour rester dans la logique d&apos;apporter le maximum &#xE0; un projet, sans pour autant le surcharger, Synapse propose plusieurs distributions.
+A vous de choisir celle qui vous convient, en fonction de la typologie de votre projet.</p><table>
+<thead>
+<tr><th>Distribution</th>
+<th>Package composer</th>
+<th>Features</th>
+<th>Type de projet</th>
+</tr></thead><tbody>
+<tr><td><a href="https://github.com/synapse-cmf/SynapseCmfBundle" target="_blank">SynapseCmfBundle</a></td>
+<td><code>&quot;synapse-cmf/synapse-cmf-bundle&quot;: &quot;~1.0&quot;</code></td>
+<td>Moteur de rendu, module m&#xE9;diath&#xE8;que, API programatique</td>
+<td>Projet sans back office, o&#xF9; les interfaces ext&#xE9;rieures ne sont pas forc&#xE9;ment des &#xE9;crans (architectures CQRS, web services, ...)</td>
+</tr><tr><td><a href="https://github.com/synapse-cmf/SynapseAdminBundle" target="_blank">SynapseAdminBundle</a></td>
+<td><code>&quot;synapse-cmf/synapse-admin-bundle&quot;: &quot;~1.0&quot;</code></td>
+<td>Inclu SynapseCmfBundle, ajoute une interface html de gestion des &#xE9;l&#xE9;ments de Synapse (skeletons, mediath&#xE8;que) et le th&#xE8;me backoffice par d&#xE9;faut</td>
+<td>Projet de type &quot;interface de gestion&quot;, quand d&apos;autres &#xE9;crans doivent &#xEA;tre impl&#xE9;ment&#xE9;s, et les contenus d&#xE9;cor&#xE9;s par des &#xE9;ditorialistes.</td>
+</tr><tr><td><a href="https://github.com/synapse-cmf/SynapsePageBundle" target="_blank">SynapsePageBundle</a></td>
+<td><code>&quot;synapse-cmf/synapse-page-bundle&quot;: &quot;~1.0&quot;</code></td>
+</tr></tbody></table>
+
+<p>Inclu SynapseAdminBundle, ajoute le type de contenu &quot;Page&quot;, qui repr&#xE9;sente une page web simple, g&#xE8;re le r&#xE9;f&#xE9;rencement et l&apos;arborescence. Il ajoute &#xE9;galement un &#xE9;cran au backoffice Synapse pour cr&#xE9;er et &#xE9;diter les pages. | Distribution d&#xE9;di&#xE9;e &quot;vitrine&quot; &#xE0; utiliser pour des sites simples, &#xE0; vocation &#xE9;volutive vers de l&apos;exposition d&apos;autres donn&#xE9;es. |</p><p>Il est &#xE9;galement possible d&apos;inclure directement la totalit&#xE9; du projet, via <code>&quot;synapse-cmf/synapse-cmf&quot; : &quot;~1.0&quot;</code>, comme d&#xE9;crit dans la <a href="2_projet_complet.html">partie suivante</a>. Il n&apos;est cependant pas recommand&#xE9; de l&apos;utiliser en production.</p><p>Enfin, la derni&#xE8;re distribution est une <a href="3_edition_standard.html">&#xE9;dition standard</a> de <a href="https://github.com/symfony/symfony-standard" target="_blank">Symfony</a>, avec Synapse Cmf pr&#xE9;-install&#xE9;.</p><p>Voyons en d&#xE9;tail le contenu des trois bundles principaux de Synapse Cmf et comment les installer.</p><h2 id="synapsecmfbundle">SynapseCmfBundle</h2><h2 id="synapseadminbundle">SynapseAdminBundle</h2><h2 id="synapsepagebundle">SynapsePageBundle</h2>
                                 
                                 </section>
                             
@@ -445,7 +465,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Distributions","level":"3.1","depth":1,"next":{"title":"Projet complet","level":"3.2","depth":1,"path":"2_installation/2_projet_complet.md","ref":"2_installation/2_projet_complet.md","articles":[]},"previous":{"title":"Architecture générale","level":"2.2","depth":1,"path":"1_introduction/2_architecture_generale.md","ref":"1_introduction/2_architecture_generale.md","articles":[]},"dir":"neutral"},"config":{"plugins":[],"root":"","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"2_installation/1_distributions.md","mtime":"2016-08-25T13:52:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-26T09:45:38.617Z"},"basePath":"..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Distributions","level":"3.1","depth":1,"next":{"title":"Projet complet","level":"3.2","depth":1,"path":"2_installation/2_projet_complet.md","ref":"2_installation/2_projet_complet.md","articles":[]},"previous":{"title":"Architecture générale","level":"2.2","depth":1,"path":"1_introduction/2_architecture_generale.md","ref":"1_introduction/2_architecture_generale.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"2_installation/1_distributions.md","mtime":"2016-08-26T12:58:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-29T09:04:00.316Z"},"basePath":"..","book":{"language":"fr"}});
         });
     </script>
 </div>

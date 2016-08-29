@@ -15,9 +15,9 @@
 
 ### Configuration
 
-* [SynapseCmfBundle](3_configuration/2_cmf_bundle.md)
-* [SynapseAdminBundle](3_configuration/3_admin_bundle.md)
-* [SynapsePageBundle](3_configuration/4_page_bundle.md)
+* [SynapseCmfBundle](3_configuration/1_cmf_bundle.md)
+* [SynapseAdminBundle](3_configuration/2_admin_bundle.md)
+* [SynapsePageBundle](3_configuration/3_page_bundle.md)
 
 ### Modules
 

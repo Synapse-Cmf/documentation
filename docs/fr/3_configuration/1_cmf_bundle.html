@@ -402,7 +402,61 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="configuration-du-synapsecmfbundle">Configuration du SynapseCmfBundle</h1><p>Ce bundle requiert l&apos;inclusion d&apos;autres packages de la communaut&#xE9; en plus de ceux de l&apos;&#xE9;dition standard de Symfony tels que d&#xE9;crit ci-apr&#xE8;s :</p><pre><code class="lang-php"><span class="hljs-comment">// app/AppKernel.php</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppKernel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Kernel</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">registerBundles</span><span class="hljs-params">()</span>
+    </span>{
+        $bundles = [
+            <span class="hljs-comment">// ...</span>
+            <span class="hljs-keyword">new</span> Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            <span class="hljs-keyword">new</span> Majora\Bundle\FrameworkExtraBundle\MajoraFrameworkExtraBundle($this),
+            <span class="hljs-keyword">new</span> Synapse\Cmf\Bundle\SynapseCmfBundle(),
+        ]
+    }
+}</code></pre>
+<p>De plus, certains doivent &#xEA;tre configur&#xE9;s pour que Synapse puisse les utiliser, tel que Doctrine :</p><pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
+
+<span class="hljs-comment"># Synapse Cmf Configuration</span>
+<span class="hljs-attr">synapse_cmf:</span>
+<span class="hljs-attr">    content_types:</span> ~
+        <span class="hljs-comment"># liste des types de content, r&#xE9;f&#xE9;rez vous &#xE0; la section d&#xE9;di&#xE9;e</span>
+<span class="hljs-attr">    components:</span> ~
+        <span class="hljs-comment"># liste des types de composants, r&#xE9;f&#xE9;rez vous &#xE0; la section d&#xE9;di&#xE9;e</span>
+<span class="hljs-attr">    media:</span>
+<span class="hljs-attr">        store:</span>
+<span class="hljs-attr">            physical_path:</span> %kernel.root_dir%/../../web/assets  <span class="hljs-comment"># chemin de stockage des fichiers g&#xE9;r&#xE9;s par la m&#xE9;diath&#xE8;que</span>
+<span class="hljs-attr">            web_path:</span> assets      <span class="hljs-comment"># chemin d&apos;acc&#xE8;s des fichiers de la m&#xE9;diath&#xE8;que &#xE0; partir de la racine web</span>
+
+<span class="hljs-comment"># Doctrine Configuration</span>
+<span class="hljs-attr">doctrine:</span>
+<span class="hljs-attr">    dbal:</span>
+<span class="hljs-attr">        connections:</span>
+<span class="hljs-attr">            default:</span>
+                <span class="hljs-comment"># default connection here</span>
+<span class="hljs-attr">            synapse:</span>
+<span class="hljs-attr">                driver:</span>   pdo_mysql
+<span class="hljs-attr">                host:</span>     <span class="hljs-string">&quot;%database_host%&quot;</span>
+<span class="hljs-attr">                port:</span>     <span class="hljs-string">&quot;%database_port%&quot;</span>
+<span class="hljs-attr">                dbname:</span>   <span class="hljs-string">&quot;%database_name%&quot;</span>
+<span class="hljs-attr">                user:</span>     <span class="hljs-string">&quot;%database_user%&quot;</span>
+<span class="hljs-attr">                password:</span> <span class="hljs-string">&quot;%database_password%&quot;</span>
+<span class="hljs-attr">                charset:</span>  UTF8
+<span class="hljs-attr">    orm:</span>
+<span class="hljs-attr">        auto_generate_proxy_classes:</span> <span class="hljs-string">&quot;%kernel.debug%&quot;</span>
+<span class="hljs-attr">        default_entity_manager:</span> default
+<span class="hljs-attr">        entity_managers:</span>
+<span class="hljs-attr">            synapse:</span> ~
+<span class="hljs-attr">            default:</span>
+                <span class="hljs-comment"># default em configuration</span></code></pre>
+<p>A propos de ces configurations :</p><ul><li>d&#xE9;coulant du fait d&apos;avoir un entity manager s&#xE9;par&#xE9;, les bundles doivent &#xEA;tre r&#xE9;f&#xE9;renc&#xE9;s manuellement dans la configuration Doctrine
+</li>
+<li>d&apos;autres configurations sont incluses par d&#xE9;faut au container, voir <a href="">le fichier complet</a>
+</li>
+<li>il est possible de g&#xE9;n&#xE9;rer seulement le mod&#xE8;le Synapse via la commande <code>php bin/console doc:sch:update --em=synapse</code> ou <code>php bin/console doctrine:migrations:diff --filter-expression=&quot;/^synapse_.+/&quot; --em=synapse</code> via les migrations
+</li></ul>
+<p>A propos de <a href="https://github.com/LinkValue/MajoraFrameworkExtraBundle" target="_blank">MajoraFrameworkExtraBundle</a> : cette d&#xE9;pendance contient des classes et services utilitaires en extension &#xE0; Symfony.</p><p>Synapse Cmf est &#xE9;galement compatible avec DoctrineMigrationsBundle, pertinent lors du d&#xE9;ploiement des futures mises &#xE0; jour du projet.</p>
                                 
                                 </section>
                             
@@ -445,7 +499,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SynapseCmfBundle","level":"4.1","depth":1,"next":{"title":"SynapseAdminBundle","level":"4.2","depth":1,"path":"3_configuration/2_admin_bundle.md","ref":"3_configuration/2_admin_bundle.md","articles":[]},"previous":{"title":"Edition standard","level":"3.3","depth":1,"path":"2_installation/3_edition_standard.md","ref":"2_installation/3_edition_standard.md","articles":[]},"dir":"neutral"},"config":{"plugins":[],"root":"","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_configuration/1_cmf_bundle.md","mtime":"2016-08-25T13:53:09.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-29T09:04:00.316Z"},"basePath":"..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"SynapseCmfBundle","level":"4.1","depth":1,"next":{"title":"SynapseAdminBundle","level":"4.2","depth":1,"path":"3_configuration/2_admin_bundle.md","ref":"3_configuration/2_admin_bundle.md","articles":[]},"previous":{"title":"Edition standard","level":"3.3","depth":1,"path":"2_installation/3_edition_standard.md","ref":"2_installation/3_edition_standard.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_configuration/1_cmf_bundle.md","mtime":"2016-09-14T12:38:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-15T09:55:21.925Z"},"basePath":"..","book":{"language":"fr"}});
         });
     </script>
 </div>

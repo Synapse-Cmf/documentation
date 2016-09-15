@@ -4,7 +4,7 @@ Rentrons maintenant dans le détail : comment Synapse permet de disposer à la f
 En premier lieu, grâce à deux design patterns très utilisés actuellement, en particulier dans Symfony : Decorator (composant Templating) et Prototype (composant Form).
 Et d'autre part, grâce à une application des principes SOLID, en particulier la maitrise des dépendances des objets.
 
-Le modèle de Synapse découle de ces deux éléments d'architecture, détaillée dans les rubriques suivantes.
+Le modèle de Synapse découle de ces deux éléments d'architecture, détaillés dans les rubriques suivantes.
 
 ## Décoration et inversion de contrôle
 
@@ -19,3 +19,22 @@ Il est donc possible de décorer n'importe quel objet métier grâce à Synapse,
 
 ## Prototypage du rendu
 
+La DX (Developper eXperience) passe aussi par une aide au partage des tâches au sein d'une équipe, que le framework permette que chacun puisse effectuer sa tâche facilement et de manière optimisée.
+
+Dans une organisation d'équipe standard, comprenant designers, intégrateurs et développeurs back, des maquettes sont réalisées par l'équipe design, puis sont intégrées en Html / Css (etc..) par l'équipe front, et enfin "dynamisés" par l'équipe back.
+
+Synapse permet de simplifier ce processus en mettant en place un prototypage du rendu des types de contenus à l'aide de fichiers de configuration simples, au format Yaml.
+
+Le workflow devient donc :
+
+ - le designer produit des maquettes pour des types d'habillage (layouts), les templates dans Synapse. Puis il initialise le fichier de description du thème en déclarant les différents templates, zones et composants, voir la [référence]().
+ - l'intégrateur reçoit ces maquettes et fichiers de configuration et va créer les fichiers Twig correspondants, puis les référencer dans le fichier de configuration.
+ - le développeur back va ensuite créer des composants permettant d'afficher les données dynamiques dans les prototypes intégrés.
+
+Ce prototypage permet donc plus de flexibilité à l'équipe pour travailler en parallèle, par rapport à un sytème classique, car il induit là aussi un découplage. Dans le détail :
+
+ - le designer n'a pas besoin de créer des maquettes pour toutes les pages du site; il n'a même pas besoin de concevoir le site entier avant que les développements commencent.
+ - le développeur front a toute lattitude pour concevoir sa réponse technique aux besoins du designer, découpage des fichiers, extensions et inclusions Twig, responsive et adaptive design etc...
+ - le développeur back n'a plus à s'occuper d'implémenter la structure des templates et des pages, seulement à exposer des données aux templates du développeur front. Il lui reste également le reste de son travail bien entendu : gérer les accès aux données, l'implémentation des formulaires etc...
+
+D'un point de vue macro, le prototypage va également permettre de pouvoir changer tout un thème sans impliquer une grosse charge de développement back, tant que les données et configurations des composants resteront les mêmes.

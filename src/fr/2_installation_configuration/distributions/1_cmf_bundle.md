@@ -1,4 +1,31 @@
-# Configuration du SynapseCmfBundle
+# SynapseCmfBundle
+
+Cette distribution contient le strict minimum pour travailler avec Synapse; c'est en général celle que l'on va utiliser quand on dispose déjà de son back-office, où lorsque les modules métiers adjacents imposent une charte graphique ou un markup incompatible avec l'administration native.
+
+Elle contient :
+
+ - Le bundle d'interface avec les composants Symfony
+ - La définition du modèle de données sous [Doctrine Orm](http://www.doctrine-project.org/projects/orm.html)
+ - La définition et les APIs de gestion des éléments de Synapse :
+    - Types de contenus
+    - Thème (templates, zones et composants)
+    - Médiathèque (média, images et fichiers)
+ - Le moteur de rendu
+ - Composants built-in, avec contrôleur, configurations par défaut et formulaire
+    - Static
+    - Free
+    - Text
+    - Menu
+    - Gallery
+
+## Installation
+
+L'installation se passe via [Composer](https://getcomposer.org/), comme la plupart des bundles Symfony :
+```bash
+composer require synapse-cmf/synapse-cmf-bundle ~1.0
+```
+
+## Configuration
 
 Ce bundle requiert l'inclusion d'autres packages de la communauté en plus de ceux de l'édition standard de Symfony tels que décrit ci-après :
 ```php

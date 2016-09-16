@@ -1,2 +1,0 @@
-# Installation du projet complet
-

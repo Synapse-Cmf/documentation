@@ -1,13 +1,12 @@
+# Book
 
-## Diagramme de classes - Modèle d'entités
+Maintenant que vous avez créé votre premier projet avec l'édition standard de Synapse Cmf, détaillons quelles sont ses possibilités d'extensions et de customisations, pour que votre système de gestion de contenu soit au plus près du métier de votre client.
 
--- diagramme ici --
+## Décorateur
 
-Le diagramme ci-dessus représente le modèle interne de Synapse, ainsi que ses intéraction avec les objets métiers du projet.
-
-Quatres éléments importants se distinguent :
-
- - Les thèmes : namespace des éléments Synapse, chaque élément sous-jacent est toujours référencé à l'intérieur d'un thème. Physiquement, il correspond au bundle Symfony qui déclare le thème et les templates.
+Les 5 notions principales pour aborder la décoration de contenus sont les suivantes :
+ - Les types de contenus eux même : abstraction des objets métiers de votre projet, objet de base autour duquel le moteur de décoration va construire un template.
+ - Les thèmes : namespace des éléments Synapse, chaque élément sous-jacent est toujours référencé à l'intérieur d'un thème. Physiquement, il correspond au bundle Symfony qui déclare le thème et les templates, souvent votre bundle d'application front.
  - les templates : gabarits de pages, layout, coeur du pattern decorator, il est en particulier le template Twig dans lequel sera rendu le contenu, et est composé de zones.
  - les zones : espaces dans un template, déclarés via des tags similaires à des blocks Twig, dans lequelles il est possible d'ajouter et de rendre des composants.
  - les composants : éléments de décoration d'un contenu, ajoutés dans une zone et porteurs de données utilisables dans leur contexte de rendu seulement.

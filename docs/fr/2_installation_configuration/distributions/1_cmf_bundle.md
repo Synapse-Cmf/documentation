@@ -25,7 +25,7 @@ L'installation se passe via [Composer](https://getcomposer.org/), comme la plupa
 composer require synapse-cmf/synapse-cmf-bundle ~1.0
 ```
 
-## Configuration
+## Configuration de référence
 
 Ce bundle requiert l'inclusion d'autres packages de la communauté en plus de ceux de l'édition standard de Symfony tels que décrit ci-après :
 ```php
@@ -50,14 +50,23 @@ De plus, certains doivent être configurés pour que Synapse puisse les utiliser
 
 # Synapse Cmf Configuration
 synapse_cmf:
-    content_types: ~
-        # liste des types de content, référez vous à la section dédiée
-    components: ~
-        # liste des types de composants, référez vous à la section dédiée
+    content_types:
+        Content\Type\Entity\Full\Qualified\Class\Name:
+            alias: content_type     # content type alias into Cmf Admin and configurations
+            loader: content_type.provider.id   # service id of a service which can load this content type
+        // ...
+    components:
+        social_sharing:    # component name
+            form: Acme\Bundle\AppBundle\Form\Component\SocialSharingType.php   # component data form type
+            controller: AcmeAppBundle:SocialSharingComponent:render   # component rendering controller
+            template_path: "AcmeAppBundle:Demo:social_sharing.html.twig"  # component default template
+        // ...
     media:
         store:
-            physical_path: %kernel.root_dir%/../../web/assets  # chemin de stockage des fichiers gérés par la médiathèque
-            web_path: assets      # chemin d'accès des fichiers de la médiathèque à partir de la racine web
+            physical_path: %kernel.root_dir%/../../web/assets  # define where store all files uploaded through media manager
+            web_path: assets      # path to media storage, after web root
+    forms:
+        enabled: true    # you can disable Synapse form extension if you don't use them into your own content type forms
 
 # Doctrine Configuration
 doctrine:

@@ -11,7 +11,6 @@ Pour commencer, il vous rajouter les bundles synapse :
 ./bin/composer require synapse-cmf/synapse-cmf ~1.0@dev
 ```
 
-
 Puis les inclures dans votre application (comment n'importe quel autre bundle) :
 ```php
 // app/AppKernel.php
@@ -21,12 +20,18 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = [
-            // ...
+            // dependencies
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Majora\Bundle\FrameworkExtraBundle\MajoraFrameworkExtraBundle($this),
+
+            // core
             new Synapse\Cmf\Bundle\SynapseCmfBundle(),
             new Synapse\Admin\Bundle\SynapseAdminBundle(),
             new Synapse\Page\Bundle\SynapsePageBundle(),
+
+            // demo
+            new Synapse\Demo\Bundle\AppBundle\SynapseDemoAppBundle(),
+            new Synapse\Demo\Bundle\ThemeBundle\SynapseDemoThemeBundle(),
         ]
     }
 }
@@ -34,8 +39,27 @@ class AppKernel extends Kernel
 
 ## Configuration
 
-### Configuration de l'accès à la base de données
-Ensuite, Configurez l'accès à la base de donnée pour synapse.
+### Bundles de Synapse Cmf
+
+Nous utiliserons ici les paramètres par défaut de Synapse. Pour plus de détails sur les configurations, veuillez vous reporter aux références des configurations de chaque bundle :
+
+ - [SynapseCmfBundle](distribution/1_cmf_bundle.md)
+ - [SynapseAdminBundle](distribution/2_admin_bundle.md)
+ - [SynapsePageBundle](distribution/3_page_bundle.md)
+
+```yml
+# app/config/config.yml
+
+# Synapse Cmf Configuration
+synapse_cmf:
+    content_types:
+        Synapse\Page\Bundle\Entity\Page:
+            alias: page
+            provider: synapse.page.loader
+```
+### Dépendances
+Ensuite, configurez l'accès à la base de donnée de Synapse.
+
 La configuration minimale est la suivante :
 ```yml
 # app/config/config.yml
@@ -45,7 +69,7 @@ doctrine:
     dbal:
         connections:
             default:
-                # default connection here
+                # your project default connection here
             synapse:
                 driver:   pdo_mysql
                 host:     "%database_host%"
@@ -60,71 +84,71 @@ doctrine:
         entity_managers:
             synapse: ~
             default:
-                # default em configuration
+                # your project default em configuration
 ```
 
-Ici vous utiliserez la configuration en base par défaut de symfony, libre à vous ensuite de les personnaliser (voir tuto LINK - good practices ?).
+Synapse Cmf utilise un entity manager dédié, pour permettre plus de flexibilité, pour plus de détails, voir la configuration du [CmfBundle](distribution/1_cmf_bundle.md).
 
+Les autres dépendances [MajoraFrameworkExtraBundle](https://github.com/LinkValue/MajoraFrameworkExtraBundle) et [StofDoctrineExtensionsBundle](https://github.com/stof/StofDoctrineExtensionsBundle) sont configurées par défaut directement par le CmfBundle.
 
-### Configuration de Synapse
+### Routing
 
-Nous utiliserons ici les paramètres par défaut de synapse. Pour en savoir plus LINK
+Synapse Cmf fournit des routes à ajouter au projet pour accéder aux modules d'administration et aux pages en front.
 
 ```yml
-# app/config/config.yml
+# app/config/routing.yml
 
+# Front
+synapse_page_content:
+    resource: "@SynapsePageBundle/Resources/config/routing/content_type.yml"
+    prefix: /{_locale}
+    defaults: { _locale: %locale% }
+    requirements: { _locale: fr|en }
+    options:
+        synapse_theme: bootstrap
 
-# Synapse Cmf Configuration
-synapse_cmf: ~
+# Admin
+synapse_admin:
+    resource: "@SynapsePageBundle/Resources/config/routing/admin.yml"
+    prefix: "/synapse/admin/page"
+    options:
+        synapse_theme: bootstrap         # theme actif du projet (voir configuration des thèmes)
 ```
 
-Avec cette configuration de base, synapse rajoutera ses assets dans le dossier /web/assets. Nous vous recommendons de rajouter ce dossier dans votre gitignore :
+Pour finir, testez votre installation avec les commandes suivantes :
+```bash
+php bin/console debug:container | grep synapse
+php bin/console debug:router | grep synapse
+```
 
+## Mise en route
+
+Une fois toute la configuration opérationelle, construisez la base de données avec les commandes suivantes :
+```bash
+# Création de la base si elle n'existe pas
+php bin/console doctrine:database:create --connection=synapse --if-not-exists
+# Construction des tables
+php bin/console doctrine:schema:update --force --em=synapse
+```
+
+Puis installez les assets et videz le cache :
+```bash
+php bin/console assets:install
+php bin/console cache:clear
+```
+
+## Bonnes pratiques pour le versioning
+
+La médiathèque de Synapse Cmf utilise le dossier `web/assets` pour déposer les médias uploadés (le chemin est configurable). En général, nous ne souhaitons pas versionner ces données, ajoutez donc ce dossier à votre `.gitignore`.
 ```
 #.gitignore
 web/assets
 ```
 
-### Ajout des routes
+## Construction du site
 
-Pour utiliser l'interface d'administration de synapse, nous avons besoin de rajouter ses routes à notre application:
+Synapse Cmf est à présent opérationel dans sa version la plus simple, à vous de jouer pour construire vos pages via l'interface d'administration.
 
-```yml
-# app/config/routing.yml
+Notez bien que le thème utilisé est celui de démonstration, un thème simple construit avec Bootstrap 3. Il ne contient qu'un seul template, un seul type de contenu (la "page") et seulement les composants built-in.
 
-# Synapse Page Admin
-synapse_page_admin:
-    resource: "@SynapsePageBundle/Resources/config/routing/admin.yml"
-    prefix: "/{_locale}/page"
-    defaults:
-        _locale: "%locale%"
-    options:
-        synapse_theme:
-            host: "^(\\w+)"
-```
-
-Ici l'ensemble des routes de l'interface d'administration seront préfixées par /fr/page si votre locale est fr.
-
-Libre à vous de sécurisez ensuite ces routes, voir TUTO / Good practices ?
-
-## Mise en fonctionnement
-
-Pour finir, il ne nous reste qu'à :
-
- - installer le schéma de la base de donnée grâce à doctrine :
-
-```bash
-# Création de la base de données synapse si elle n'existe pas
-php bin/console doctrine:database:create --connection=synapse
-# Mise en place du schéma de base de données de synapse
-php bin/console doctrine:schema:update --force --em=synapse
-```
-
- - installer les assets de synapse
-
-```bash
-php bin/console assets:install
-```
-
-
-@todo gitignore
+Pour créer vos propres types de contenus, templates et composants, référez vous aux sections dédiées.

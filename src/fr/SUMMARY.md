@@ -9,15 +9,12 @@
 
 ### Installation
 
-* [Distributions](2_installation/1_distributions.md)
-* [Projet complet](2_installation/2_projet_complet.md)
-* [Edition standard](2_installation/3_edition_standard.md)
-
-### Configuration
-
-* [SynapseCmfBundle](3_configuration/1_cmf_bundle.md)
-* [SynapseAdminBundle](3_configuration/2_admin_bundle.md)
-* [SynapsePageBundle](3_configuration/3_page_bundle.md)
+* [QuickStart](2_installation_configuration/1_quick_start.md)
+* [Installation dans un projet symfony initialisé](2_installation_configuration/2_bootstraped_project.md)
+* [Distributions](2_installation/3_distributions.md)
+    * [Cmf Bundle](2_installation/distributions/1_cmf_bundle.md)
+    * [Admin Bundle](2_installation/distributions/2_admin_bundle.md)
+    * [Page Bundle](2_installation/distributions/3_page_bundle.md)
 
 ### Modules
 

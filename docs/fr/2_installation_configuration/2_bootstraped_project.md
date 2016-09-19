@@ -147,7 +147,7 @@ web/assets
 
 ## Construction du site
 
-Synapse Cmf est à présent opérationel dans sa version la plus simple, à vous de jouer pour construire vos pages via l'interface d'administration.
+Synapse Cmf est à présent opérationel dans sa version la plus simple, à vous de jouer pour construire vos pages via l'interface d'administration, à l'url http://your.env.dev/app_dev.php/synapse/admin/page pour cette configuration.
 
 Notez bien que le thème utilisé est celui de démonstration, un thème simple construit avec Bootstrap 3. Il ne contient qu'un seul template, un seul type de contenu (la "page") et seulement les composants built-in.
 

@@ -14,8 +14,8 @@ Le prototypage des ces éléments permet de disposer d'une grande flexibilité s
 
 Pour tous les exemples suivant de cette documentation, nous utiliserons les objets suivants :
 
- - l'objet Page, issu du PageBundle
- - un objet News, custom, avec les champs :
+ - l'objet **Page**, issu du PageBundle
+ - un objet **News**, custom, avec les champs :
    - Title
    - Date
    - Headline

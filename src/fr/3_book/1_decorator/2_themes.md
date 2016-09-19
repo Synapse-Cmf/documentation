@@ -70,6 +70,8 @@ La structure du thème "acme_demo" est constituée de 3 templates :
 
 Nous reviendrons en détail sur le paramétrage des templates, zones et composants plus tard, l'important ici est de remarquer qu'un thème ne se définit que par son nom, et sa structure.
 
+Notez que le fichier `synapse.yml` est le **coeur du pattern prototype de Synapse**.
+
 Pour finir, ne pas oublier d'activer le bundle dans le Kernel de votre application.
 
 ## Activation d'un thème

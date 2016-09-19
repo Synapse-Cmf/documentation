@@ -1,3 +1,4 @@
 {
-    "root": "src"
+    "root": "src",
+    "plugins": ["theme-synapse"]
 }

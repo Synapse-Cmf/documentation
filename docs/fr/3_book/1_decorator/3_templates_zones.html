@@ -458,7 +458,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="templates-et-zones">Templates et zones</h1><p>Les templates sont le coeur de la d&#xE9;coration d&apos;un type de contenu, ce sont eux qui d&#xE9;finissent styles, positionnements, habillages et informations &#xE0; afficher. De m&#xEA;me que dans n&apos;importe quelle application Symfony en somme.</p><p>Physiquement, les templates sont des fichiers Twig, le moteur de templating inclu nativement dans Symfony. Ils tirent parti des extensions de la librairies pour ajouter des options, en particulier l&apos;inclusion de zones.</p><p>Ces zones sont des emplacements dans lesquels peuvent &#xEA;tre ajout&#xE9;s des composants. Elles sont appel&#xE9;es via des tags Twig, et d&#xE9;finies dans le prototype du th&#xE8;me.</p><h2 id="cr&#xE9;ation-dun-template">Cr&#xE9;ation d&apos;un template</h2><p>Pour commencer, initialisons un fichier Twig pour notre premier template :</p><pre><code class="lang-html"><span class="hljs-comment">&lt;!-- src/Acme/Bundle/DemoThemeBundle/Resources/views/homepage.html.twig --&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Acme Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    {% block main_nav %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;main_nav&quot;</span>&gt;</span>{{ synapse_zone(&apos;menu&apos;) }}<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+    {% endblock %}
+    {% block content %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+        {% block main_content %}
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;main&quot;</span>&gt;</span>{{ synapse_zone(&apos;body&apos;) }}<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+        {% endblock %}
+        {% block sidebar %}
+        <span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span>{{ synapse_zone(&apos;sidebar&apos;) }}<span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>
+        {% endblock %}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    {% endblock %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>Acme Demo powered by SynapseCmf<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
                                 
                                 </section>
                             
@@ -501,7 +526,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Templates et zones","level":"4.1.1.3","depth":3,"next":{"title":"Composants","level":"4.1.1.4","depth":3,"path":"3_book/1_decorator/4_components.md","ref":"3_book/1_decorator/4_components.md","articles":[]},"previous":{"title":"Thèmes","level":"4.1.1.2","depth":3,"path":"3_book/1_decorator/2_themes.md","ref":"3_book/1_decorator/2_themes.md","articles":[]},"dir":"neutral"},"config":{"plugins":[],"root":"","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/1_decorator/3_templates_zones.md","mtime":"2016-09-16T19:10:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-19T09:49:40.191Z"},"basePath":"../..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Templates et zones","level":"4.1.1.3","depth":3,"next":{"title":"Composants","level":"4.1.1.4","depth":3,"path":"3_book/1_decorator/4_components.md","ref":"3_book/1_decorator/4_components.md","articles":[]},"previous":{"title":"Thèmes","level":"4.1.1.2","depth":3,"path":"3_book/1_decorator/2_themes.md","ref":"3_book/1_decorator/2_themes.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/1_decorator/3_templates_zones.md","mtime":"2016-09-19T15:10:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-19T15:10:21.539Z"},"basePath":"../..","book":{"language":"fr"}});
         });
     </script>
 </div>

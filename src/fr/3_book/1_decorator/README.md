@@ -11,3 +11,14 @@ Les 5 notions principales pour aborder la décoration de contenus sont les suiva
 Ces éléments sont chacun adjoints d'un "type". Ces types sont créés depuis la configuration, le prototypage, des thèmes. Ils définissent les informations spécifiques au rendu d'un template, comme en particulier les templates Twig à appeler, les configurations par défaut, les composants autorisés pour telle ou telle zone, les formats d'images etc...
 
 Le prototypage des ces éléments permet de disposer d'une grande flexibilité sur le modèle et le moteur de rendu de Synapse, sans pour autant écrire la moindre ligne de code Php : les développeurs en charge du front peuvent donc reprendre leurs droits sur le paramétrage de leurs rendus, et ainsi maitriser toute la chaine de décoration d'un contenu.
+
+Pour tous les exemples suivant de cette documentation, nous utiliserons les objets suivants :
+
+ - l'objet **Page**, issu du PageBundle
+ - un objet **News**, custom, avec les champs :
+   - Title
+   - Date
+   - Headline
+   - Body
+
+Nous considèrerons également qu'une base de données gérée par Doctrine a été initialisée pour gérer les objets News.

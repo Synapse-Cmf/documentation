@@ -2,15 +2,12 @@
 
 Maintenant que vous avez créé votre premier projet avec l'édition standard de Synapse Cmf, détaillons quelles sont ses possibilités d'extensions et de customisations, pour que votre système de gestion de contenu soit au plus près du métier de votre client.
 
-## Décorateur
+**Table des matières** :
 
-Les 5 notions principales pour aborder la décoration de contenus sont les suivantes :
- - Les types de contenus eux même : abstraction des objets métiers de votre projet, objet de base autour duquel le moteur de décoration va construire un template.
- - Les thèmes : namespace des éléments Synapse, chaque élément sous-jacent est toujours référencé à l'intérieur d'un thème. Physiquement, il correspond au bundle Symfony qui déclare le thème et les templates, souvent votre bundle d'application front.
- - les templates : gabarits de pages, layout, coeur du pattern decorator, il est en particulier le template Twig dans lequel sera rendu le contenu, et est composé de zones.
- - les zones : espaces dans un template, déclarés via des tags similaires à des blocks Twig, dans lequelles il est possible d'ajouter et de rendre des composants.
- - les composants : éléments de décoration d'un contenu, ajoutés dans une zone et porteurs de données utilisables dans leur contexte de rendu seulement.
-
-Ces éléments sont chacun adjoints d'un "type". Ces types sont créés depuis la configuration, le prototypage, des thèmes. Ils définissent les informations spécifiques au rendu d'un template, comme en particulier les templates Twig à appeler, les configurations par défaut, les composants autorisés pour telle ou telle zone, les formats d'images etc...
-
-Le prototypage des ces éléments permet de disposer d'une grande flexibilité sur le modèle et le moteur de rendu de Synapse, sans pour autant écrire la moindre ligne de code Php : les développeurs en charge du front peuvent donc reprendre leurs droits sur le paramétrage de leurs rendus, et ainsi maitriser toute la chaine de décoration d'un contenu.
+  1. [Décorateur de contenus](1_decorator/README.md)
+    1. [Types de contenus](1_decorator/1_content_types.md)
+    2. [Thèmes](1_decorator/2_themes.md)
+    3. [Templates et zones](1_decorator/3_templates_zones.md)
+    4. [Composants](1_decorator/1_components.md)
+  2. [Médiathèque](2_medias/README.md)
+    1. [Images](2_medias/1_images.md)

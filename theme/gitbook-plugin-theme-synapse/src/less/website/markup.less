@@ -1,0 +1,18 @@
+.markdown-section {
+    .gitbook-markdown(@md-color: @content-color, @md-line-height: @content-line-height);
+
+    .glossary-term {
+        cursor: help;
+        text-decoration: underline;
+    }
+
+    a {
+      color: #3ca3dc;
+
+      &:hover {
+        text-decoration: none;
+        padding-bottom: 2px;
+        border-bottom: 1px solid #3ca3dc;
+      }
+    }
+}

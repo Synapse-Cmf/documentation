@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/synapse-cmf/documentation#readme",
   "dependencies": {
-    "gitbook-cli": "^2.3.0"
+    "gitbook-cli": "^2.3.0",
+    "gitbook-plugin-theme-synapse": "0.0.15"
   }
 }

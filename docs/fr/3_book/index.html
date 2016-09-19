@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="fr" >
     <head>
-        <title>Architecture générale · GitBook</title>
+        <title>Table des matières · GitBook</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../2_installation_configuration/1_quick_start.html" />
+    <link rel="next" href="1_decorator/" />
     
     
-    <link rel="prev" href="1_preambule.html" />
+    <link rel="prev" href="../2_installation_configuration/distributions/3_page_bundle.html" />
     
 
     </head>
@@ -109,9 +109,9 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="1_preambule.html">
+        <li class="chapter " data-level="2.1" data-path="../1_introduction/1_preambule.html">
             
-                <a href="1_preambule.html">
+                <a href="../1_introduction/1_preambule.html">
             
                     
                     Préambule
@@ -122,9 +122,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.2" data-path="2_architecture_generale.html">
+        <li class="chapter " data-level="2.2" data-path="../1_introduction/2_architecture_generale.html">
             
-                <a href="2_architecture_generale.html">
+                <a href="../1_introduction/2_architecture_generale.html">
             
                     
                     Architecture générale
@@ -233,9 +233,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="../3_book/">
+        <li class="chapter active" data-level="4.1" data-path="./">
             
-                <a href="../3_book/">
+                <a href="./">
             
                     
                     Table des matières
@@ -247,9 +247,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1.1" data-path="../3_book/1_decorator/">
+        <li class="chapter " data-level="4.1.1" data-path="1_decorator/">
             
-                <a href="../3_book/1_decorator/">
+                <a href="1_decorator/">
             
                     
                     Décorateur de contenus
@@ -261,9 +261,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1.1.1" data-path="../3_book/1_decorator/1_content_types.html">
+        <li class="chapter " data-level="4.1.1.1" data-path="1_decorator/1_content_types.html">
             
-                <a href="../3_book/1_decorator/1_content_types.html">
+                <a href="1_decorator/1_content_types.html">
             
                     
                     Types de contenus
@@ -274,9 +274,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.1.2" data-path="../3_book/1_decorator/2_themes.html">
+        <li class="chapter " data-level="4.1.1.2" data-path="1_decorator/2_themes.html">
             
-                <a href="../3_book/1_decorator/2_themes.html">
+                <a href="1_decorator/2_themes.html">
             
                     
                     Thèmes
@@ -287,9 +287,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.1.3" data-path="../3_book/1_decorator/3_templates_zones.html">
+        <li class="chapter " data-level="4.1.1.3" data-path="1_decorator/3_templates_zones.html">
             
-                <a href="../3_book/1_decorator/3_templates_zones.html">
+                <a href="1_decorator/3_templates_zones.html">
             
                     
                     Templates et zones
@@ -300,9 +300,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.1.4" data-path="../3_book/1_decorator/4_components.html">
+        <li class="chapter " data-level="4.1.1.4" data-path="1_decorator/4_components.html">
             
-                <a href="../3_book/1_decorator/4_components.html">
+                <a href="1_decorator/4_components.html">
             
                     
                     Composants
@@ -318,9 +318,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.2" data-path="../3_book/2_medias/">
+        <li class="chapter " data-level="4.1.2" data-path="2_medias/">
             
-                <a href="../3_book/2_medias/">
+                <a href="2_medias/">
             
                     
                     Médiathèque
@@ -332,9 +332,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1.2.1" data-path="../3_book/2_medias/1_images.html">
+        <li class="chapter " data-level="4.1.2.1" data-path="2_medias/1_images.html">
             
-                <a href="../3_book/2_medias/1_images.html">
+                <a href="2_medias/1_images.html">
             
                     
                     Images
@@ -443,7 +443,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Architecture générale</a>
+        <a href=".." >Table des matières</a>
     </h1>
 </div>
 
@@ -458,22 +458,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="architecture-et-partis-pris">Architecture et partis pris</h1><p>Rentrons maintenant dans le d&#xE9;tail : comment Synapse permet de disposer &#xE0; la fois d&apos;une gestion de contenu puissante mais sans couplage fort ?
-En premier lieu, gr&#xE2;ce &#xE0; deux design patterns tr&#xE8;s utilis&#xE9;s actuellement, en particulier dans Symfony : Decorator (composant Templating) et Prototype (composant Form).
-Et d&apos;autre part, gr&#xE2;ce &#xE0; une application des principes SOLID, en particulier la maitrise des d&#xE9;pendances des objets.</p><p>Le mod&#xE8;le de Synapse d&#xE9;coule de ces deux &#xE9;l&#xE9;ments d&apos;architecture, d&#xE9;taill&#xE9;s dans les rubriques suivantes.</p><h2 id="d&#xE9;coration-et-inversion-de-contr&#xF4;le">D&#xE9;coration et inversion de contr&#xF4;le</h2><p>Comme d&#xE9;crit plus haut, Synapse n&apos;est pas intrusif dans le mod&#xE8;le du projet qui l&apos;utilise.
-Pour ce faire, une inversion de contr&#xF4;le a &#xE9;t&#xE9; impl&#xE9;ment&#xE9;e entre les objets m&#xE9;tiers et le mod&#xE8;le de Synapse, &#xE0; travers la notion de <strong>type de contenu</strong>.</p><p>Traditionellement, quand il est possible d&apos;impl&#xE9;menter des mod&#xE8;les personalis&#xE9;s, la cons&#xE9;quence est l&apos;inclusion en d&#xFB;r de code de la librairie de gestion de contenu dans le mod&#xE8;le m&#xE9;tier, soit par classes abstraites / h&#xE9;ritage, soit par composition. Dans les deux cas, le mod&#xE8;le m&#xE9;tier est li&#xE9; &#xE0; la librairie, de mani&#xE8;re forte : des m&#xE9;thodes d&#xE9;di&#xE9;es sont pr&#xE9;sentes dans les objets et de fait, l&apos;architecture du projet est contrainte.</p><p>Synapse prend le contrepied de ces habitudes en s&apos;affranchissant du lien fort avec l&apos;objet m&#xE9;tier : il n&apos;interviendra jamais dessus directement, et se contentera de le d&#xE9;corer &#xE0; l&apos;aide de son propre mod&#xE8;le. L&apos;objet d&#xE9;cor&#xE9; doit simplement impl&#xE9;menter une interface, puis &#xEA;tre r&#xE9;f&#xE9;renc&#xE9; dans une configuration (voir la <a href="../2_installation_configuration/distributions/1_cmf_bundle.html">configuration des types de contenu</a>).</p><p>Il est donc possible de d&#xE9;corer n&apos;importe quel objet m&#xE9;tier gr&#xE2;ce &#xE0; Synapse, et ce sans corrompre son identit&#xE9; logicielle, allant d&apos;une simple page web (comme dans la distribution <a href="../2_installation_configuration/distributions/3_page_bundle.html">PageBundle</a>), &#xE0; un article de presse, en passant par un produit e-commerce avec de nombreux champs et/ou d&#xE9;pendances.</p><h2 id="prototypage-du-rendu">Prototypage du rendu</h2><p>La DX (Developper eXperience) passe aussi par une aide au partage des t&#xE2;ches au sein d&apos;une &#xE9;quipe, que le framework permette que chacun puisse effectuer sa t&#xE2;che facilement et de mani&#xE8;re optimis&#xE9;e.</p><p>Dans une organisation d&apos;&#xE9;quipe standard, comprenant designers, int&#xE9;grateurs et d&#xE9;veloppeurs back, des maquettes sont r&#xE9;alis&#xE9;es par l&apos;&#xE9;quipe design, puis sont int&#xE9;gr&#xE9;es en Html / Css (etc..) par l&apos;&#xE9;quipe front, et enfin &quot;dynamis&#xE9;s&quot; par l&apos;&#xE9;quipe back.</p><p>Synapse permet de simplifier ce processus en mettant en place un prototypage du rendu des types de contenus &#xE0; l&apos;aide de fichiers de configuration simples, au format Yaml.</p><p>Le workflow devient donc :</p><ul><li>le designer produit des maquettes pour des types d&apos;habillage (layouts), les templates dans Synapse. Puis il initialise le fichier de description du th&#xE8;me en d&#xE9;clarant les diff&#xE9;rents templates, zones et composants, voir la <a href="">r&#xE9;f&#xE9;rence</a>.
-</li>
-<li>l&apos;int&#xE9;grateur re&#xE7;oit ces maquettes et fichiers de configuration et va cr&#xE9;er les fichiers Twig correspondants, puis les r&#xE9;f&#xE9;rencer dans le fichier de configuration.
-</li>
-<li>le d&#xE9;veloppeur back va ensuite cr&#xE9;er des composants permettant d&apos;afficher les donn&#xE9;es dynamiques dans les prototypes int&#xE9;gr&#xE9;s.
-</li></ul>
-<p>Ce prototypage permet donc plus de flexibilit&#xE9; &#xE0; l&apos;&#xE9;quipe pour travailler en parall&#xE8;le, par rapport &#xE0; un syt&#xE8;me classique, car il induit l&#xE0; aussi un d&#xE9;couplage. Dans le d&#xE9;tail :</p><ul><li>le designer n&apos;a pas besoin de cr&#xE9;er des maquettes pour toutes les pages du site; il n&apos;a m&#xEA;me pas besoin de concevoir le site entier avant que les d&#xE9;veloppements commencent.
-</li>
-<li>le d&#xE9;veloppeur front a toute lattitude pour concevoir sa r&#xE9;ponse technique aux besoins du designer, d&#xE9;coupage des fichiers, extensions et inclusions Twig, responsive et adaptive design etc...
-</li>
-<li>le d&#xE9;veloppeur back n&apos;a plus &#xE0; s&apos;occuper d&apos;impl&#xE9;menter la structure des templates et des pages, seulement &#xE0; exposer des donn&#xE9;es aux templates du d&#xE9;veloppeur front. Il lui reste &#xE9;galement le reste de son travail bien entendu : g&#xE9;rer les acc&#xE8;s aux donn&#xE9;es, l&apos;impl&#xE9;mentation des formulaires etc...
-</li></ul>
-<p>D&apos;un point de vue macro, le prototypage va &#xE9;galement permettre de pouvoir changer tout un th&#xE8;me sans impliquer une grosse charge de d&#xE9;veloppement back, tant que les donn&#xE9;es et configurations des composants resteront les m&#xEA;mes.</p>
+                                <h1 id="book">Book</h1><p>Maintenant que vous avez cr&#xE9;&#xE9; votre premier projet avec l&apos;&#xE9;dition standard de Synapse Cmf, d&#xE9;taillons quelles sont ses possibilit&#xE9;s d&apos;extensions et de customisations, pour que votre syst&#xE8;me de gestion de contenu soit au plus pr&#xE8;s du m&#xE9;tier de votre client.</p><p><strong>Table des mati&#xE8;res</strong> :</p><ol><li><p><a href="1_decorator/">D&#xE9;corateur de contenus</a>
+1. <a href="1_decorator/1_content_types.html">Types de contenus</a>
+2. <a href="1_decorator/2_themes.html">Th&#xE8;mes</a>
+3. <a href="1_decorator/3_templates_zones.html">Templates et zones</a>
+4. <a href="1_decorator/1_components.md">Composants</a></p></li>
+<li><p><a href="2_medias/">M&#xE9;diath&#xE8;que</a>
+1. <a href="2_medias/1_images.html">Images</a></p></li></ol>
+
                                 
                                 </section>
                             
@@ -500,12 +492,12 @@ Pour ce faire, une inversion de contr&#xF4;le a &#xE9;t&#xE9; impl&#xE9;ment&#xE
 
             
                 
-                <a href="1_preambule.html" class="navigation navigation-prev " aria-label="Previous page: Préambule">
+                <a href="../2_installation_configuration/distributions/3_page_bundle.html" class="navigation navigation-prev " aria-label="Previous page: Page Bundle">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../2_installation_configuration/1_quick_start.html" class="navigation navigation-next " aria-label="Next page: QuickStart">
+                <a href="1_decorator/" class="navigation navigation-next " aria-label="Next page: Décorateur de contenus">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -516,7 +508,7 @@ Pour ce faire, une inversion de contr&#xF4;le a &#xE9;t&#xE9; impl&#xE9;ment&#xE
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Architecture générale","level":"2.2","depth":1,"next":{"title":"QuickStart","level":"3.1","depth":1,"path":"2_installation_configuration/1_quick_start.md","ref":"2_installation_configuration/1_quick_start.md","articles":[]},"previous":{"title":"Préambule","level":"2.1","depth":1,"path":"1_introduction/1_preambule.md","ref":"1_introduction/1_preambule.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"1_introduction/2_architecture_generale.md","mtime":"2016-09-16T10:49:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-19T09:49:40.191Z"},"basePath":"..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Table des matières","level":"4.1","depth":1,"next":{"title":"Décorateur de contenus","level":"4.1.1","depth":2,"path":"3_book/1_decorator/README.md","ref":"3_book/1_decorator/README.md","articles":[{"title":"Types de contenus","level":"4.1.1.1","depth":3,"path":"3_book/1_decorator/1_content_types.md","ref":"3_book/1_decorator/1_content_types.md","articles":[]},{"title":"Thèmes","level":"4.1.1.2","depth":3,"path":"3_book/1_decorator/2_themes.md","ref":"3_book/1_decorator/2_themes.md","articles":[]},{"title":"Templates et zones","level":"4.1.1.3","depth":3,"path":"3_book/1_decorator/3_templates_zones.md","ref":"3_book/1_decorator/3_templates_zones.md","articles":[]},{"title":"Composants","level":"4.1.1.4","depth":3,"path":"3_book/1_decorator/4_components.md","ref":"3_book/1_decorator/4_components.md","articles":[]}]},"previous":{"title":"Page Bundle","level":"3.3.3","depth":2,"path":"2_installation_configuration/distributions/3_page_bundle.md","ref":"2_installation_configuration/distributions/3_page_bundle.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/README.md","mtime":"2016-09-19T08:11:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-19T09:49:40.191Z"},"basePath":"..","book":{"language":"fr"}});
         });
     </script>
 </div>

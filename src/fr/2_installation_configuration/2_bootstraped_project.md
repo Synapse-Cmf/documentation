@@ -123,7 +123,7 @@ php bin/console debug:router | grep synapse
 
 ## Mise en route
 
-Une fois toute la configuration opérationelle, construisez la base de données avec les commandes suivantes :
+Une fois toute la configuration opérationnelle, construisez la base de données avec les commandes suivantes :
 ```bash
 # Création de la base si elle n'existe pas
 php bin/console doctrine:database:create --connection=synapse --if-not-exists
@@ -147,8 +147,8 @@ web/assets
 
 ## Construction du site
 
-Synapse Cmf est à présent opérationel dans sa version la plus simple, à vous de jouer pour construire vos pages via l'interface d'administration, à l'url http://your.env.dev/app_dev.php/synapse/admin/page pour cette configuration.
+Synapse Cmf est à présent opérationnel dans sa version la plus simple, à vous de jouer pour construire vos pages via l'interface d'administration, à l'url http://your.env.dev/app_dev.php/synapse/admin/page pour cette configuration.
 
 Notez bien que le thème utilisé est celui de démonstration, un thème simple construit avec Bootstrap 3. Il ne contient qu'un seul template, un seul type de contenu (la "page") et seulement les composants built-in.
 
-Pour créer vos propres types de contenus, templates et composants, référez vous aux sections dédiées.
+Pour créer vos propres types de contenus, templates et composants, référez-vous aux sections dédiées.

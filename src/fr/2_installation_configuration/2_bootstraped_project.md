@@ -8,7 +8,7 @@ Vous aurez aussi besoin d'une base de données SQL pour stocker la configuration
 Pour commencer, il vous rajouter les bundles synapse :
 
 ```bash
-./bin/composer require synapse-cmf/synapse-cmf ~1.0@dev
+composer require synapse-cmf/synapse-cmf ~1.0@dev
 ```
 
 Puis les inclures dans votre application (comment n'importe quel autre bundle) :

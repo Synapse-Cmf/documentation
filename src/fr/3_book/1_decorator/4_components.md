@@ -225,13 +225,13 @@ Plusieurs points à noter :
 
  - Toutes les "data" saisies dans le formulaire du composant sont accessibles dans le template
  - Sont également accessibles toutes les variables envoyées via la méthode `decorate()` du décorateur Synapse
- - L'objet `app` de Symfony ainsi que toutes les options Twig standard sont disponibles
+ - L'objet `app` de Symfony, toutes les options Twig standards et vos éventuels ajouts sont disponibles
 
 ## Mot de la fin
 
 Ca y est, vous savez vous servir des fonctionnalités principales de Synapse Cmf !
 Nombre de fonctionnalités, configurations et de modèles d'implémentation ne vous ont pas été présentées, mais le but était ailleurs : vous aider à rentrer dans Synapse en affichant rapidement un écran.
 
-Tous les éléments non détaillés ici auront une page dédiée dans le Cookbook, en cours de rédaction. N'hésitez pas à revenir !
+Tous les éléments non détaillés seront développés dans le [Cookbook]() en cours de rédaction. N'hésitez pas à revenir !
 
 Merci pour votre lecture, en espérant que Synapse puisse combler vos attentes techniques les plus avancées !

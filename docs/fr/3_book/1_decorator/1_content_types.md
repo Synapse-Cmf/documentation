@@ -18,7 +18,7 @@ synapse_cmf:
             provider: acme.news.repository
 ```
 
-La classe de l'entité déclacrée doit implémenter l'interface ContentInterface :
+La classe de l'entité déclarée doit implémenter l'interface ContentInterface :
 ```php
 // src/Acme/Bundle/AppBundle/Entity/News.php
 

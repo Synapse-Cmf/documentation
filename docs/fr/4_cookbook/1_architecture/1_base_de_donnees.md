@@ -6,7 +6,7 @@ Synapse essaye d'être le moins intrusif et le plus découplé possible. Cela va
 
 Nous vous conseillons donc d'utiliser une base séparée pour synapse. Tout ce dont a besoin synapse est d'une base SQL compatible avec Doctrine.
 
-Voici un example de configuration pour définir une base indépendante pour Synapse :
+Voici un exemple de configuration pour définir une base indépendante pour Synapse :
 
 ```yml
 # app/config/config.yml
@@ -46,4 +46,3 @@ parameters:
 
 ## 2.Migrations / déploiement ?
 Comment ça marche ?
-

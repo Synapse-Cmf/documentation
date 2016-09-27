@@ -3,11 +3,11 @@
 Les éléments de décoration des types de contenus sont déclarés au sein d'un thème.
 Ces thèmes sont de véritables namespaces au sein duquel chaque élément et chaque configuration sont cloisonnés.
 
-Au delà de l'aspect technique, ils sont le moyen de changer facilement le thème graphique de toute une application.
+Au-delà de l'aspect technique, ils sont le moyen de changer facilement le thème graphique de toute une application.
 
 ## Créer un thème
 
-Une thème se créé à partir d'un bundle Symfony.
+Un thème se créé à partir d'un bundle Symfony.
 L'intérêt est de pouvoir activer et partager des thèmes Synapse aussi facilement que des bundles, et de pouvoir regrouper tout type de ressources à l'intérieur : templates, configurations, routes, assets...
 
 Partons d'un bundle vierge pour créer notre nouveau thème, via la commande `php bin/console generate:bundle`.

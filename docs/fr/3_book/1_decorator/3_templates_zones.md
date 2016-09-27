@@ -1,8 +1,8 @@
 # Templates et zones
 
-Les templates sont le coeur de la décoration d'un type de contenu, ce sont eux qui définissent styles, positionnements, habillages et informations à afficher. De même que dans n'importe quelle application Symfony en somme.
+Les templates sont le cœur de la décoration d'un type de contenu, ce sont eux qui définissent styles, positionnements, habillages et informations à afficher. De même que dans n'importe quelle application Symfony en somme.
 
-Physiquement, les templates sont des fichiers Twig, le moteur de templating inclu nativement dans Symfony. Ils tirent parti des extensions de la librairies pour ajouter des options, en particulier l'inclusion de zones.
+Physiquement, les templates sont des fichiers Twig, le moteur de templating inclus nativement dans Symfony. Ils tirent parti des extensions de la librairie pour ajouter des options, en particulier l'inclusion de zones.
 
 Ces zones sont des emplacements dans lesquels peuvent être ajoutés des composants. Elles sont appelées via des tags Twig, et définies dans le prototype du thème.
 

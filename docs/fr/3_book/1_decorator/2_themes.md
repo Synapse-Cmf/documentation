@@ -104,4 +104,4 @@ synapse_page_content:
 
 L'admin de Synapse a également besoin du thème qu'il doit éditer, pour activer certaines configurations "lazy-loadées".
 
-D'autres options sont disponibles pour gérer plus finement l'activation des thèmes, voir l'article du [cookbook dédié](../../4_cookbook/2_decorator/multi_themes.md).
+D'autres options sont disponibles pour gérer plus finement l'activation des thèmes, voir l'article du [cookbook dédié (wip)](../../4_cookbook/2_decorator/multi_themes.md).

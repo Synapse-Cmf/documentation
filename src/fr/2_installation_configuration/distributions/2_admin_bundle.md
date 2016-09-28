@@ -7,7 +7,7 @@ Fonctionnalités ajoutées :
 
  - Bundle d'interface avec les composants Symfony, Twig et javascript
  - Thème de back office Synapse (construit avec Sass et Bootstrap 3)
- - Interface de gestion des skeletons (templates globaux - voir chapitre sur [les thèmes](../4_modules/1_decorator/2_themes.md))
+ - Interface de gestion des skeletons (templates globaux - voir chapitre sur [les thèmes](../../3_book/1_decorator/2_themes.md))
  - Interface de gestion des médias
     - Upload d'images
     - Module de gestion des métadonnées d'images et formatage

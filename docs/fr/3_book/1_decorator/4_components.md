@@ -8,7 +8,7 @@ Dans chaque zone de chaque template, il est possible d'en ajouter, tout composan
 
 ## Activation et personalisations de composants built-in dans un template
 
-La version de base de Synapse Cmf ([SynapseCmfBundle](../../2_installation_configuration/distribution/1_cmf_bundle.md)) inclue cinq composants :
+La version de base de Synapse Cmf ([SynapseCmfBundle](../../2_installation_configuration/distributions/1_cmf_bundle.md)) inclue cinq composants :
 
   - Texte : affiche du texte, brut ou html, et des images.
   - Menu : affiche une liste de liens, sous un label paramétrable, sur plusieurs niveaux

@@ -94,9 +94,9 @@ doctrine:
 A propos de ces configurations :
 
   - découlant du fait d'avoir un entity manager séparé, les bundles doivent être référencés manuellement dans la configuration Doctrine
-  - d'autres configurations sont incluses par défaut au container, voir [le fichier complet]()
+  - d'autres configurations sont incluses par défaut au container, voir [le fichier complet](https://github.com/Synapse-Cmf/synapse-cmf/blob/master/src/Synapse/Cmf/Bundle/Resources/config/config.yml)
   - il est possible de générer seulement le modèle Synapse via la commande `php bin/console doc:sch:update --em=synapse` ou `php bin/console doctrine:migrations:diff --filter-expression="/^synapse_.+/" --em=synapse` via les migrations
 
 A propos de [MajoraFrameworkExtraBundle](https://github.com/LinkValue/MajoraFrameworkExtraBundle) : cette dépendance contient des classes et services utilitaires en extension à Symfony.
 
-Synapse Cmf est également compatible avec DoctrineMigrationsBundle, pertinent lors du déploiement des futures mises à jour du projet.
+Synapse Cmf est également compatible avec [DoctrineMigrationsBundle](http://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html), pertinent lors du déploiement des futures mises à jour du projet.

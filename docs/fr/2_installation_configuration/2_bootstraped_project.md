@@ -1,11 +1,11 @@
 # Installation dans un projet initialisé
 
 L'installation se passe via [Composer](https://getcomposer.org/), comme n'importe quel autre bundle / librairie compatible avec Symfony.
-Vous aurez aussi besoin d'une base de données SQL pour stocker la configuration de synapse.
+Vous aurez aussi besoin d'une base de données SQL pour stocker la données de Synapse Cmf.
 
 ## Ajout des Bundles
 
-Pour commencer, il vous rajouter les bundles synapse :
+Pour commencer, il vous faut rajouter les bundles Synapse Cmf à votre projet :
 
 ```bash
 composer require synapse-cmf/synapse-cmf ~1.0@dev
@@ -43,9 +43,9 @@ class AppKernel extends Kernel
 
 Nous utiliserons ici les paramètres par défaut de Synapse. Pour plus de détails sur les configurations, veuillez vous reporter aux références des configurations de chaque bundle :
 
- - [SynapseCmfBundle](distribution/1_cmf_bundle.md)
- - [SynapseAdminBundle](distribution/2_admin_bundle.md)
- - [SynapsePageBundle](distribution/3_page_bundle.md)
+ - [SynapseCmfBundle](distributions/1_cmf_bundle.md)
+ - [SynapseAdminBundle](distributions/2_admin_bundle.md)
+ - [SynapsePageBundle](distributions/3_page_bundle.md)
 
 ```yml
 # app/config/config.yml
@@ -87,7 +87,7 @@ doctrine:
                 # your project default em configuration
 ```
 
-Synapse Cmf utilise un entity manager dédié, pour permettre plus de flexibilité, pour plus de détails, voir la configuration du [CmfBundle](distribution/1_cmf_bundle.md).
+Synapse Cmf utilise un entity manager dédié, pour permettre plus de flexibilité, pour plus de détails, voir la configuration du [CmfBundle](distributions/1_cmf_bundle.md).
 
 Les autres dépendances [MajoraFrameworkExtraBundle](https://github.com/LinkValue/MajoraFrameworkExtraBundle) et [StofDoctrineExtensionsBundle](https://github.com/stof/StofDoctrineExtensionsBundle) sont configurées par défaut directement par le CmfBundle.
 

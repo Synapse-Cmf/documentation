@@ -33,5 +33,5 @@
 
 ### Roadmap
 
-* [Version 1.1](roadmap.md#version_1_1)
-* [Version 1.2](roadmap.md#version_1_2)
+* [Version 1.1](roadmap.md#version-11)
+* [Version 1.2](roadmap.md#version-12)

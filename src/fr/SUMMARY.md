@@ -30,3 +30,8 @@
 * [Table des matières](4_cookbook/README.md)
   * Architecture
     * [Bases de données](4_cookbook/1_architecture/1_base_de_donnees.md)
+
+### Roadmap
+
+* [Version 1.1](roadmap.md#version_1_1)
+* [Version 1.2](roadmap.md#version_1_2)

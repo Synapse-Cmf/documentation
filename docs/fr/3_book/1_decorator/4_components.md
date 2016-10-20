@@ -6,13 +6,13 @@ Dans Synapse Cmf, ces décorations sont les composants.
 
 Dans chaque zone de chaque template, il est possible d'en ajouter, tout composant pouvant être rendu de manière indifférenciée dans n'importe quelle zone. D'un point de vue back ! Côté front, il est évident qu'un composant menu ne se rendra pas de la même manière dans une top bar et dans un footer. Cette gestion du rendu se passe dans le fichier synapse.yml du thème actif.
 
-## Activation et personalisations de composants built-in dans un template
+## Activation et personnalisation de composants built-in dans un template
 
 La version de base de Synapse Cmf ([SynapseCmfBundle](../../2_installation_configuration/distributions/1_cmf_bundle.md)) inclue cinq composants :
 
   - Texte : affiche du texte, brut ou html, et des images.
   - Menu : affiche une liste de liens, sous un label paramétrable, sur plusieurs niveaux
-  - Gallerie : affiche une gallerie d'images, à partir de la médiathèque
+  - Gallerie : affiche une galerie d'images, à partir de la médiathèque
   - Libre : affiche le texte brut saisi dans le back office
   - Statique : affiche un template Twig, sélectionné en back office
 
@@ -71,11 +71,11 @@ Note : les fichiers Twig de rendu des composants peuvent être architecturés et
 
 Note 2 : tous les composants disposent d'une clé "config", pas seulement le composant "static", voir la [référence de la configuration des composants natifs (wip)]().
 
-Surchargez chaque configuration et créez autant de fichiers Twig que vous souhaitez pour personaliser votre rendu.
+Surchargez chaque configuration et créez autant de fichiers Twig que vous souhaitez pour personnaliser votre rendu.
 
 Mais Synapse ne serait pas un framework s'il n'était pas possible de créer vos propres composants, pour répondre à vos besoins spécifiques.
 
-## Création d'un composant personalisé
+## Création d'un composant personnalisé
 
 Créer son propre composant est somme toute assez simple, Synapse ne requiert que trois fichiers et une configuration.
 
@@ -123,7 +123,7 @@ Dans le cas de notre liste de news, l'utilisateur final du back office voudra pa
  - "nb_displayed_news", le nombre de news à afficher dans le composant
  - "read_more_label", le libellé des boutons-lien "En savoir plus" vers la page news
 
-Pour supporter cette personalisation des données des composants, Synapse attend donc qu'un form type (notion Symfony pour la définition des éléments de formulaires) soit défini pour chaque composant.
+Pour supporter cette personnalisation des données des composants, Synapse attend donc qu'un form type (notion Symfony pour la définition des éléments de formulaires) soit défini pour chaque composant.
 ```php
 // src/Acme/Bundle/AppBundle/Form/Type/NewsListType.php
 

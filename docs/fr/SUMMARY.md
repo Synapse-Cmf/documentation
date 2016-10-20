@@ -20,7 +20,7 @@
 
 * [Table des matières](3_book/README.md)
   * [Introduction](3_book/1_decorator/README.md)
-  * [Types de contenus](3_book/1_decorator/1_content_types.md)
+  * [Types de contenu](3_book/1_decorator/1_content_types.md)
   * [Thèmes](3_book/1_decorator/2_themes.md)
   * [Templates et zones](3_book/1_decorator/3_templates_zones.md)
   * [Composants](3_book/1_decorator/4_components.md)

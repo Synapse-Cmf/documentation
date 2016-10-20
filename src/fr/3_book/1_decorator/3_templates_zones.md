@@ -2,7 +2,7 @@
 
 Les templates sont le cœur de la décoration d'un type de contenu, ce sont eux qui définissent styles, positionnements, habillages et informations à afficher. De même que dans n'importe quelle application Symfony en somme.
 
-Physiquement, les templates sont des fichiers Twig, le moteur de templating inclus nativement dans Symfony. Ils tirent parti des extensions de la librairie pour ajouter des options, en particulier l'inclusion de zones.
+Physiquement, les templates sont des fichiers Twig, le moteur de templating inclut nativement dans Symfony. Ils tirent parti des extensions de la librairie pour ajouter des options, en particulier l'inclusion de zones.
 
 Ces zones sont des emplacements dans lesquels peuvent être ajoutés des composants. Elles sont appelées via des tags Twig, et définies dans le prototype du thème.
 
@@ -103,7 +103,7 @@ class PageController extends Controller
 }
 ```
 
-Le rendu d'un contenu dans un template se passe en deux étapes : d'abord on instancie le prototype du thème pour le contenu et le template en paramètre dans un objet Decorator; puis on résoud ce Decorator pour générer une réponse HTTP.
+Le rendu d'un contenu dans un template se passe en deux étapes : d'abord on instancie le prototype du thème pour le contenu et le template en paramètre dans un objet Decorator; puis on résout ce Decorator pour générer une réponse HTTP.
 
 Note : il est également possible de résoudre un rendu de template sous forme de chaine de caractères via la méthode `render()`, pour par exemple décorer des email, générer des Pdf etc...
 
@@ -121,7 +121,7 @@ acme_page_render:
         path: "[^.]*"
 ```
 
-Notez bien qu'il s'agit ici d'une implémentation propre au type de contenu Page, natif à Synapse. L'implémentation de ce type de contenu peut varier dans vos propres types de contenus, de même qu'il est possible d'appeler les pages différemment, comme à partir de l'identifiant.
+Notez bien qu'il s'agit ici d'une implémentation propre au type de contenu Page, natif à Synapse. L'implémentation de ce type de contenu peut varier dans vos propres types de contenu, de même qu'il est possible d'appeler les pages différemment, comme à partir de l'identifiant.
 
 Dernière étape : créer un objet Page. Pour ce faire, vous pouvez utiliser l'interface inclue avec SynapsePageBundle, accessible à l'adresse `/synapse/admin/page/create` (si vous avez suivi l'installation d'exemple).
 

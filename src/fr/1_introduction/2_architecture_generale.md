@@ -21,9 +21,9 @@ Il est donc possible de décorer n'importe quel objet métier grâce à Synapse,
 
 La DX (Developper eXperience) passe aussi par une aide au partage des tâches au sein d'une équipe, que le framework permette que chacun puisse effectuer sa tâche facilement et de manière optimisée.
 
-Dans une organisation d'équipe standard, comprenant designers, intégrateurs et développeurs back, des maquettes sont réalisées par l'équipe design, puis sont intégrées en HTML / CSS (etc..) par l'équipe front, et enfin "dynamisés" par l'équipe back.
+Dans une organisation d'équipe standard, comprenant designers, intégrateurs et développeurs back, des maquettes sont réalisées par l'équipe design, puis sont intégrées en HTML / CSS (etc..) par l'équipe front, et enfin "dynamisées" par l'équipe back.
 
-Synapse permet de simplifier ce processus en mettant en place un prototypage du rendu des types de contenus à l'aide de fichiers de configuration simples, au format Yaml.
+Synapse permet de simplifier ce processus en mettant en place un prototypage du rendu des types de contenu à l'aide de fichiers de configuration simples, au format Yaml.
 
 Le workflow devient donc :
 

@@ -1,6 +1,6 @@
-# Types de contenus
+# Types de contenu
 
-Les types de contenus sont une abstraction de chacun des objets métiers (ou entités) du projet utilisant Synapse.
+Les types de contenu sont une abstraction de chacun des objets métier (ou entités) du projet utilisant Synapse.
 
 Ce sont eux qui sont décorés par le moteur à l'aide d'un template; ils ne sont pas modifiés directement, ce sont des vues qui sont créées autour de l'objet.
 

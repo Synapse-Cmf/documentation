@@ -7,7 +7,7 @@
         <title>Templates et zones · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -264,7 +264,7 @@
                 <a href="1_content_types.html">
             
                     
-                    Types de contenus
+                    Types de contenu
             
                 </a>
             
@@ -452,7 +452,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="templates-et-zones">Templates et zones</h1><p>Les templates sont le c&#x153;ur de la d&#xE9;coration d&apos;un type de contenu, ce sont eux qui d&#xE9;finissent styles, positionnements, habillages et informations &#xE0; afficher. De m&#xEA;me que dans n&apos;importe quelle application Symfony en somme.</p><p>Physiquement, les templates sont des fichiers Twig, le moteur de templating inclus nativement dans Symfony. Ils tirent parti des extensions de la librairie pour ajouter des options, en particulier l&apos;inclusion de zones.</p><p>Ces zones sont des emplacements dans lesquels peuvent &#xEA;tre ajout&#xE9;s des composants. Elles sont appel&#xE9;es via des tags Twig, et d&#xE9;finies dans le prototype du th&#xE8;me.</p><h2 id="cr&#xE9;ation-dun-template">Cr&#xE9;ation d&apos;un template</h2><p>Pour commencer, initialisons un fichier Twig pour notre premier template :</p><pre><code class="lang-html"><span class="hljs-comment">&lt;!-- src/Acme/Bundle/DemoThemeBundle/Resources/views/homepage.html.twig --&gt;</span>
+                                <h1 id="templates-et-zones">Templates et zones</h1>
+<p>Les templates sont le c&#x153;ur de la d&#xE9;coration d&apos;un type de contenu, ce sont eux qui d&#xE9;finissent styles, positionnements, habillages et informations &#xE0; afficher. De m&#xEA;me que dans n&apos;importe quelle application Symfony en somme.</p>
+<p>Physiquement, les templates sont des fichiers Twig, le moteur de templating inclut nativement dans Symfony. Ils tirent parti des extensions de la librairie pour ajouter des options, en particulier l&apos;inclusion de zones.</p>
+<p>Ces zones sont des emplacements dans lesquels peuvent &#xEA;tre ajout&#xE9;s des composants. Elles sont appel&#xE9;es via des tags Twig, et d&#xE9;finies dans le prototype du th&#xE8;me.</p>
+<h2 id="cr&#xE9;ation-dun-template">Cr&#xE9;ation d&apos;un template</h2>
+<p>Pour commencer, initialisons un fichier Twig pour notre premier template :</p>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- src/Acme/Bundle/DemoThemeBundle/Resources/views/homepage.html.twig --&gt;</span>
 <span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -476,8 +482,11 @@
     {% endblock %}
     <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>Acme Demo powered by SynapseCmf<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
-<p>La structure des blocks Twig est &#xE0; votre apr&#xE9;ciation, blocks internes ou externes par rapport &#xE0; la structure HTML etc... Aucune importance du point de vue de Synapse.</p><p>Ensuite, dans le prototype du th&#xE8;me, le template doit &#xEA;tre r&#xE9;f&#xE9;renc&#xE9; dans Synapse, et ajout&#xE9; au th&#xE8;me.</p><pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>La structure des blocks Twig est &#xE0; votre apr&#xE9;ciation, blocks internes ou externes par rapport &#xE0; la structure HTML etc... Aucune importance du point de vue de Synapse.</p>
+<p>Ensuite, dans le prototype du th&#xE8;me, le template doit &#xEA;tre r&#xE9;f&#xE9;renc&#xE9; dans Synapse, et ajout&#xE9; au th&#xE8;me.</p>
+<pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml</span>
 <span class="hljs-attr">synapse:</span>
 <span class="hljs-attr">    acme_demo:</span>
 <span class="hljs-attr">        structure:</span>
@@ -486,8 +495,11 @@
 <span class="hljs-attr">        templates:</span>
 <span class="hljs-attr">            home:</span>          <span class="hljs-comment"># d&#xE9;finition de l&apos;alias du template dans Synapse</span>
 <span class="hljs-attr">                path:</span> <span class="hljs-string">&quot;AcmeDemoThemeBundle::homepage.html.twig&quot;</span>     <span class="hljs-comment"># chemin physique du template Twig</span>
-        <span class="hljs-comment"># ...</span></code></pre>
-<h2 id="ajout-des-zones">Ajout des zones</h2><p>Comme expliqu&#xE9; pr&#xE9;c&#xE9;demment, les templates Synapse sont constitu&#xE9;s de zones. Ces zones sont appel&#xE9;es depuis le fichier Twig du template, via le tag <code>{{ synapse_zone(&apos;zone_name&apos;, { hello: &apos;world&apos; }) }}</code>. Elles doivent &#xE9;galement &#xEA;tre d&#xE9;clar&#xE9;es dans le fichier <code>synapse.yml</code>. En reprenant le fichier Twig ci dessus, les zones se configureraient comme suit :</p><pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml</span>
+        <span class="hljs-comment"># ...</span>
+</code></pre>
+<h2 id="ajout-des-zones">Ajout des zones</h2>
+<p>Comme expliqu&#xE9; pr&#xE9;c&#xE9;demment, les templates Synapse sont constitu&#xE9;s de zones. Ces zones sont appel&#xE9;es depuis le fichier Twig du template, via le tag <code>{{ synapse_zone(&apos;zone_name&apos;, { hello: &apos;world&apos; }) }}</code>. Elles doivent &#xE9;galement &#xEA;tre d&#xE9;clar&#xE9;es dans le fichier <code>synapse.yml</code>. En reprenant le fichier Twig ci dessus, les zones se configureraient comme suit :</p>
+<pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml</span>
 <span class="hljs-attr">synapse:</span>
 <span class="hljs-attr">    acme_demo:</span>
 <span class="hljs-attr">        structure:</span>
@@ -500,10 +512,14 @@
 <span class="hljs-attr">        zones:</span>
 <span class="hljs-attr">            menu:</span> ~
 <span class="hljs-attr">            body:</span> ~
-<span class="hljs-attr">            sidebar:</span> ~</code></pre>
-<p>Le namespace &quot;synapse.acme_demo.zones&quot; d&#xE9;clare les zones du th&#xE8;me, ainsi que leurs configurations (voir la <a href="">r&#xE9;f&#xE9;rence (wip)</a> du fichier synapse.yml), et sont reli&#xE9;es &#xE0; des templates via le prototype de la structure du th&#xE8;me.</p><h2 id="rendre-un-contenu-dans-un-template">Rendre un contenu dans un template</h2><p>Apr&#xE8;s le param&#xE9;trage, il est temps de tester.
+<span class="hljs-attr">            sidebar:</span> ~
+</code></pre>
+<p>Le namespace &quot;synapse.acme_demo.zones&quot; d&#xE9;clare les zones du th&#xE8;me, ainsi que leurs configurations (voir la <a href="">r&#xE9;f&#xE9;rence (wip)</a> du fichier synapse.yml), et sont reli&#xE9;es &#xE0; des templates via le prototype de la structure du th&#xE8;me.</p>
+<h2 id="rendre-un-contenu-dans-un-template">Rendre un contenu dans un template</h2>
+<p>Apr&#xE8;s le param&#xE9;trage, il est temps de tester.
 La cr&#xE9;ation d&apos;une r&#xE9;ponse HTTP avec Synapse se passe comme tout autre projet Symfony : via un Controller.
-Cr&#xE9;ons donc un Controller pour rendre un contenu Page dans le template &quot;home&quot;.</p><pre><code class="lang-php"><span class="hljs-comment">// src/Acme/Bundle/AppBundle/Controller/PageController.php</span>
+Cr&#xE9;ons donc un Controller pour rendre un contenu Page dans le template &quot;home&quot;.</p>
+<pre><code class="lang-php"><span class="hljs-comment">// src/Acme/Bundle/AppBundle/Controller/PageController.php</span>
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PageController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span>
 </span>{
@@ -522,8 +538,12 @@ Cr&#xE9;ons donc un Controller pour rendre un contenu Page dans le template &quo
             -&gt;decorate(<span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;page&apos;</span> =&gt; $page)       <span class="hljs-comment">// render template with $page parameter (like render() method with Twig)</span>
         ;
     }
-}</code></pre>
-<p>Le rendu d&apos;un contenu dans un template se passe en deux &#xE9;tapes : d&apos;abord on instancie le prototype du th&#xE8;me pour le contenu et le template en param&#xE8;tre dans un objet Decorator; puis on r&#xE9;soud ce Decorator pour g&#xE9;n&#xE9;rer une r&#xE9;ponse HTTP.</p><p>Note : il est &#xE9;galement possible de r&#xE9;soudre un rendu de template sous forme de chaine de caract&#xE8;res via la m&#xE9;thode <code>render()</code>, pour par exemple d&#xE9;corer des email, g&#xE9;n&#xE9;rer des Pdf etc...</p><p>Ensuite, pour afficher la r&#xE9;ponse g&#xE9;n&#xE9;r&#xE9;e, une route est n&#xE9;cessaire :</p><pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/routing.yml</span>
+}
+</code></pre>
+<p>Le rendu d&apos;un contenu dans un template se passe en deux &#xE9;tapes : d&apos;abord on instancie le prototype du th&#xE8;me pour le contenu et le template en param&#xE8;tre dans un objet Decorator; puis on r&#xE9;sout ce Decorator pour g&#xE9;n&#xE9;rer une r&#xE9;ponse HTTP.</p>
+<p>Note : il est &#xE9;galement possible de r&#xE9;soudre un rendu de template sous forme de chaine de caract&#xE8;res via la m&#xE9;thode <code>render()</code>, pour par exemple d&#xE9;corer des email, g&#xE9;n&#xE9;rer des Pdf etc...</p>
+<p>Ensuite, pour afficher la r&#xE9;ponse g&#xE9;n&#xE9;r&#xE9;e, une route est n&#xE9;cessaire :</p>
+<pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/routing.yml</span>
 
 <span class="hljs-comment"># Page content type</span>
 <span class="hljs-attr">acme_page_render:</span>
@@ -532,12 +552,16 @@ Cr&#xE9;ons donc un Controller pour rendre un contenu Page dans le template &quo
 <span class="hljs-attr">        _controller:</span> <span class="hljs-string">&quot;AcmeAppBundle:Page:render&quot;</span>
 <span class="hljs-attr">        _format:</span> html
 <span class="hljs-attr">    requirements:</span>
-<span class="hljs-attr">        path:</span> <span class="hljs-string">&quot;[^.]*&quot;</span></code></pre>
-<p>Notez bien qu&apos;il s&apos;agit ici d&apos;une impl&#xE9;mentation propre au type de contenu Page, natif &#xE0; Synapse. L&apos;impl&#xE9;mentation de ce type de contenu peut varier dans vos propres types de contenus, de m&#xEA;me qu&apos;il est possible d&apos;appeler les pages diff&#xE9;remment, comme &#xE0; partir de l&apos;identifiant.</p><p>Derni&#xE8;re &#xE9;tape : cr&#xE9;er un objet Page. Pour ce faire, vous pouvez utiliser l&apos;interface inclue avec SynapsePageBundle, accessible &#xE0; l&apos;adresse <code>/synapse/admin/page/create</code> (si vous avez suivi l&apos;installation d&apos;exemple).</p><ul><li>Remplissez les champs, le nom est un nom back office, qui ne devrait jamais &#xEA;tre utilis&#xE9; en front, et le chemin, l&apos;identifiant textuel (ou &quot;slug&quot;) de la page, dans l&apos;url. Lors de votre premi&#xE8;re utilisation, vous ne devriez pas pouvoir s&#xE9;lectionner de page parente, votre base &#xE9;tant vide.
-</li>
-<li>Une fois la page cr&#xE9;&#xE9;e, dans le fieldset &quot;Synapse&quot;, s&#xE9;lectionnez votre template &quot;home&quot;, cochez la case pour initialiser ce template, v&#xE9;rifiez que votre page est en ligne, puis sauvegardez.
-</li></ul>
+<span class="hljs-attr">        path:</span> <span class="hljs-string">&quot;[^.]*&quot;</span>
+</code></pre>
+<p>Notez bien qu&apos;il s&apos;agit ici d&apos;une impl&#xE9;mentation propre au type de contenu Page, natif &#xE0; Synapse. L&apos;impl&#xE9;mentation de ce type de contenu peut varier dans vos propres types de contenu, de m&#xEA;me qu&apos;il est possible d&apos;appeler les pages diff&#xE9;remment, comme &#xE0; partir de l&apos;identifiant.</p>
+<p>Derni&#xE8;re &#xE9;tape : cr&#xE9;er un objet Page. Pour ce faire, vous pouvez utiliser l&apos;interface inclue avec SynapsePageBundle, accessible &#xE0; l&apos;adresse <code>/synapse/admin/page/create</code> (si vous avez suivi l&apos;installation d&apos;exemple).</p>
+<ul>
+<li>Remplissez les champs, le nom est un nom back office, qui ne devrait jamais &#xEA;tre utilis&#xE9; en front, et le chemin, l&apos;identifiant textuel (ou &quot;slug&quot;) de la page, dans l&apos;url. Lors de votre premi&#xE8;re utilisation, vous ne devriez pas pouvoir s&#xE9;lectionner de page parente, votre base &#xE9;tant vide.</li>
+<li>Une fois la page cr&#xE9;&#xE9;e, dans le fieldset &quot;Synapse&quot;, s&#xE9;lectionnez votre template &quot;home&quot;, cochez la case pour initialiser ce template, v&#xE9;rifiez que votre page est en ligne, puis sauvegardez.</li>
+</ul>
 <p>Votre page sera du coup visible, d&#xE9;cor&#xE9;e avec le template cr&#xE9;&#xE9;, &#xE0; l&apos;url choisie.</p>
+
                                 
                                 </section>
                             
@@ -580,7 +604,7 @@ Cr&#xE9;ons donc un Controller pour rendre un contenu Page dans le template &quo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Templates et zones","level":"4.1.4","depth":2,"next":{"title":"Composants","level":"4.1.5","depth":2,"path":"3_book/1_decorator/4_components.md","ref":"3_book/1_decorator/4_components.md","articles":[]},"previous":{"title":"Thèmes","level":"4.1.3","depth":2,"path":"3_book/1_decorator/2_themes.md","ref":"3_book/1_decorator/2_themes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/1_decorator/3_templates_zones.md","mtime":"2016-09-27T16:36:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-30T14:53:18.709Z"},"basePath":"../..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Templates et zones","level":"4.1.4","depth":2,"next":{"title":"Composants","level":"4.1.5","depth":2,"path":"3_book/1_decorator/4_components.md","ref":"3_book/1_decorator/4_components.md","articles":[]},"previous":{"title":"Thèmes","level":"4.1.3","depth":2,"path":"3_book/1_decorator/2_themes.md","ref":"3_book/1_decorator/2_themes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/1_decorator/3_templates_zones.md","mtime":"2016-10-20T13:36:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T14:20:16.319Z"},"basePath":"../..","book":{"language":"fr"}});
         });
     </script>
 </div>

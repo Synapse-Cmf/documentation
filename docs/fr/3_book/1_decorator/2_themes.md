@@ -1,6 +1,6 @@
 # Thèmes
 
-Les éléments de décoration des types de contenus sont déclarés au sein d'un thème.
+Les éléments de décoration des types de contenu sont déclarés au sein d'un thème.
 Ces thèmes sont de véritables namespaces au sein duquel chaque élément et chaque configuration sont cloisonnés.
 
 Au-delà de l'aspect technique, ils sont le moyen de changer facilement le thème graphique de toute une application.
@@ -13,7 +13,7 @@ L'intérêt est de pouvoir activer et partager des thèmes Synapse aussi facilem
 Partons d'un bundle vierge pour créer notre nouveau thème, via la commande `php bin/console generate:bundle`.
 
 Dans la classe de bundle, utilisez l'héritage Synapse au lieu de Symfony :
-```
+```php
 // src/Acme/Bundle/DemoThemeBundle/AcmeDemoThemeBundle.php
 
 use Synapse\Cmf\Bundle\Distribution\Theme\Bundle\Bundle as SynapseThemeBundle;

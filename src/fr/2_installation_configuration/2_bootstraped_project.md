@@ -11,7 +11,7 @@ Pour commencer, il vous faut rajouter les bundles Synapse Cmf à votre projet :
 composer require synapse-cmf/synapse-cmf ~1.0@dev
 ```
 
-Puis les inclures dans votre application (comment n'importe quel autre bundle) :
+Puis les inclure dans votre application (comme n'importe quel autre bundle) :
 ```php
 // app/AppKernel.php
 
@@ -151,4 +151,4 @@ Synapse Cmf est à présent opérationnel dans sa version la plus simple, à vou
 
 Notez bien que le thème utilisé est celui de démonstration, un thème simple construit avec Bootstrap 3. Il ne contient qu'un seul template, un seul type de contenu (la "page") et seulement les composants built-in.
 
-Pour créer vos propres types de contenus, templates et composants, référez-vous aux sections dédiées.
+Pour créer vos propres types de contenu, templates et composants, référez-vous aux sections dédiées.

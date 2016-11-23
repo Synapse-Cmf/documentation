@@ -7,7 +7,7 @@
         <title>Composants · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="GitBook 3.2.0">
         
         
         
@@ -452,21 +452,17 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="composants">Composants</h1>
-<p>Les th&#xE8;mes / templates / zones sont la couche d&apos;interface entre le contenu (votre objet m&#xE9;tier), et la d&#xE9;coration, ils sont l&apos;&#xE9;quivalent d&apos;un uniforme muni de diverses accroches (velcro, boutons pressions etc...) &#xE0; divers endroits, &#xE0; partir desquelles il est possible de d&#xE9;corer l&apos;uniforme &#xE0; l&apos;aide de badges, grades etc...</p>
-<p>Dans Synapse Cmf, ces d&#xE9;corations sont les composants.</p>
-<p>Dans chaque zone de chaque template, il est possible d&apos;en ajouter, tout composant pouvant &#xEA;tre rendu de mani&#xE8;re indiff&#xE9;renci&#xE9;e dans n&apos;importe quelle zone. D&apos;un point de vue back ! C&#xF4;t&#xE9; front, il est &#xE9;vident qu&apos;un composant menu ne se rendra pas de la m&#xEA;me mani&#xE8;re dans une top bar et dans un footer. Cette gestion du rendu se passe dans le fichier synapse.yml du th&#xE8;me actif.</p>
-<h2 id="activation-et-personnalisation-de-composants-built-in-dans-un-template">Activation et personnalisation de composants built-in dans un template</h2>
-<p>La version de base de Synapse Cmf (<a href="../../2_installation_configuration/distributions/1_cmf_bundle.html">SynapseCmfBundle</a>) inclue cinq composants :</p>
-<ul>
-<li>Texte : affiche du texte, brut ou html, et des images.</li>
-<li>Menu : affiche une liste de liens, sous un label param&#xE9;trable, sur plusieurs niveaux</li>
-<li>Gallerie : affiche une galerie d&apos;images, &#xE0; partir de la m&#xE9;diath&#xE8;que</li>
-<li>Libre : affiche le texte brut saisi dans le back office</li>
-<li>Statique : affiche un template Twig, s&#xE9;lectionn&#xE9; en back office</li>
-</ul>
-<p>Ces composants doivent &#xEA;tre activ&#xE9;s dans des zones pour pouvoir &#xEA;tre ajout&#xE9;s. Prenons un exemple simple &#xE0; partir du th&#xE8;me d&apos;exemple :</p>
-<pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml</span>
+                                <h1 id="composants">Composants</h1><p>Les th&#xE8;mes / templates / zones sont la couche d&apos;interface entre le contenu (votre objet m&#xE9;tier), et la d&#xE9;coration, ils sont l&apos;&#xE9;quivalent d&apos;un uniforme muni de diverses accroches (velcro, boutons pressions etc...) &#xE0; divers endroits, &#xE0; partir desquelles il est possible de d&#xE9;corer l&apos;uniforme &#xE0; l&apos;aide de badges, grades etc...</p><p>Dans Synapse Cmf, ces d&#xE9;corations sont les composants.</p><p>Dans chaque zone de chaque template, il est possible d&apos;en ajouter, tout composant pouvant &#xEA;tre rendu de mani&#xE8;re indiff&#xE9;renci&#xE9;e dans n&apos;importe quelle zone. D&apos;un point de vue back ! C&#xF4;t&#xE9; front, il est &#xE9;vident qu&apos;un composant menu ne se rendra pas de la m&#xEA;me mani&#xE8;re dans une top bar et dans un footer. Cette gestion du rendu se passe dans le fichier synapse.yml du th&#xE8;me actif.</p><h2 id="activation-et-personnalisation-de-composants-built-in-dans-un-template">Activation et personnalisation de composants built-in dans un template</h2><p>La version de base de Synapse Cmf (<a href="../../2_installation_configuration/distributions/1_cmf_bundle.html">SynapseCmfBundle</a>) inclue cinq composants :</p><ul><li>Texte : affiche du texte, brut ou html, et des images.
+</li>
+<li>Menu : affiche une liste de liens, sous un label param&#xE9;trable, sur plusieurs niveaux
+</li>
+<li>Gallerie : affiche une galerie d&apos;images, &#xE0; partir de la m&#xE9;diath&#xE8;que
+</li>
+<li>Libre : affiche le texte brut saisi dans le back office
+</li>
+<li>Statique : affiche un template Twig, s&#xE9;lectionn&#xE9; en back office
+</li></ul>
+<p>Ces composants doivent &#xEA;tre activ&#xE9;s dans des zones pour pouvoir &#xEA;tre ajout&#xE9;s. Prenons un exemple simple &#xE0; partir du th&#xE8;me d&apos;exemple :</p><pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml</span>
 <span class="hljs-attr">synapse:</span>
 <span class="hljs-attr">    acme_demo:</span>
 <span class="hljs-attr">        structure:</span>
@@ -479,18 +475,17 @@
 <span class="hljs-attr">                sidebar:</span>
 <span class="hljs-attr">                    static:</span> ~
 <span class="hljs-attr">                    free:</span> ~
-        <span class="hljs-comment"># ...</span>
-</code></pre>
+        <span class="hljs-comment"># ...</span></code></pre>
 <p>Cette configuration active les composants built-in dans les zones d&#xE9;di&#xE9;es, rendus dans les fichiers Twig d&#xE9;finis par d&#xE9;faut.
-Le prototypage termin&#xE9;, il ne reste plus qu&apos;&#xE0; inclure des composants dans les zones des templates. Tout se passe dans l&apos;interface d&apos;administration, prenons exemple avec les Pages; dans votre formulaire d&apos;&#xE9;dition de Page :</p>
-<ul>
-<li>choisissez le template &quot;home&quot;, puis la zone &quot;body&quot;</li>
-<li>cr&#xE9;ez un nouveau composant &quot;texte&quot; via la select box</li>
-<li>ouvrez ensuite le formulaire pour entrer votre titre et votre texte, puis sauvegardez</li>
-<li>rendez vous sur votre page c&#xF4;t&#xE9; front</li>
-</ul>
-<p>Le rendu est celui par d&#xE9;faut des composants natifs, au sein de chaque th&#xE8;me, il est bien entendu possible de modifier leur rendu, comme suit :</p>
-<pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml</span>
+Le prototypage termin&#xE9;, il ne reste plus qu&apos;&#xE0; inclure des composants dans les zones des templates. Tout se passe dans l&apos;interface d&apos;administration, prenons exemple avec les Pages; dans votre formulaire d&apos;&#xE9;dition de Page :</p><ul><li>choisissez le template &quot;home&quot;, puis la zone &quot;body&quot;
+</li>
+<li>cr&#xE9;ez un nouveau composant &quot;texte&quot; via la select box
+</li>
+<li>ouvrez ensuite le formulaire pour entrer votre titre et votre texte, puis sauvegardez
+</li>
+<li>rendez vous sur votre page c&#xF4;t&#xE9; front
+</li></ul>
+<p>Le rendu est celui par d&#xE9;faut des composants natifs, au sein de chaque th&#xE8;me, il est bien entendu possible de modifier leur rendu, comme suit :</p><pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml</span>
 <span class="hljs-attr">synapse:</span>
 <span class="hljs-attr">    acme_demo:</span>
         structure :
@@ -510,18 +505,8 @@ Le prototypage termin&#xE9;, il ne reste plus qu&apos;&#xE0; inclure des composa
 <span class="hljs-attr">                    templates:</span>
 <span class="hljs-attr">                        contact:</span> <span class="hljs-string">&quot;AcmeDemoBundle:Demo:contact_widget.html.twig&quot;</span>
 <span class="hljs-attr">                        advertising:</span> <span class="hljs-string">&quot;AcmeDemoBundle:Demo:advertising.html.twig&quot;</span>
-<span class="hljs-attr">            free:</span> ~
-</code></pre>
-<p>Note : les fichiers Twig de rendu des composants peuvent &#xEA;tre architectur&#xE9;s et nomm&#xE9;s comme bon vous semble, aucune sombre magie n&apos;est &#xE0; l&apos;oeuvre &#xE0; partir du syst&#xE8;me de fichier.</p>
-<p>Note 2 : tous les composants disposent d&apos;une cl&#xE9; &quot;config&quot;, pas seulement le composant &quot;static&quot;, voir la <a href="">r&#xE9;f&#xE9;rence de la configuration des composants natifs (wip)</a>.</p>
-<p>Surchargez chaque configuration et cr&#xE9;ez autant de fichiers Twig que vous souhaitez pour personnaliser votre rendu.</p>
-<p>Mais Synapse ne serait pas un framework s&apos;il n&apos;&#xE9;tait pas possible de cr&#xE9;er vos propres composants, pour r&#xE9;pondre &#xE0; vos besoins sp&#xE9;cifiques.</p>
-<h2 id="cr&#xE9;ation-dun-composant-personnalis&#xE9;">Cr&#xE9;ation d&apos;un composant personnalis&#xE9;</h2>
-<p>Cr&#xE9;er son propre composant est somme toute assez simple, Synapse ne requiert que trois fichiers et une configuration.</p>
-<p>Pour les prochains exemples, nous allons cr&#xE9;er un composant capable d&apos;afficher les derni&#xE8;res news, en lisant dans une base mapp&#xE9;e via Doctrine Orm.</p>
-<h3 id="configuration">Configuration</h3>
-<p>Chaque composant se d&#xE9;clare dans la configuration du CmfBundle :</p>
-<pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
+<span class="hljs-attr">            free:</span> ~</code></pre>
+<p>Note : les fichiers Twig de rendu des composants peuvent &#xEA;tre architectur&#xE9;s et nomm&#xE9;s comme bon vous semble, aucune sombre magie n&apos;est &#xE0; l&apos;oeuvre &#xE0; partir du syst&#xE8;me de fichier.</p><p>Note 2 : tous les composants disposent d&apos;une cl&#xE9; &quot;config&quot;, pas seulement le composant &quot;static&quot;, voir la <a href="">r&#xE9;f&#xE9;rence de la configuration des composants natifs (wip)</a>.</p><p>Surchargez chaque configuration et cr&#xE9;ez autant de fichiers Twig que vous souhaitez pour personnaliser votre rendu.</p><p>Mais Synapse ne serait pas un framework s&apos;il n&apos;&#xE9;tait pas possible de cr&#xE9;er vos propres composants, pour r&#xE9;pondre &#xE0; vos besoins sp&#xE9;cifiques.</p><h2 id="cr&#xE9;ation-dun-composant-personnalis&#xE9;">Cr&#xE9;ation d&apos;un composant personnalis&#xE9;</h2><p>Cr&#xE9;er son propre composant est somme toute assez simple, Synapse ne requiert que trois fichiers et une configuration.</p><p>Pour les prochains exemples, nous allons cr&#xE9;er un composant capable d&apos;afficher les derni&#xE8;res news, en lisant dans une base mapp&#xE9;e via Doctrine Orm.</p><h3 id="configuration">Configuration</h3><p>Chaque composant se d&#xE9;clare dans la configuration du CmfBundle :</p><pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
 
 <span class="hljs-comment"># ...</span>
 <span class="hljs-attr">synapse_cmf:</span>
@@ -531,30 +516,23 @@ Le prototypage termin&#xE9;, il ne reste plus qu&apos;&#xE0; inclure des composa
 <span class="hljs-attr">            controller:</span> <span class="hljs-string">&quot;AcmeAppBundle:News:listComponent&quot;</span>                <span class="hljs-comment"># specific Symfony style controller reference</span>
 <span class="hljs-attr">            form:</span> Acme\Bundle\AppBundle\Form\Type\NewsListComponentType   <span class="hljs-comment"># form type FQCN</span>
 <span class="hljs-attr">            template_path:</span> <span class="hljs-string">&quot;AcmeAppBundle:Demo:news_list.html.twig&quot;</span>       <span class="hljs-comment"># default template Symfony style reference</span>
-        <span class="hljs-comment"># ...</span>
-</code></pre>
-<p>Puis s&apos;active dans les th&#xE8;mes comme un composant natif :</p>
-<pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml</span>
+        <span class="hljs-comment"># ...</span></code></pre>
+<p>Puis s&apos;active dans les th&#xE8;mes comme un composant natif :</p><pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml</span>
 <span class="hljs-attr">synapse:</span>
 <span class="hljs-attr">    acme_demo:</span>
         structure :
 <span class="hljs-attr">            home:</span>
 <span class="hljs-attr">                body:</span>
 <span class="hljs-attr">                    news_list:</span> ~
-        <span class="hljs-comment"># ...</span>
-</code></pre>
-<p>Les trois fichiers &#xE0; cr&#xE9;er ensuite sont les fichiers point&#xE9;s par les configurations : le controller, le formulaire et le fichier Twig de rendu par d&#xE9;faut.</p>
-<h3 id="form-type">Form type</h3>
-<p>Synapse g&#xE9;n&#xE8;re un arbre de formulaires imbriqu&#xE9;s pour permettre un param&#xE9;trage rapide et complet de toute la structure d&apos;un template.
-Cette arbre permet d&apos;inclure dynamiquement des formulaires personnalis&#xE9;s, pour la saisie des donn&#xE9;es des composants.</p>
-<p>Dans le cas de notre liste de news, l&apos;utilisateur final du back office voudra par exemple saisir des contenus, et configurer le composant; il faudra donc lui mettre &#xE0; disposition les options :</p>
-<ul>
-<li>&quot;title&quot;, le titre du composant</li>
-<li>&quot;nb_displayed_news&quot;, le nombre de news &#xE0; afficher dans le composant</li>
-<li>&quot;read_more_label&quot;, le libell&#xE9; des boutons-lien &quot;En savoir plus&quot; vers la page news</li>
-</ul>
-<p>Pour supporter cette personnalisation des donn&#xE9;es des composants, Synapse attend donc qu&apos;un form type (notion Symfony pour la d&#xE9;finition des &#xE9;l&#xE9;ments de formulaires) soit d&#xE9;fini pour chaque composant.</p>
-<pre><code class="lang-php"><span class="hljs-comment">// src/Acme/Bundle/AppBundle/Form/Type/NewsListType.php</span>
+        <span class="hljs-comment"># ...</span></code></pre>
+<p>Les trois fichiers &#xE0; cr&#xE9;er ensuite sont les fichiers point&#xE9;s par les configurations : le controller, le formulaire et le fichier Twig de rendu par d&#xE9;faut.</p><h3 id="form-type">Form type</h3><p>Synapse g&#xE9;n&#xE8;re un arbre de formulaires imbriqu&#xE9;s pour permettre un param&#xE9;trage rapide et complet de toute la structure d&apos;un template.
+Cette arbre permet d&apos;inclure dynamiquement des formulaires personnalis&#xE9;s, pour la saisie des donn&#xE9;es des composants.</p><p>Dans le cas de notre liste de news, l&apos;utilisateur final du back office voudra par exemple saisir des contenus, et configurer le composant; il faudra donc lui mettre &#xE0; disposition les options :</p><ul><li>&quot;title&quot;, le titre du composant
+</li>
+<li>&quot;nb_displayed_news&quot;, le nombre de news &#xE0; afficher dans le composant
+</li>
+<li>&quot;read_more_label&quot;, le libell&#xE9; des boutons-lien &quot;En savoir plus&quot; vers la page news
+</li></ul>
+<p>Pour supporter cette personnalisation des donn&#xE9;es des composants, Synapse attend donc qu&apos;un form type (notion Symfony pour la d&#xE9;finition des &#xE9;l&#xE9;ments de formulaires) soit d&#xE9;fini pour chaque composant.</p><pre><code class="lang-php"><span class="hljs-comment">// src/Acme/Bundle/AppBundle/Form/Type/NewsListType.php</span>
 
 <span class="hljs-keyword">namespace</span> <span class="hljs-title">Motion</span>\<span class="hljs-title">Bundle</span>\<span class="hljs-title">AdminBundle</span>\<span class="hljs-title">Form</span>\<span class="hljs-title">Type</span>;
 
@@ -582,12 +560,8 @@ Cette arbre permet d&apos;inclure dynamiquement des formulaires personnalis&#xE9
             ))
         ;
     }
-}
-</code></pre>
-<p>Les valeurs correspondant aux champs du formulaire sont toutes enregistr&#xE9;es avec le composant, dans une variable nomm&#xE9;e <code>data</code>. Il est ensuite possible de r&#xE9;cup&#xE9;rer ces donn&#xE9;es via la m&#xE9;thode <code>$component-&gt;getData()</code>, ou alors juste une cl&#xE9; avec une valeur par d&#xE9;faut via <code>$component-&gt;getData(&apos;nb_displayed_news&apos;, 5)</code>.</p>
-<h3 id="controller">Controller</h3>
-<p>Les composants sont appel&#xE9;s via les <a href="http://symfony.com/doc/current/templating/embedding_controllers.html" target="_blank">sub-requests de Symfony</a>, les controlleurs de composants ont donc la forme d&apos;un controlleur classique, avec quelques adjonctions :</p>
-<pre><code class="lang-php"><span class="hljs-comment">// src/Acme/Bundle/AppBundle/Controller/NewsController.php</span>
+}</code></pre>
+<p>Les valeurs correspondant aux champs du formulaire sont toutes enregistr&#xE9;es avec le composant, dans une variable nomm&#xE9;e <code>data</code>. Il est ensuite possible de r&#xE9;cup&#xE9;rer ces donn&#xE9;es via la m&#xE9;thode <code>$component-&gt;getData()</code>, ou alors juste une cl&#xE9; avec une valeur par d&#xE9;faut via <code>$component-&gt;getData(&apos;nb_displayed_news&apos;, 5)</code>.</p><h3 id="controller">Controller</h3><p>Les composants sont appel&#xE9;s via les <a href="http://symfony.com/doc/current/templating/embedding_controllers.html" target="_blank">sub-requests de Symfony</a>, les controlleurs de composants ont donc la forme d&apos;un controlleur classique, avec quelques adjonctions :</p><pre><code class="lang-php"><span class="hljs-comment">// src/Acme/Bundle/AppBundle/Controller/NewsController.php</span>
 
 <span class="hljs-keyword">namespace</span> <span class="hljs-title">Acme</span>\<span class="hljs-title">Bundle</span>\<span class="hljs-title">AppBundle</span>\<span class="hljs-title">Controller</span>;
 
@@ -613,13 +587,8 @@ Cette arbre permet d&apos;inclure dynamiquement des formulaires personnalis&#xE9
             ))
         ;
     }
-}
-</code></pre>
-<p>Dans l&apos;exemple de controller ci-dessus, on rajoute aux donn&#xE9;es du template une liste d&apos;objets News, tir&#xE9;e de la base via Doctrine, limit&#xE9; par le nombre de de news &#xE0; afficher, d&#xE9;finis par le formulaire dans les donn&#xE9;es du composant, 5 par d&#xE9;faut.</p>
-<h3 id="template">Template</h3>
-<p>Une fois le composant d&#xE9;finis, il reste &#xE0; l&apos;habiller.</p>
-<p>Pour ce faire, proc&#xE9;dez comme n&apos;importe quel template Twig inclu via <code>{{ include() }}</code>, d&#xE9;finissez seulement la structure HTML, sans vous soucier d&apos;h&#xE9;ritage.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;news_list_component&quot;</span>&gt;</span>
+}</code></pre>
+<p>Dans l&apos;exemple de controller ci-dessus, on rajoute aux donn&#xE9;es du template une liste d&apos;objets News, tir&#xE9;e de la base via Doctrine, limit&#xE9; par le nombre de de news &#xE0; afficher, d&#xE9;finis par le formulaire dans les donn&#xE9;es du composant, 5 par d&#xE9;faut.</p><h3 id="template">Template</h3><p>Une fois le composant d&#xE9;finis, il reste &#xE0; l&apos;habiller.</p><p>Pour ce faire, proc&#xE9;dez comme n&apos;importe quel template Twig inclu via <code>{{ include() }}</code>, d&#xE9;finissez seulement la structure HTML, sans vous soucier d&apos;h&#xE9;ritage.</p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;news_list_component&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;separator&quot;</span>&gt;</span>{{ title }}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;news_wrapper&quot;</span>&gt;</span>
     {% for news in last_news %}
@@ -637,20 +606,15 @@ Cette arbre permet d&apos;inclure dynamiquement des formulaires personnalis&#xE9
         <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
     {% endfor %}
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-</code></pre>
-<p>Plusieurs points &#xE0; noter :</p>
-<ul>
-<li>Toutes les &quot;data&quot; saisies dans le formulaire du composant sont accessibles dans le template</li>
-<li>Sont &#xE9;galement accessibles toutes les variables envoy&#xE9;es via la m&#xE9;thode <code>decorate()</code> du d&#xE9;corateur Synapse</li>
-<li>L&apos;objet <code>app</code> de Symfony, toutes les options Twig standards et vos &#xE9;ventuels ajouts sont disponibles</li>
-</ul>
-<h2 id="mot-de-la-fin">Mot de la fin</h2>
-<p>Ca y est, vous savez vous servir des fonctionnalit&#xE9;s principales de Synapse Cmf !
-Nombre de fonctionnalit&#xE9;s, configurations et de mod&#xE8;les d&apos;impl&#xE9;mentation ne vous ont pas &#xE9;t&#xE9; pr&#xE9;sent&#xE9;es, mais le but &#xE9;tait ailleurs : vous aider &#xE0; rentrer dans Synapse en affichant rapidement un &#xE9;cran.</p>
-<p>Tous les &#xE9;l&#xE9;ments non d&#xE9;taill&#xE9;s seront d&#xE9;velopp&#xE9;s dans le <a href="">Cookbook</a> en cours de r&#xE9;daction. N&apos;h&#xE9;sitez pas &#xE0; revenir !</p>
-<p>Merci pour votre lecture, en esp&#xE9;rant que Synapse puisse combler vos attentes techniques les plus avanc&#xE9;es !</p>
-
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></code></pre>
+<p>Plusieurs points &#xE0; noter :</p><ul><li>Toutes les &quot;data&quot; saisies dans le formulaire du composant sont accessibles dans le template
+</li>
+<li>Sont &#xE9;galement accessibles toutes les variables envoy&#xE9;es via la m&#xE9;thode <code>decorate()</code> du d&#xE9;corateur Synapse
+</li>
+<li>L&apos;objet <code>app</code> de Symfony, toutes les options Twig standards et vos &#xE9;ventuels ajouts sont disponibles
+</li></ul>
+<h2 id="mot-de-la-fin">Mot de la fin</h2><p>Ca y est, vous savez vous servir des fonctionnalit&#xE9;s principales de Synapse Cmf !
+Nombre de fonctionnalit&#xE9;s, configurations et de mod&#xE8;les d&apos;impl&#xE9;mentation ne vous ont pas &#xE9;t&#xE9; pr&#xE9;sent&#xE9;es, mais le but &#xE9;tait ailleurs : vous aider &#xE0; rentrer dans Synapse en affichant rapidement un &#xE9;cran.</p><p>Tous les &#xE9;l&#xE9;ments non d&#xE9;taill&#xE9;s seront d&#xE9;velopp&#xE9;s dans le <a href="">Cookbook</a> en cours de r&#xE9;daction. N&apos;h&#xE9;sitez pas &#xE0; revenir !</p><p>Merci pour votre lecture, en esp&#xE9;rant que Synapse puisse combler vos attentes techniques les plus avanc&#xE9;es !</p>
                                 
                                 </section>
                             
@@ -693,7 +657,7 @@ Nombre de fonctionnalit&#xE9;s, configurations et de mod&#xE8;les d&apos;impl&#x
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Composants","level":"4.1.5","depth":2,"next":{"title":"Table des matières","level":"5.1","depth":1,"path":"4_cookbook/README.md","ref":"4_cookbook/README.md","articles":[{"title":"Architecture","level":"5.1.1","depth":2,"ref":"","articles":[{"title":"Bases de données","level":"5.1.1.1","depth":3,"path":"4_cookbook/1_architecture/1_base_de_donnees.md","ref":"4_cookbook/1_architecture/1_base_de_donnees.md","articles":[]}]}]},"previous":{"title":"Templates et zones","level":"4.1.4","depth":2,"path":"3_book/1_decorator/3_templates_zones.md","ref":"3_book/1_decorator/3_templates_zones.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/1_decorator/4_components.md","mtime":"2016-10-20T14:03:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T14:20:16.319Z"},"basePath":"../..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Composants","level":"4.1.5","depth":2,"next":{"title":"Table des matières","level":"5.1","depth":1,"path":"4_cookbook/README.md","ref":"4_cookbook/README.md","articles":[{"title":"Architecture","level":"5.1.1","depth":2,"ref":"","articles":[{"title":"Bases de données","level":"5.1.1.1","depth":3,"path":"4_cookbook/1_architecture/1_base_de_donnees.md","ref":"4_cookbook/1_architecture/1_base_de_donnees.md","articles":[]}]}]},"previous":{"title":"Templates et zones","level":"4.1.4","depth":2,"path":"3_book/1_decorator/3_templates_zones.md","ref":"3_book/1_decorator/3_templates_zones.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/1_decorator/4_components.md","mtime":"2016-11-23T17:14:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-23T17:14:59.365Z"},"basePath":"../..","book":{"language":"fr"}});
         });
     </script>
 </div>

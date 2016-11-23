@@ -7,7 +7,7 @@
         <title>Cmf Bundle · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="GitBook 3.2.0">
         
         
         
@@ -452,35 +452,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="synapsecmfbundle">SynapseCmfBundle</h1>
-<p>Cette distribution contient le strict minimum pour travailler avec Synapse; c&apos;est en g&#xE9;n&#xE9;ral celle que l&apos;on va utiliser quand on dispose d&#xE9;j&#xE0; de son back-office, o&#xF9; lorsque les modules m&#xE9;tiers adjacents imposent une charte graphique ou un markup incompatible avec l&apos;administration native.</p>
-<p>Elle contient :</p>
-<ul>
-<li>Le bundle d&apos;interface avec les composants Symfony</li>
-<li>La d&#xE9;finition du mod&#xE8;le de donn&#xE9;es sous <a href="http://www.doctrine-project.org/projects/orm.html" target="_blank">Doctrine Orm</a></li>
-<li>La d&#xE9;finition et les APIs de gestion des &#xE9;l&#xE9;ments de Synapse :<ul>
-<li>Types de contenu</li>
-<li>Th&#xE8;me (templates, zones et composants)</li>
-<li>M&#xE9;diath&#xE8;que (m&#xE9;dia, images et fichiers)</li>
-</ul>
+                                <h1 id="synapsecmfbundle">SynapseCmfBundle</h1><p>Cette distribution contient le strict minimum pour travailler avec Synapse; c&apos;est en g&#xE9;n&#xE9;ral celle que l&apos;on va utiliser quand on dispose d&#xE9;j&#xE0; de son back-office, o&#xF9; lorsque les modules m&#xE9;tiers adjacents imposent une charte graphique ou un markup incompatible avec l&apos;administration native.</p><p>Elle contient :</p><ul><li>Le bundle d&apos;interface avec les composants Symfony
 </li>
-<li>Le moteur de rendu</li>
-<li>Composants built-in, avec contr&#xF4;leur, configurations par d&#xE9;faut et formulaire<ul>
-<li>Static</li>
-<li>Free</li>
-<li>Text</li>
-<li>Menu</li>
-<li>Gallery</li>
-</ul>
+<li>La d&#xE9;finition du mod&#xE8;le de donn&#xE9;es sous <a href="http://www.doctrine-project.org/projects/orm.html" target="_blank">Doctrine Orm</a>
 </li>
-</ul>
-<h2 id="installation">Installation</h2>
-<p>L&apos;installation se passe via <a href="https://getcomposer.org/" target="_blank">Composer</a>, comme la plupart des bundles Symfony :</p>
-<pre><code class="lang-bash">composer require synapse-cmf/synapse-cmf-bundle ~1.0
-</code></pre>
-<h2 id="configuration-de-r&#xE9;f&#xE9;rence">Configuration de r&#xE9;f&#xE9;rence</h2>
-<p>Ce bundle requiert l&apos;inclusion d&apos;autres packages de la communaut&#xE9; en plus de ceux de l&apos;&#xE9;dition standard de Symfony tels que d&#xE9;crit ci-apr&#xE8;s :</p>
-<pre><code class="lang-php"><span class="hljs-comment">// app/AppKernel.php</span>
+<li><p>La d&#xE9;finition et les APIs de gestion des &#xE9;l&#xE9;ments de Synapse :</p><ul><li>Types de contenu
+</li>
+<li>Th&#xE8;me (templates, zones et composants)
+</li>
+<li>M&#xE9;diath&#xE8;que (m&#xE9;dia, images et fichiers)
+</li></ul>
+</li>
+<li><p>Le moteur de rendu</p></li>
+<li>Composants built-in, avec contr&#xF4;leur, configurations par d&#xE9;faut et formulaire
+<ul><li>Static
+</li>
+<li>Free
+</li>
+<li>Text
+</li>
+<li>Menu
+</li>
+<li>Gallery
+</li></ul>
+</li></ul>
+<h2 id="installation">Installation</h2><p>L&apos;installation se passe via <a href="https://getcomposer.org/" target="_blank">Composer</a>, comme la plupart des bundles Symfony :</p><pre><code class="lang-bash">composer require synapse-cmf/synapse-cmf-bundle ~1.0</code></pre>
+<h2 id="configuration-de-r&#xE9;f&#xE9;rence">Configuration de r&#xE9;f&#xE9;rence</h2><p>Ce bundle requiert l&apos;inclusion d&apos;autres packages de la communaut&#xE9; en plus de ceux de l&apos;&#xE9;dition standard de Symfony tels que d&#xE9;crit ci-apr&#xE8;s :</p><pre><code class="lang-php"><span class="hljs-comment">// app/AppKernel.php</span>
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppKernel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Kernel</span>
 </span>{
@@ -493,10 +490,8 @@
             <span class="hljs-keyword">new</span> Synapse\Cmf\Bundle\SynapseCmfBundle(),
         ]
     }
-}
-</code></pre>
-<p>De plus, certains doivent &#xEA;tre configur&#xE9;s pour que Synapse puisse les utiliser, tel que Doctrine :</p>
-<pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
+}</code></pre>
+<p>De plus, certains doivent &#xEA;tre configur&#xE9;s pour que Synapse puisse les utiliser, tel que Doctrine :</p><pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
 
 <span class="hljs-comment"># Synapse Cmf Configuration</span>
 <span class="hljs-attr">synapse_cmf:</span>
@@ -538,17 +533,14 @@
 <span class="hljs-attr">        entity_managers:</span>
 <span class="hljs-attr">            synapse:</span> ~
 <span class="hljs-attr">            default:</span>
-                <span class="hljs-comment"># default em configuration</span>
-</code></pre>
-<p>&#xC0; propos de ces configurations :</p>
-<ul>
-<li>d&#xE9;coulant du fait d&apos;avoir un entity manager s&#xE9;par&#xE9;, les bundles doivent &#xEA;tre r&#xE9;f&#xE9;renc&#xE9;s manuellement dans la configuration Doctrine</li>
-<li>d&apos;autres configurations sont incluses par d&#xE9;faut au container, voir <a href="https://github.com/Synapse-Cmf/synapse-cmf/blob/master/src/Synapse/Cmf/Bundle/Resources/config/config.yml" target="_blank">le fichier complet</a></li>
-<li>il est possible de g&#xE9;n&#xE9;rer seulement le mod&#xE8;le Synapse via la commande <code>php bin/console doc:sch:update --em=synapse</code> ou <code>php bin/console doctrine:migrations:diff --filter-expression=&quot;/^synapse_.+/&quot; --em=synapse</code> via les migrations</li>
-</ul>
-<p>&#xC0; propos de <a href="https://github.com/LinkValue/MajoraFrameworkExtraBundle" target="_blank">MajoraFrameworkExtraBundle</a> : cette d&#xE9;pendance contient des classes et services utilitaires en extension &#xE0; Symfony.</p>
-<p>Synapse Cmf est &#xE9;galement compatible avec <a href="http://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html" target="_blank">DoctrineMigrationsBundle</a>, pertinent lors du d&#xE9;ploiement des futures mises &#xE0; jour du projet.</p>
-
+                <span class="hljs-comment"># default em configuration</span></code></pre>
+<p>&#xC0; propos de ces configurations :</p><ul><li>d&#xE9;coulant du fait d&apos;avoir un entity manager s&#xE9;par&#xE9;, les bundles doivent &#xEA;tre r&#xE9;f&#xE9;renc&#xE9;s manuellement dans la configuration Doctrine
+</li>
+<li>d&apos;autres configurations sont incluses par d&#xE9;faut au container, voir <a href="https://github.com/Synapse-Cmf/synapse-cmf/blob/master/src/Synapse/Cmf/Bundle/Resources/config/config.yml" target="_blank">le fichier complet</a>
+</li>
+<li>il est possible de g&#xE9;n&#xE9;rer seulement le mod&#xE8;le Synapse via la commande <code>php bin/console doc:sch:update --em=synapse</code> ou <code>php bin/console doctrine:migrations:diff --filter-expression=&quot;/^synapse_.+/&quot; --em=synapse</code> via les migrations
+</li></ul>
+<p>&#xC0; propos de <a href="https://github.com/LinkValue/MajoraFrameworkExtraBundle" target="_blank">MajoraFrameworkExtraBundle</a> : cette d&#xE9;pendance contient des classes et services utilitaires en extension &#xE0; Symfony.</p><p>Synapse Cmf est &#xE9;galement compatible avec <a href="http://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html" target="_blank">DoctrineMigrationsBundle</a>, pertinent lors du d&#xE9;ploiement des futures mises &#xE0; jour du projet.</p>
                                 
                                 </section>
                             
@@ -591,7 +583,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Cmf Bundle","level":"3.3.1","depth":2,"next":{"title":"Admin Bundle","level":"3.3.2","depth":2,"path":"2_installation_configuration/distributions/2_admin_bundle.md","ref":"2_installation_configuration/distributions/2_admin_bundle.md","articles":[]},"previous":{"title":"Distributions","level":"3.3","depth":1,"path":"2_installation_configuration/3_distributions.md","ref":"2_installation_configuration/3_distributions.md","articles":[{"title":"Cmf Bundle","level":"3.3.1","depth":2,"path":"2_installation_configuration/distributions/1_cmf_bundle.md","ref":"2_installation_configuration/distributions/1_cmf_bundle.md","articles":[]},{"title":"Admin Bundle","level":"3.3.2","depth":2,"path":"2_installation_configuration/distributions/2_admin_bundle.md","ref":"2_installation_configuration/distributions/2_admin_bundle.md","articles":[]},{"title":"Page Bundle","level":"3.3.3","depth":2,"path":"2_installation_configuration/distributions/3_page_bundle.md","ref":"2_installation_configuration/distributions/3_page_bundle.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"2_installation_configuration/distributions/1_cmf_bundle.md","mtime":"2016-10-20T12:05:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T14:20:16.319Z"},"basePath":"../..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Cmf Bundle","level":"3.3.1","depth":2,"next":{"title":"Admin Bundle","level":"3.3.2","depth":2,"path":"2_installation_configuration/distributions/2_admin_bundle.md","ref":"2_installation_configuration/distributions/2_admin_bundle.md","articles":[]},"previous":{"title":"Distributions","level":"3.3","depth":1,"path":"2_installation_configuration/3_distributions.md","ref":"2_installation_configuration/3_distributions.md","articles":[{"title":"Cmf Bundle","level":"3.3.1","depth":2,"path":"2_installation_configuration/distributions/1_cmf_bundle.md","ref":"2_installation_configuration/distributions/1_cmf_bundle.md","articles":[]},{"title":"Admin Bundle","level":"3.3.2","depth":2,"path":"2_installation_configuration/distributions/2_admin_bundle.md","ref":"2_installation_configuration/distributions/2_admin_bundle.md","articles":[]},{"title":"Page Bundle","level":"3.3.3","depth":2,"path":"2_installation_configuration/distributions/3_page_bundle.md","ref":"2_installation_configuration/distributions/3_page_bundle.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"2_installation_configuration/distributions/1_cmf_bundle.md","mtime":"2016-11-23T17:14:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-23T17:14:59.365Z"},"basePath":"../..","book":{"language":"fr"}});
         });
     </script>
 </div>

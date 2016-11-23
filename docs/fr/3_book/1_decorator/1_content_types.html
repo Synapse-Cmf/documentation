@@ -7,7 +7,7 @@
         <title>Types de contenu · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="GitBook 3.2.0">
         
         
         
@@ -452,11 +452,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="types-de-contenu">Types de contenu</h1>
-<p>Les types de contenu sont une abstraction de chacun des objets m&#xE9;tier (ou entit&#xE9;s) du projet utilisant Synapse.</p>
-<p>Ce sont eux qui sont d&#xE9;cor&#xE9;s par le moteur &#xE0; l&apos;aide d&apos;un template; ils ne sont pas modifi&#xE9;s directement, ce sont des vues qui sont cr&#xE9;&#xE9;es autour de l&apos;objet.</p>
-<p>La r&#xE9;f&#xE9;rence d&apos;un type de content est globale pour toute l&apos;application, via la configuration du CmfBundle :</p>
-<pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
+                                <h1 id="types-de-contenu">Types de contenu</h1><p>Les types de contenu sont une abstraction de chacun des objets m&#xE9;tier (ou entit&#xE9;s) du projet utilisant Synapse.</p><p>Ce sont eux qui sont d&#xE9;cor&#xE9;s par le moteur &#xE0; l&apos;aide d&apos;un template; ils ne sont pas modifi&#xE9;s directement, ce sont des vues qui sont cr&#xE9;&#xE9;es autour de l&apos;objet.</p><p>La r&#xE9;f&#xE9;rence d&apos;un type de content est globale pour toute l&apos;application, via la configuration du CmfBundle :</p><pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
 
 <span class="hljs-attr">synapse_cmf:</span>
 <span class="hljs-attr">    content_types:</span>
@@ -465,10 +461,8 @@
 <span class="hljs-attr">            provider:</span> synapse.page.loader
         Acme\Bundle\AppBundle\Entity\News:    <span class="hljs-comment"># Custom content type</span>
 <span class="hljs-attr">            alias:</span> news
-<span class="hljs-attr">            provider:</span> acme.news.repository
-</code></pre>
-<p>La classe de l&apos;entit&#xE9; d&#xE9;clar&#xE9;e doit impl&#xE9;menter l&apos;interface ContentInterface :</p>
-<pre><code class="lang-php"><span class="hljs-comment">// src/Acme/Bundle/AppBundle/Entity/News.php</span>
+<span class="hljs-attr">            provider:</span> acme.news.repository</code></pre>
+<p>La classe de l&apos;entit&#xE9; d&#xE9;clar&#xE9;e doit impl&#xE9;menter l&apos;interface ContentInterface :</p><pre><code class="lang-php"><span class="hljs-comment">// src/Acme/Bundle/AppBundle/Entity/News.php</span>
 
 <span class="hljs-keyword">use</span> <span class="hljs-title">Synapse</span>\<span class="hljs-title">Cmf</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">Theme</span>\<span class="hljs-title">Content</span>\<span class="hljs-title">Model</span>\<span class="hljs-title">ContentInterface</span>;
 
@@ -490,8 +484,7 @@
     }
 }
 </code></pre>
-<p>Notez bien que le repository Doctrine doit &#xE9;galement impl&#xE9;menter une interface pour pouvoir &#xEA;tre r&#xE9;f&#xE9;renc&#xE9; :</p>
-<pre><code class="lang-php"><span class="hljs-comment">// src/Acme/Bundle/AppBundle/Repository/NewsOrmRepository.php</span>
+<p>Notez bien que le repository Doctrine doit &#xE9;galement impl&#xE9;menter une interface pour pouvoir &#xEA;tre r&#xE9;f&#xE9;renc&#xE9; :</p><pre><code class="lang-php"><span class="hljs-comment">// src/Acme/Bundle/AppBundle/Repository/NewsOrmRepository.php</span>
 
 <span class="hljs-keyword">use</span> <span class="hljs-title">Doctrine</span>\<span class="hljs-title">ORM</span>\<span class="hljs-title">EntityRepository</span>;
 <span class="hljs-keyword">use</span> <span class="hljs-title">Synapse</span>\<span class="hljs-title">Cmf</span>\<span class="hljs-title">Framework</span>\<span class="hljs-title">Theme</span>\<span class="hljs-title">Content</span>\<span class="hljs-title">Provider</span>\<span class="hljs-title">ContentProviderInterface</span>;
@@ -507,10 +500,8 @@
     </span>{
         <span class="hljs-keyword">return</span> $this-&gt;find($contentId);
     }
-}
-</code></pre>
+}</code></pre>
 <p>Et c&apos;est tout, Synapse est maintenant capable de d&#xE9;corer notre objet News, gr&#xE2;ce &#xE0; un th&#xE8;me.</p>
-
                                 
                                 </section>
                             
@@ -553,7 +544,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Types de contenu","level":"4.1.2","depth":2,"next":{"title":"Thèmes","level":"4.1.3","depth":2,"path":"3_book/1_decorator/2_themes.md","ref":"3_book/1_decorator/2_themes.md","articles":[]},"previous":{"title":"Introduction","level":"4.1.1","depth":2,"path":"3_book/1_decorator/README.md","ref":"3_book/1_decorator/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/1_decorator/1_content_types.md","mtime":"2016-10-20T12:39:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T14:20:16.319Z"},"basePath":"../..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Types de contenu","level":"4.1.2","depth":2,"next":{"title":"Thèmes","level":"4.1.3","depth":2,"path":"3_book/1_decorator/2_themes.md","ref":"3_book/1_decorator/2_themes.md","articles":[]},"previous":{"title":"Introduction","level":"4.1.1","depth":2,"path":"3_book/1_decorator/README.md","ref":"3_book/1_decorator/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/1_decorator/1_content_types.md","mtime":"2016-11-23T17:14:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-23T17:14:59.365Z"},"basePath":"../..","book":{"language":"fr"}});
         });
     </script>
 </div>

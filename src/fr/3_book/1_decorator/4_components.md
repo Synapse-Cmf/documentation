@@ -1,8 +1,6 @@
 # Composants
 
-Les thèmes / templates / zones sont la couche d'interface entre le contenu (votre objet métier), et la décoration, ils sont l'équivalent d'un uniforme muni de diverses accroches (velcro, boutons pressions etc...) à divers endroits, à partir desquelles il est possible de décorer l'uniforme à l'aide de badges, grades etc...
-
-Dans Synapse Cmf, ces décorations sont les composants.
+Les thèmes / templates / zones sont la couche d'interface entre le contenu (votre objet métier), et la décoration. Ils sont l'équivalent de diverses accroches (velcro, boutons pressions etc...) fixés sur un uniforme à divers endroits. Sur chaque accroche, il est possible de fixer des badges, grades etc... Comme des composants dans les zones.
 
 Dans chaque zone de chaque template, il est possible d'en ajouter, tout composant pouvant être rendu de manière indifférenciée dans n'importe quelle zone. D'un point de vue back ! Côté front, il est évident qu'un composant menu ne se rendra pas de la même manière dans une top bar et dans un footer. Cette gestion du rendu se passe dans le fichier synapse.yml du thème actif.
 

@@ -7,7 +7,7 @@
         <title>Admin Bundle · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -452,21 +452,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="synapseadminbundle">SynapseAdminBundle</h1><p>Cette distribution rajoute une interface d&apos;administration &#xE0; la distribution de base.
-Elle peut servir de base pour construire un back office pour le projet.</p><p>Fonctionnalit&#xE9;s ajout&#xE9;es :</p><ul><li>Bundle d&apos;interface avec les composants Symfony, Twig et javascript
+                                <h1 id="synapseadminbundle">SynapseAdminBundle</h1>
+<p>Cette distribution rajoute une interface d&apos;administration &#xE0; la distribution de base.
+Elle peut servir de base pour construire un back office pour le projet.</p>
+<p>Fonctionnalit&#xE9;s ajout&#xE9;es :</p>
+<ul>
+<li>Bundle d&apos;interface avec les composants Symfony, Twig et javascript</li>
+<li>Th&#xE8;me de back office Synapse (construit avec Sass et Bootstrap 3)</li>
+<li>Interface de gestion des skeletons (templates globaux - voir chapitre sur <a href="../../3_book/1_decorator/2_themes.html">les th&#xE8;mes</a>)</li>
+<li>Interface de gestion des m&#xE9;dias<ul>
+<li>Upload d&apos;images</li>
+<li>Module de gestion des m&#xE9;tadonn&#xE9;es d&apos;images et formatage</li>
+</ul>
 </li>
-<li>Th&#xE8;me de back office Synapse (construit avec Sass et Bootstrap 3)
-</li>
-<li>Interface de gestion des skeletons (templates globaux - voir chapitre sur <a href="../../3_book/1_decorator/2_themes.html">les th&#xE8;mes</a>)
-</li>
-<li>Interface de gestion des m&#xE9;dias
-<ul><li>Upload d&apos;images
-</li>
-<li>Module de gestion des m&#xE9;tadonn&#xE9;es d&apos;images et formatage
-</li></ul>
-</li></ul>
-<p><strong>Attention</strong> : cette distribution requiert le CmfBundle, qui doit lui &#xEA;tre aussi initialis&#xE9; et configur&#xE9;, tel que d&#xE9;crit dans la <a href="1_cmf_bundle.html">section pr&#xE9;c&#xE9;dente</a>.</p><h2 id="installation">Installation</h2><p>L&apos;installation de passe via Composer (<code>synapse-cmf-bundle</code> est inclu) :</p><pre><code class="lang-bash">composer require synapse-cmf/synapse-admin-bundle ~1.0</code></pre>
-<p>R&#xE9;f&#xE9;rencez le bundle dans le kernel de votre application :</p><pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+</ul>
+<p><strong>Attention</strong> : cette distribution requiert le CmfBundle, qui doit lui &#xEA;tre aussi initialis&#xE9; et configur&#xE9;, tel que d&#xE9;crit dans la <a href="1_cmf_bundle.html">section pr&#xE9;c&#xE9;dente</a>.</p>
+<h2 id="installation">Installation</h2>
+<p>L&apos;installation de passe via Composer (<code>synapse-cmf-bundle</code> est inclu) :</p>
+<pre><code class="lang-bash">composer require synapse-cmf/synapse-admin-bundle ~1.0
+</code></pre>
+<p>R&#xE9;f&#xE9;rencez le bundle dans le kernel de votre application :</p>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
 <span class="hljs-comment">// app/AppKernel.php</span>
 
 <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">registerBundles</span><span class="hljs-params">()</span>
@@ -475,17 +481,21 @@ Elle peut servir de base pour construire un back office pour le projet.</p><p>Fo
         <span class="hljs-comment">// ...</span>
         <span class="hljs-keyword">new</span> Synapse\Admin\Bundle\SynapseAdminBundle(),
     );
-}</code></pre>
-<h2 id="configuration-de-r&#xE9;f&#xE9;rence">Configuration de r&#xE9;f&#xE9;rence</h2><pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
+}
+</code></pre>
+<h2 id="configuration-de-r&#xE9;f&#xE9;rence">Configuration de r&#xE9;f&#xE9;rence</h2>
+<pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
 
 <span class="hljs-comment"># Synapse Admin Configuration</span>
 <span class="hljs-attr">synapse_admin:</span>
-<span class="hljs-attr">    base_layout:</span> <span class="hljs-string">&apos;SynapseAdminBundle::base.html.twig&apos;</span>  <span class="hljs-comment"># base template to use for all Synapse admin Twig templates (use extends keywords, see the template to guess all used blocks)</span></code></pre>
+<span class="hljs-attr">    base_layout:</span> <span class="hljs-string">&apos;SynapseAdminBundle::base.html.twig&apos;</span>  <span class="hljs-comment"># base template to use for all Synapse admin Twig templates (use extends keywords, see the template to guess all used blocks)</span>
+</code></pre>
 <pre><code class="lang-yml"><span class="hljs-comment"># app/config/routing.yml</span>
 
 <span class="hljs-comment"># Synapse Admin</span>
 <span class="hljs-attr">synapse_cmf_admin:</span>
-<span class="hljs-attr">    resource:</span> <span class="hljs-string">&quot;@SynapseAdminBundle/Resources/config/routing.yml&quot;</span></code></pre>
+<span class="hljs-attr">    resource:</span> <span class="hljs-string">&quot;@SynapseAdminBundle/Resources/config/routing.yml&quot;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -529,7 +539,7 @@ Elle peut servir de base pour construire un back office pour le projet.</p><p>Fo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Admin Bundle","level":"3.3.2","depth":2,"next":{"title":"Page Bundle","level":"3.3.3","depth":2,"path":"2_installation_configuration/distributions/3_page_bundle.md","ref":"2_installation_configuration/distributions/3_page_bundle.md","articles":[]},"previous":{"title":"Cmf Bundle","level":"3.3.1","depth":2,"path":"2_installation_configuration/distributions/1_cmf_bundle.md","ref":"2_installation_configuration/distributions/1_cmf_bundle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"2_installation_configuration/distributions/2_admin_bundle.md","mtime":"2016-10-04T08:14:09.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-23T17:14:59.365Z"},"basePath":"../..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Admin Bundle","level":"3.3.2","depth":2,"next":{"title":"Page Bundle","level":"3.3.3","depth":2,"path":"2_installation_configuration/distributions/3_page_bundle.md","ref":"2_installation_configuration/distributions/3_page_bundle.md","articles":[]},"previous":{"title":"Cmf Bundle","level":"3.3.1","depth":2,"path":"2_installation_configuration/distributions/1_cmf_bundle.md","ref":"2_installation_configuration/distributions/1_cmf_bundle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"styles":{"website":"styles/website.css"},"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"2_installation_configuration/distributions/2_admin_bundle.md","mtime":"2016-11-24T11:22:11.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-24T13:07:22.939Z"},"basePath":"../..","book":{"language":"fr"}});
         });
     </script>
 </div>

@@ -7,7 +7,7 @@
         <title>Introduction · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -452,29 +452,30 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="d&#xE9;corateur">D&#xE9;corateur</h1><p>Les 5 notions principales pour aborder la d&#xE9;coration de contenu sont les suivantes :</p><ul><li>Les <strong>types de contenu</strong> eux-m&#xEA;me : abstraction des objets m&#xE9;tier de votre projet, objet de base autour duquel le moteur de d&#xE9;coration va construire un template.
+                                <h1 id="d&#xE9;corateur">D&#xE9;corateur</h1>
+<p>Les 5 notions principales pour aborder la d&#xE9;coration de contenu sont les suivantes :</p>
+<ul>
+<li>Les <strong>types de contenu</strong> eux-m&#xEA;me : abstraction des objets m&#xE9;tier de votre projet, objet de base autour duquel le moteur de d&#xE9;coration va construire un template.</li>
+<li>Les <strong>th&#xE8;mes</strong> : namespace des &#xE9;l&#xE9;ments Synapse, chaque &#xE9;l&#xE9;ment sous-jacent est toujours r&#xE9;f&#xE9;renc&#xE9; &#xE0; l&apos;int&#xE9;rieur d&apos;un th&#xE8;me. Physiquement, il correspond au bundle Symfony qui d&#xE9;clare le th&#xE8;me et les templates, souvent votre bundle d&apos;application front.</li>
+<li>les <strong>templates</strong> : gabarits de page, layout, c&#x153;ur du pattern decorator, il est en particulier le template Twig dans lequel sera rendu le contenu, et est compos&#xE9; de zones.</li>
+<li>les <strong>zones</strong> : espaces dans un template, d&#xE9;clar&#xE9;s via des tags similaires &#xE0; des blocks Twig, dans lequelles il est possible d&apos;ajouter et de rendre des composants.</li>
+<li>les <strong>composants</strong> : &#xE9;l&#xE9;ments de d&#xE9;coration d&apos;un contenu, ajout&#xE9;s dans une zone et porteurs de donn&#xE9;es utilisables dans leur contexte de rendu seulement.</li>
+</ul>
+<p>Ces &#xE9;l&#xE9;ments sont chacun adjoints d&apos;un &quot;type&quot;. Ces types sont cr&#xE9;&#xE9;s depuis la configuration et le prototypage des th&#xE8;mes. Ils d&#xE9;finissent les informations sp&#xE9;cifiques au rendu d&apos;un template, comme en particulier les templates Twig &#xE0; appeler, les configurations par d&#xE9;faut, les composants autoris&#xE9;s pour telle ou telle zone, les formats d&apos;images etc...</p>
+<p>Le prototypage des ces &#xE9;l&#xE9;ments permet de disposer d&apos;une grande flexibilit&#xE9; sur le mod&#xE8;le et le moteur de rendu de Synapse, sans pour autant &#xE9;crire la moindre ligne de code Php : les d&#xE9;veloppeurs en charge du front peuvent donc reprendre leurs droits sur le param&#xE9;trage de leurs rendus, et ainsi ma&#xEE;triser toute la cha&#xEE;ne de d&#xE9;coration d&apos;un contenu.</p>
+<p>Pour tous les exemples suivants de cette documentation, nous utiliserons les objets suivants :</p>
+<ul>
+<li>l&apos;objet <strong>Page</strong>, issu du PageBundle</li>
+<li>un objet <strong>News</strong>, custom, avec les champs :<ul>
+<li>Title</li>
+<li>Date</li>
+<li>Headline</li>
+<li>Body</li>
+</ul>
 </li>
-<li>Les <strong>th&#xE8;mes</strong> : namespace des &#xE9;l&#xE9;ments Synapse, chaque &#xE9;l&#xE9;ment sous-jacent est toujours r&#xE9;f&#xE9;renc&#xE9; &#xE0; l&apos;int&#xE9;rieur d&apos;un th&#xE8;me. Physiquement, il correspond au bundle Symfony qui d&#xE9;clare le th&#xE8;me et les templates, souvent votre bundle d&apos;application front.
-</li>
-<li>les <strong>templates</strong> : gabarits de page, layout, c&#x153;ur du pattern decorator, il est en particulier le template Twig dans lequel sera rendu le contenu, et est compos&#xE9; de zones.
-</li>
-<li>les <strong>zones</strong> : espaces dans un template, d&#xE9;clar&#xE9;s via des tags similaires &#xE0; des blocks Twig, dans lequelles il est possible d&apos;ajouter et de rendre des composants.
-</li>
-<li>les <strong>composants</strong> : &#xE9;l&#xE9;ments de d&#xE9;coration d&apos;un contenu, ajout&#xE9;s dans une zone et porteurs de donn&#xE9;es utilisables dans leur contexte de rendu seulement.
-</li></ul>
-<p>Ces &#xE9;l&#xE9;ments sont chacun adjoints d&apos;un &quot;type&quot;. Ces types sont cr&#xE9;&#xE9;s depuis la configuration et le prototypage des th&#xE8;mes. Ils d&#xE9;finissent les informations sp&#xE9;cifiques au rendu d&apos;un template, comme en particulier les templates Twig &#xE0; appeler, les configurations par d&#xE9;faut, les composants autoris&#xE9;s pour telle ou telle zone, les formats d&apos;images etc...</p><p>Le prototypage des ces &#xE9;l&#xE9;ments permet de disposer d&apos;une grande flexibilit&#xE9; sur le mod&#xE8;le et le moteur de rendu de Synapse, sans pour autant &#xE9;crire la moindre ligne de code Php : les d&#xE9;veloppeurs en charge du front peuvent donc reprendre leurs droits sur le param&#xE9;trage de leurs rendus, et ainsi ma&#xEE;triser toute la cha&#xEE;ne de d&#xE9;coration d&apos;un contenu.</p><p>Pour tous les exemples suivants de cette documentation, nous utiliserons les objets suivants :</p><ul><li>l&apos;objet <strong>Page</strong>, issu du PageBundle
-</li>
-<li>un objet <strong>News</strong>, custom, avec les champs :
-<ul><li>Title
-</li>
-<li>Date
-</li>
-<li>Headline
-</li>
-<li>Body
-</li></ul>
-</li></ul>
+</ul>
 <p>Nous consid&#xE9;rerons &#xE9;galement qu&apos;une base de donn&#xE9;es g&#xE9;r&#xE9;e par Doctrine a &#xE9;t&#xE9; initialis&#xE9;e pour g&#xE9;rer les objets News.</p>
+
                                 
                                 </section>
                             
@@ -517,7 +518,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"4.1.1","depth":2,"next":{"title":"Types de contenu","level":"4.1.2","depth":2,"path":"3_book/1_decorator/1_content_types.md","ref":"3_book/1_decorator/1_content_types.md","articles":[]},"previous":{"title":"Table des matières","level":"4.1","depth":1,"path":"3_book/README.md","ref":"3_book/README.md","articles":[{"title":"Introduction","level":"4.1.1","depth":2,"path":"3_book/1_decorator/README.md","ref":"3_book/1_decorator/README.md","articles":[]},{"title":"Types de contenu","level":"4.1.2","depth":2,"path":"3_book/1_decorator/1_content_types.md","ref":"3_book/1_decorator/1_content_types.md","articles":[]},{"title":"Thèmes","level":"4.1.3","depth":2,"path":"3_book/1_decorator/2_themes.md","ref":"3_book/1_decorator/2_themes.md","articles":[]},{"title":"Templates et zones","level":"4.1.4","depth":2,"path":"3_book/1_decorator/3_templates_zones.md","ref":"3_book/1_decorator/3_templates_zones.md","articles":[]},{"title":"Composants","level":"4.1.5","depth":2,"path":"3_book/1_decorator/4_components.md","ref":"3_book/1_decorator/4_components.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/1_decorator/README.md","mtime":"2016-11-23T17:14:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-11-23T17:14:59.365Z"},"basePath":"../..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"4.1.1","depth":2,"next":{"title":"Types de contenu","level":"4.1.2","depth":2,"path":"3_book/1_decorator/1_content_types.md","ref":"3_book/1_decorator/1_content_types.md","articles":[]},"previous":{"title":"Table des matières","level":"4.1","depth":1,"path":"3_book/README.md","ref":"3_book/README.md","articles":[{"title":"Introduction","level":"4.1.1","depth":2,"path":"3_book/1_decorator/README.md","ref":"3_book/1_decorator/README.md","articles":[]},{"title":"Types de contenu","level":"4.1.2","depth":2,"path":"3_book/1_decorator/1_content_types.md","ref":"3_book/1_decorator/1_content_types.md","articles":[]},{"title":"Thèmes","level":"4.1.3","depth":2,"path":"3_book/1_decorator/2_themes.md","ref":"3_book/1_decorator/2_themes.md","articles":[]},{"title":"Templates et zones","level":"4.1.4","depth":2,"path":"3_book/1_decorator/3_templates_zones.md","ref":"3_book/1_decorator/3_templates_zones.md","articles":[]},{"title":"Composants","level":"4.1.5","depth":2,"path":"3_book/1_decorator/4_components.md","ref":"3_book/1_decorator/4_components.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"styles":{"website":"styles/website.css"},"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/1_decorator/README.md","mtime":"2016-11-24T11:22:11.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-24T13:07:22.939Z"},"basePath":"../..","book":{"language":"fr"}});
         });
     </script>
 </div>

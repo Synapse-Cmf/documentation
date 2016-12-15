@@ -28,7 +28,7 @@ Synapse allows the team to simplify the process by setting up a prototyping of t
 
 So, the workflow becomes :
 
- - The designer produces the mockups for the layouts. Then, he initializes the description file of the theme by state each template, areas and components and sometimes, the [reference]().
+ - The designer produces the mockups for the layouts. Then, he initializes the description file of the theme by state each template, areas and components and sometimes, see the [reference]().
  - The web integrator receives the mockups and the configuration files, and creates the corresponding Twig files, then refrences them in the configuration file.
  - The backend developer creates the needed components to display the dynamics data in the integrated prototypes.
 

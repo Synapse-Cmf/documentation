@@ -1,5 +1,5 @@
 # Quick start - Standard Edition
 
-L'édition standard de Synapse est en cours de réalisation.
+The standard edition of Synapste is work in progress.
 
-Veuillez tout d'abord [créer un projet Symfony](http://symfony.com/doc/current/setup.html), puis ensuite suivre la procédure d'installation pour un [projet existant](2_bootstraped_project.md).
+First of all, please [create a Symfony project](http://symfony.com/doc/current/setup.html), then please follow the installation process for an [existing project](2_bootstraped_project.md).

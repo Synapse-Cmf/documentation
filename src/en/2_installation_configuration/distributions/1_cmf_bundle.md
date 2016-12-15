@@ -1,17 +1,17 @@
 # SynapseCmfBundle
 
-Cette distribution contient le strict minimum pour travailler avec Synapse; c'est en général celle que l'on va utiliser quand on dispose déjà de son back-office, où lorsque les modules métiers adjacents imposent une charte graphique ou un markup incompatible avec l'administration native.
+This distribution contains the minimum requirements to work with Synapse. It is actually used when there is an existing backoffice, or when adjacent business modules set a graphic chart or an incompatible markup with the native adminsitration.
 
-Elle contient :
+It contains :
 
- - Le bundle d'interface avec les composants Symfony
- - La définition du modèle de données sous [Doctrine Orm](http://www.doctrine-project.org/projects/orm.html)
- - La définition et les APIs de gestion des éléments de Synapse :
-    - Types de contenu
-    - Thème (templates, zones et composants)
-    - Médiathèque (média, images et fichiers)
- - Le moteur de rendu
- - Composants built-in, avec contrôleur, configurations par défaut et formulaire
+ - The interface bundle with Symfony components
+ - The data model definition under [Doctrine Orm](http://www.doctrine-project.org/projects/orm.html)
+ - The definition and the management APIs of Synapse elements :
+    - Content types
+    - Themes (templates, areas and components)
+    - Media library (medias, images and files)
+ - Rendering engine
+ - Built-in compoents, with controller, default configurations and forms
     - Static
     - Free
     - Text
@@ -20,14 +20,16 @@ Elle contient :
 
 ## Installation
 
-L'installation se passe via [Composer](https://getcomposer.org/), comme la plupart des bundles Symfony :
+The installation works with [Composer](https://getcomposer.org/), as many Symfony bundles do :
+
 ```bash
 composer require synapse-cmf/synapse-cmf-bundle ~1.0
 ```
 
-## Configuration de référence
+## Reference configuration
 
-Ce bundle requiert l'inclusion d'autres packages de la communauté en plus de ceux de l'édition standard de Symfony tels que décrit ci-après :
+This bundle requires other packages of the community in additional of the Symfony standard edition's packages :
+
 ```php
 // app/AppKernel.php
 
@@ -44,7 +46,8 @@ class AppKernel extends Kernel
     }
 }
 ```
-De plus, certains doivent être configurés pour que Synapse puisse les utiliser, tel que Doctrine :
+Furthermore, some of them need to me configured so that Synapse can use them, (eg. Doctrine) :
+
 ```yml
 # app/config/config.yml
 
@@ -91,12 +94,12 @@ doctrine:
                 # default em configuration
 ```
 
-À propos de ces configurations :
+About these configurations :
 
-  - découlant du fait d'avoir un entity manager séparé, les bundles doivent être référencés manuellement dans la configuration Doctrine
-  - d'autres configurations sont incluses par défaut au container, voir [le fichier complet](https://github.com/Synapse-Cmf/synapse-cmf/blob/master/src/Synapse/Cmf/Bundle/Resources/config/config.yml)
-  - il est possible de générer seulement le modèle Synapse via la commande `php bin/console doc:sch:update --em=synapse` ou `php bin/console doctrine:migrations:diff --filter-expression="/^synapse_.+/" --em=synapse` via les migrations
+  - Resulting of the fact there is a separated entity manager, the bundles must be manually referenced in the Doctrine configuration. 
+  - Some other configurations are includes by default to the container, see [the wole file](https://github.com/Synapse-Cmf/synapse-cmf/blob/master/src/Synapse/Cmf/Bundle/Resources/config/config.yml)
+  - It is possible to only generate the Synapse model through the command `php bin/console doc:sch:update --em=synapse` or `php bin/console doctrine:migrations:diff --filter-expression="/^synapse_.+/" --em=synapse` via the migrations
 
-À propos de [MajoraFrameworkExtraBundle](https://github.com/LinkValue/MajoraFrameworkExtraBundle) : cette dépendance contient des classes et services utilitaires en extension à Symfony.
+About [MajoraFrameworkExtraBundle](https://github.com/LinkValue/MajoraFrameworkExtraBundle) : this dependency contains classes and utilitary services in extension of Symfony. 
 
-Synapse Cmf est également compatible avec [DoctrineMigrationsBundle](http://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html), pertinent lors du déploiement des futures mises à jour du projet.
+Synapse Cmf is also compatible with [DoctrineMigrationsBundle](http://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html), useful during deployments of further project updates.

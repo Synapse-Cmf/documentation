@@ -27,7 +27,7 @@ Synapse permet de simplifier ce processus en mettant en place un prototypage du 
 
 Le workflow devient donc :
 
- - le designer produit des maquettes pour des types d'habillage (layouts), les templates dans Synapse. Puis il initialise le fichier de description du thème en déclarant les différents templates, zones et composants, voire la [référence]().
+ - le designer produit des maquettes pour des types d'habillage (layouts), les templates dans Synapse. Puis il initialise le fichier de description du thème en déclarant les différents templates, zones et composants, voir la [référence]().
  - l'intégrateur reçoit ces maquettes et fichiers de configuration et va créer les fichiers Twig correspondants, puis les référencer dans le fichier de configuration.
  - le développeur back va ensuite créer des composants permettant d'afficher les données dynamiques dans les prototypes intégrés.
 

@@ -15,14 +15,13 @@ This old saying does not suit to the web of today, it's a fact. Don't reinventin
 
 Today, on the web, successful people are the those who think up, who innovate, who have a efficient and reliable operating system. They need to master their information system. However, each module delivering a business service brings technical debt in the system: if the company innovate, the module will not fit to the need anymore and will be replaced. This is often expensive, furthermore if some dependencies from the rest of the system are involved.
 Let's take a step back from this statement : what if not only the wheel, but the whole vehicle which are not invented ? Everything potentially needs to be redone. But, as long as we can drive in city, no issue. Concerning driving on a circuit, there is a step.
-Prenons maintenant du recul par rapport à cette affirmation : qu'en est-il si ce n'est pas seulement la roue, mais le véhicule entier qui n'a pas été inventé ? Tout est potentiellement à refaire. Mais tant qu'on ne veut rouler qu'en ville, aucun souci. Mais de là à pouvoir rouler sur circuit, parfois il y a un pas.
 
-Et c'est ici que Synapse crée de la valeur : aucune roue n'est proposée, seulement les outils pour créer la vôtre. Cela prend du temps, de l'énergie de concevoir une roue. Mais cette roue sera adaptée au pilote.
+It is there Synapse creates value : no wheel is proposed but tools to build your own. It takes time and energ to build a wheel. But this wheel will fit to the driver.
 
-Ici se referme l'éternel débat du "custom vs out-of-the-box".
+Here we close the"custom vs out-of-the-box" debate.
 
-Le second principe est en fait un corollaire du premier : si Synapse est conçu pour que les développeurs usent de leurs talents, leur proposer des APIs simples et efficaces, des middlewares, des configurations, des logs et outils de debug coule de source. Toutes ces notions, appelées "Developper experience", ou DX, sont déjà des priorités du framework Symfony.
+The second principle is actually a corollary of the former principle : if Synapse is designed to let the developer use their skills, it is obvious that Synapse must offer simple and efficient APIs, middlewares, configs, logs and debug tools. All these notions, called "Developer experience", or DX, are already some of the priorities of the framework Symfony.
 
-Synapse dispose donc d'une interface peu intrusive avec le reste du projet, privilégiant systématiquement le découplage, au prix parfois de complexité supplémentaire, pour rester dans cette logique d'isolation pour éviter les effets de bords et dépendances intempestives.
+Synapse owns a non-intrusive interface with the rest of the project, systematically fostering decoupling, sometimes costing more complexity to stay in the isolation logic, in order to avoid side-effects and intempestive dependencies.
 
-Pour conclure et résumer les points précédents, Synapse est orienté pour les développeurs de projets dits "custom", qui ne veulent pas rentrer dans l'engrenage d'un système complet. Il convient à tous types de projets, en particulier aux applications à forte concentration de règles de gestion.
+To conclude and sum up previous outlined isseues, Synapse is oriented for "custom" project developers who don't want to be part of the wheel of a whole system. Synapse suits to any projects, particularly to applications with plenty of management rules.

@@ -1,4 +1,4 @@
-# Préambule
+# Preamble
 
 First of all, let's start by stating the obvious: today, we develop fewer websites which fit with the historical CMS favour of web app development. These latters are rich in interactions, management rules and interconnections, everything a framework can handle.
 
@@ -20,7 +20,7 @@ It is there Synapse creates value : no wheel is proposed but tools to build your
 
 Here we close the"custom vs out-of-the-box" debate.
 
-The second principle is actually a corollary of the former principle : if Synapse is designed to let the developer use their skills, it is obvious that Synapse must offer simple and efficient APIs, middlewares, configs, logs and debug tools. All these notions, called "Developer experience", or DX, are already some of the priorities of the framework Symfony.
+The second principle is actually a corollary of the former principle : if Synapse is designed to let the developer use their skills, it is obvious that Synapse must offer simple and efficient APIs, middlewares, configurations, logs and debug tools. All these notions, called "Developer experience", or DX, are already some of the priorities of the framework Symfony.
 
 Synapse owns a non-intrusive interface with the rest of the project, systematically fostering decoupling, sometimes costing more complexity to stay in the isolation logic, in order to avoid side-effects and intempestive dependencies.
 

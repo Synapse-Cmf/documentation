@@ -1,10 +1,10 @@
-# Types de contenu
+# Content types
 
-Les types de contenu sont une abstraction de chacun des objets métier (ou entités) du projet utilisant Synapse.
+The content types are an abstraction of each business objects (or entities) of the project using Synapse.
 
-Ce sont eux qui sont décorés par le moteur à l'aide d'un template; ils ne sont pas modifiés directement, ce sont des vues qui sont créées autour de l'objet.
+These content types are decorated by the engine with a template. They are not directly modified, they are a simple view created from an object.
 
-La référence d'un type de content est globale pour toute l'application, via la configuration du CmfBundle :
+The reference of a content type is global to the whole application, via the CmfBundle configuration : 
 ```yml
 # app/config/config.yml
 
@@ -18,7 +18,7 @@ synapse_cmf:
             provider: acme.news.repository
 ```
 
-La classe de l'entité déclarée doit implémenter l'interface ContentInterface :
+The declared entity class must implement the interface ContentInterface :
 ```php
 // src/Acme/Bundle/AppBundle/Entity/News.php
 
@@ -44,7 +44,7 @@ class News implements ContentInterface
 
 ```
 
-Notez bien que le repository Doctrine doit également implémenter une interface pour pouvoir être référencé :
+Please take note that the Doctrine repository must implement an interface too to be referenced :
 ```php
 // src/Acme/Bundle/AppBundle/Repository/NewsOrmRepository.php
 
@@ -65,4 +65,4 @@ class NewsRepository extends EntityRepository implements ContentProviderInterfac
 }
 ```
 
-Et c'est tout, Synapse est maintenant capable de décorer notre objet News, grâce à un thème.
+And... It's all, Synapse is now capable of decorting your object News, thanks to a theme.

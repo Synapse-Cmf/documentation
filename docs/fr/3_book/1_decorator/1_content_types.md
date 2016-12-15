@@ -4,7 +4,7 @@ Les types de contenu sont une abstraction de chacun des objets métier (ou entit
 
 Ce sont eux qui sont décorés par le moteur à l'aide d'un template; ils ne sont pas modifiés directement, ce sont des vues qui sont créées autour de l'objet.
 
-La référence d'un type de content est globale pour toute l'application, via la configuration du CmfBundle :
+La référence d'un type de contenu est globale pour toute l'application, via la configuration du CmfBundle :
 ```yml
 # app/config/config.yml
 

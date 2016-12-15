@@ -1,23 +1,23 @@
 # SynapsePageBundle
 
-Cette distribution rajoute un type de contenu nommé "Page", ainsi que son interface d'administration à la distribution AdminBundle.
+This distribution adds a content type named "Page", and also its administration interface to the AdminBundle distribution.
 
-Le type de contenu "Page" représente une page web simple, avec une gestion des métadonnées HTML, une mécanique de publication / archivage et une gestion d'arborescence.
+The content type "Page" represent a simple web page, with the HTML metadata management, a mechanical of puslish/archiving and an tree management.
 
-L'interface d'administration des pages implémente également le formulaire de thème de Synapse.
+The administration interface of pages includes also the form of the Synapse theme.
 
-Cette distribution est idéale pour commencer à utiliser Synapse Cmf, elle propose un cas d'utilisation simple du framework. Elle peut être également utile pour les pages uniques d'un site, comme par exemple la homepage, des landings, des résultats de recherche et / ou comme base pour des features complexes comme par exemple un panier, un compte utilisateur etc...
+This distribution is perfect to start to use Synapse Cmf. It offers a simple use case of the framework. It can be useful for unique page of a website too, like homepage, landing pages, search results, and/or as base for other complex features, like a cart, a user account etc.
 
-**Attention** : cette distribution requiert le CmfBundle et l'AdminBundle, qui doivent eux aussi initialisés et configurés, tel que décrit [ici](1_cmf_bundle.md) et [là](2_admin_bundle.md).
+**Warning** : this distribution requires [CmfBundle](1_cmf_bundle.md) and [AdminBundle](2_admin_bundle.md).
 
 ## Installation
 
-L'installation de passe également via Composer, et inclue `synapse-cmf-bundle` et `synapse-cmf/synapse-admin-bundle` :
+The installation works with Composer, and includes both `synapse-cmf-bundle` and `synapse-cmf/synapse-admin-bundle` :
 ```bash
 composer require synapse-cmf/synapse-page-bundle ~1.0
 ```
 
-Référencez ensuite le bundle dans le kernel de votre application :
+Please reference the bundler in your application kernel :
 ```php
 <?php
 // app/AppKernel.php
@@ -31,7 +31,7 @@ public function registerBundles()
 }
 ```
 
-## Configuration de référence
+## Reference configuration
 
 ```yml
 # app/config/config.yml
@@ -65,4 +65,4 @@ synapse_admin:
         synapse_theme: bootstrap
 ```
 
-Note : vous n'avez pas besoin d'inclure le routing de l'admin bundle, page bundle s'en charge déjà.
+Note : you don't need to include the AdminBundle routing, PageBundle already do it.

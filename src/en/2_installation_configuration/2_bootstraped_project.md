@@ -1,17 +1,17 @@
 # Installation dans un projet initialisé
 
-L'installation se passe via [Composer](https://getcomposer.org/), comme n'importe quel autre bundle / librairie compatible avec Symfony.
-Vous aurez aussi besoin d'une base de données SQL pour stocker la données de Synapse Cmf.
+The installation works with [Composer](https://getcomposer.org/), as many Symfony bundles do?
+You also need a Sql database to store Synapse Cmf data.
 
-## Ajout des Bundles
+## Bundle inclusion
 
-Pour commencer, il vous faut rajouter les bundles Synapse Cmf à votre projet :
+In the first place, you need to add the Synapse Cmf bundles to your project :
 
 ```bash
 composer require synapse-cmf/synapse-cmf ~1.0@dev
 ```
 
-Puis les inclure dans votre application (comme n'importe quel autre bundle) :
+Then, include them in your kernel application :
 ```php
 // app/AppKernel.php
 
@@ -39,9 +39,9 @@ class AppKernel extends Kernel
 
 ## Configuration
 
-### Bundles de Synapse Cmf
+### Synapse Cmf bundles
 
-Nous utiliserons ici les paramètres par défaut de Synapse. Pour plus de détails sur les configurations, veuillez vous reporter aux références des configurations de chaque bundle :
+Here, we use the default parameters of Synapse. For further details about configurations, please read the reference configurations of each bundles :
 
  - [SynapseCmfBundle](distributions/1_cmf_bundle.md)
  - [SynapseAdminBundle](distributions/2_admin_bundle.md)
@@ -57,10 +57,10 @@ synapse_cmf:
             alias: page
             provider: synapse.page.loader
 ```
-### Dépendances
-Ensuite, configurez l'accès à la base de donnée de Synapse.
+### Dependencies
+To continue, please configure the database access for Synapse.
 
-La configuration minimale est la suivante :
+The minimum configuration is the following :
 ```yml
 # app/config/config.yml
 
@@ -87,13 +87,13 @@ doctrine:
                 # your project default em configuration
 ```
 
-Synapse Cmf utilise un entity manager dédié, pour permettre plus de flexibilité, pour plus de détails, voir la configuration du [CmfBundle](distributions/1_cmf_bundle.md).
+Synapse Cmf uses a dedicated entity manager, for more flexibility. For furthers details, please read the configuration of [CmfBundle](distributions/1_cmf_bundle.md).
 
-Les autres dépendances [MajoraFrameworkExtraBundle](https://github.com/LinkValue/MajoraFrameworkExtraBundle) et [StofDoctrineExtensionsBundle](https://github.com/stof/StofDoctrineExtensionsBundle) sont configurées par défaut directement par le CmfBundle.
+The other dependendies [MajoraFrameworkExtraBundle](https://github.com/LinkValue/MajoraFrameworkExtraBundle) et [StofDoctrineExtensionsBundle](https://github.com/stof/StofDoctrineExtensionsBundle) are directly configured by default in CmfBundle.
 
 ### Routing
 
-Synapse Cmf fournit des routes à ajouter au projet pour accéder aux modules d'administration et aux pages en front.
+Add the Synapse Cmf routing to your project so you can access to administration modules and frontpages.
 
 ```yml
 # app/config/routing.yml
@@ -115,40 +115,39 @@ synapse_admin:
         synapse_theme: bootstrap         # theme actif du projet (voir configuration des thèmes)
 ```
 
-Pour finir, testez votre installation avec les commandes suivantes :
+Lastly, please test the installation with the following commands :
 ```bash
 php bin/console debug:container | grep synapse
 php bin/console debug:router | grep synapse
 ```
 
-## Mise en route
+## Initiation
 
-Une fois toute la configuration opérationnelle, construisez la base de données avec les commandes suivantes :
+Once the the configuration is operational, build the database with the following commands :
 ```bash
-# Création de la base si elle n'existe pas
+# It creates the database if none exists
 php bin/console doctrine:database:create --connection=synapse --if-not-exists
-# Construction des tables
+# Table building
 php bin/console doctrine:schema:update --force --em=synapse
 ```
 
-Puis installez les assets et videz le cache :
+Then, install assets and clear the cache :
 ```bash
 php bin/console assets:install
 php bin/console cache:clear
 ```
 
-## Bonnes pratiques pour le versioning
+## Best practices for the versioning
 
-La médiathèque de Synapse Cmf utilise le dossier `web/assets` pour déposer les médias uploadés (le chemin est configurable). En général, nous ne souhaitons pas versionner ces données, ajoutez donc ce dossier à votre `.gitignore`.
+The meda librady of Synapse Cmf uses the directory `web/assets` to store uploaded media files (the path is configurable). In general, we don't want to put these file in our version control system (eg. Git). So add this directory to your `.gitignore`.
 ```
 #.gitignore
 web/assets
 ```
 
-## Construction du site
+## Site building
 
-Synapse Cmf est à présent opérationnel dans sa version la plus simple, à vous de jouer pour construire vos pages via l'interface d'administration, à l'url http://your.env.dev/app_dev.php/synapse/admin/page pour cette configuration.
+Synapse Cmf is now operational in its simplest version, the power is yours to build your pages with the administration interface, available here http://your.env.dev/app_dev.php/synapse/admin/page (for default configuration).
 
-Notez bien que le thème utilisé est celui de démonstration, un thème simple construit avec Bootstrap 3. Il ne contient qu'un seul template, un seul type de contenu (la "page") et seulement les composants built-in.
-
-Pour créer vos propres types de contenu, templates et composants, référez-vous aux sections dédiées.
+Please take note that the used theme is the demo theme, a simple theme built with Boostrap 3. It contains only one template, only one content type (the "page"), and only one built-in component.
+In order to create your own content types, templates and components, please read the dedicated sections.

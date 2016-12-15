@@ -1,27 +1,28 @@
 # SynapseAdminBundle
 
-Cette distribution rajoute une interface d'administration à la distribution de base.
-Elle peut servir de base pour construire un back office pour le projet.
+This distribution adds an administration interface to the basic distribution.
+It can be used as a base to build a backoffice for the project.
 
-Fonctionnalités ajoutées :
+Added features :
 
- - Bundle d'interface avec les composants Symfony, Twig et javascript
- - Thème de back office Synapse (construit avec Sass et Bootstrap 3)
- - Interface de gestion des skeletons (templates globaux - voir chapitre sur [les thèmes](../../3_book/1_decorator/2_themes.md))
- - Interface de gestion des médias
-    - Upload d'images
-    - Module de gestion des métadonnées d'images et formatage
+ - Bundle providing an interface with Symfony components, Twig and javascript
+ - Synapse backoffice theme (built with Sass and Bootstrap 3)
+ - Management intergace of skeletons (global templates - see the chapter concerning [themes](../../3_book/1_decorator/2_themes.md))
+ - Management interface of medias
+    - Image uploads
+    - Management module of image metadata and formatting
 
-**Attention** : cette distribution requiert le CmfBundle, qui doit lui être aussi initialisé et configuré, tel que décrit dans la [section précédente](1_cmf_bundle.md).
+**Warning** : this distribution requires CmfBundle, which must be initialised and configured, as [described prefiously](1_cmf_bundle.md).
 
 ## Installation
 
-L'installation de passe via Composer (`synapse-cmf-bundle` est inclu) :
+The installation works with Composer (`synapse-cmf-bundle` is included) :
+
 ```bash
 composer require synapse-cmf/synapse-admin-bundle ~1.0
 ```
 
-Référencez le bundle dans le kernel de votre application :
+Please reference the bundle in you application kernel :
 ```php
 <?php
 // app/AppKernel.php
@@ -35,7 +36,7 @@ public function registerBundles()
 }
 ```
 
-## Configuration de référence
+## Reference configuration
 
 ```yml
 # app/config/config.yml

@@ -1,18 +1,18 @@
-# Thèmes
+# Themes
 
-Les éléments de décoration des types de contenu sont déclarés au sein d'un thème.
-Ces thèmes sont de véritables namespaces au sein duquel chaque élément et chaque configuration sont cloisonnés.
+The decoration elements o the content types are declared within the theme.
+These themes are true namespaces where each element and each configuration are partitioned.
 
-Au-delà de l'aspect technique, ils sont le moyen de changer facilement le thème graphique de toute une application.
+Over the technical aspect, they are a way to easily change the graphic theme of the whole application.
 
-## Créer un thème
+## Theme creation
 
-Un thème se créé à partir d'un bundle Symfony.
-L'intérêt est de pouvoir activer et partager des thèmes Synapse aussi facilement que des bundles, et de pouvoir regrouper tout type de ressources à l'intérieur : templates, configurations, routes, assets...
+A theme is created from a Symfony bundle.
+The benefit of this consist in activing and sharing Synapse themes as well as bundles, and gathering all resource types inside : templates, configurations, routes, assets...
 
-Partons d'un bundle vierge pour créer notre nouveau thème, via la commande `php bin/console generate:bundle`.
+Let's start from a brand new bundle, via the command `php bin/console generate:bundle`.
 
-Dans la classe de bundle, utilisez l'héritage Synapse au lieu de Symfony :
+In the bundle class, use the Synapse inheritance instead of the Symfony inheritance :
 ```php
 // src/Acme/Bundle/DemoThemeBundle/AcmeDemoThemeBundle.php
 
@@ -23,9 +23,9 @@ class AcmeDemoThemeBundle extends SynapseThemeBundle
 }
 ```
 
-Cet héritage permet de fournir des configurations supplémentaires, en particulier un fichier de configuration permettant de paramétrer facilement un thème.
+This inheritance provides additional configurations, particularly a configuration file allowing an easy theme configuration.
 
-Ce fichier de configuration est à placer dans le dossier `Resources/config` de votre bundle :
+This configuration file goes in the directory `Resources/config` of your bundle :
 ```yml
 # src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml
 
@@ -54,31 +54,29 @@ synapse:
                 sidebar:
                     news_list: ~
 ```
-
-La traduction littérale d'une partie de la configuration ci-dessus est :
+The literal translation of a part of the former configuration is :
 ```
-La structure du thème "acme_demo" est constituée de 3 templates :
-  - home : deux zones,
-    - menu, n'autorisant que le composante "menu"
-    - body, autorisant les composants "text", "gallery" et "news_list"
-  - landing : trois zones,
-    - menu, n'autorisant que le composante "menu"
-    - body, n'autorisant cette fois que "news_list"
-    - sidebar, n'autorisant lui aussi que "news_list"
+The theme structure "acme_demo" is constituted with 3 tremplates :
+  - home : two zones,
+    - menu, allowing only the component "menu"
+    - body, allowing components : "text", "gallery" and "news_list"
+  - landing : three zones,
+    - menu, allowing only the component "menu"
+    - body, allowing only the component "news_list"
+    - sidebar, allowing only the component "news_list"
   etc...
 ```
+We will come back in detail on the template/zone/component setting later. The important here is to notice taht one theme is defined only by its name and its structure.
 
-Nous reviendrons en détail sur le paramétrage des templates, zones et composants plus tard, l'important ici est de remarquer qu'un thème ne se définit que par son nom, et sa structure.
+Please note that the file `synapse.yml` is the  **core of the prototype pattern of Synapse**.
 
-Notez que le fichier `synapse.yml` est le **coeur du pattern prototype de Synapse**.
+Lastly, don't forget to activate the bundle in your application Kernel.
 
-Pour finir, ne pas oublier d'activer le bundle dans le Kernel de votre application.
+## Theme activation
 
-## Activation d'un thème
+Synapse can use only one theme at once, and have to be initialized with this theme.
 
-Synapse ne peut utiliser qu'un seul thème à la fois, et doit être initialisé avec ce thème.
-
-Plusieurs options sont disponibles, la plus simple étant via le routing vers vos contrôleurs front et admin :
+Many options are available, the most simple is via the routing of your front and admnin controlers :
 ```yml
 # app/config/routing.yml
 
@@ -102,6 +100,7 @@ synapse_page_content:
         synapse_theme: acme_demo
 ```
 
+The admin of Synapse requires the theme too in way to know which theme he has to edit to activate some lazy loaded configurations.
 L'admin de Synapse a également besoin du thème qu'il doit éditer, pour activer certaines configurations "lazy-loadées".
 
-D'autres options sont disponibles pour gérer plus finement l'activation des thèmes, voir l'article du [cookbook dédié (wip)](../../4_cookbook/2_decorator/multi_themes.md).
+More options are available to manage more specificaly the theme activation, see the article of the [dedicated cookbook (wip)](../../4_cookbook/2_decorator/multi_themes.md).

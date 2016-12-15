@@ -8,7 +8,7 @@ It contains :
  - The data model definition under [Doctrine Orm](http://www.doctrine-project.org/projects/orm.html)
  - The definition and the management APIs of Synapse elements :
     - Content types
-    - Themes (templates, areas and components)
+    - Themes (templates, zones and components)
     - Media library (medias, images and files)
  - Rendering engine
  - Built-in compoents, with controller, default configurations and forms

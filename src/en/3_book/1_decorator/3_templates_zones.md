@@ -1,14 +1,14 @@
-# Templates et zones
+# Templates and zones
 
-Les templates sont le cœur de la décoration d'un type de contenu, ce sont eux qui définissent styles, positionnements, habillages et informations à afficher. De même que dans n'importe quelle application Symfony en somme.
+Templates are the core of the decoration of a content type. They are the one which define styles, positions, layouts and shown informations. As well as any Symfony application.
 
-Physiquement, les templates sont des fichiers Twig, le moteur de templating inclut nativement dans Symfony. Ils tirent parti des extensions de la librairie pour ajouter des options, en particulier l'inclusion de zones.
+Physically, templates are Twig files, the native templating engine included in Symfony. Templates take advantage of library extensions to add options, particularly the zone include.
 
-Ces zones sont des emplacements dans lesquels peuvent être ajoutés des composants. Elles sont appelées via des tags Twig, et définies dans le prototype du thème.
+These zones are areas where components can be added. They are called from Twig tags, and defined in the theme prototype.
 
-## Création d'un template
+## Template creation
 
-Pour commencer, initialisons un fichier Twig pour notre premier template :
+To start, here is the twig file initialization for our first template : 
 ```html
 <!-- src/Acme/Bundle/DemoThemeBundle/Resources/views/homepage.html.twig -->
 <!DOCTYPE html>
@@ -37,25 +37,27 @@ Pour commencer, initialisons un fichier Twig pour notre premier template :
 </html>
 ```
 
-La structure des blocks Twig est à votre apréciation, blocks internes ou externes par rapport à la structure HTML etc... Aucune importance du point de vue de Synapse.
+You can customize the HTML structure to fit to your need.
 
-Ensuite, dans le prototype du thème, le template doit être référencé dans Synapse, et ajouté au thème.
+Then, in the theme prototype, the template must be referenced in Synapse, and added to the theme.
 ```yml
 # src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml
 synapse:
     acme_demo:
         structure:
-            home:          # ajout de l'alias du template à la structure du thème
+            home:          # Add the template alias to the theme structure
                 # ...
         templates:
-            home:          # définition de l'alias du template dans Synapse
-                path: "AcmeDemoThemeBundle::homepage.html.twig"     # chemin physique du template Twig
+            home:          # Definition of the template alias in Synapse
+                path: "AcmeDemoThemeBundle::homepage.html.twig"     # Physical path of the Twig template
         # ...
 ```
 
-## Ajout des zones
+## Inclusion of zones
 
-Comme expliqué précédemment, les templates Synapse sont constitués de zones. Ces zones sont appelées depuis le fichier Twig du template, via le tag `{{ synapse_zone('zone_name', { hello: 'world' }) }}`. Elles doivent également être déclarées dans le fichier `synapse.yml`. En reprenant le fichier Twig ci dessus, les zones se configureraient comme suit :
+As previously explained, Synapse templates are built with zones. These zones are called from the Twig file of the template with the tag `{{ synapse_zone('zone_name', { hello: 'world' }) }}`. They must be declared in the file `synapse.yml` too. 
+The zone configuration of the twig file aboce would be :
+
 ```yml
 # src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml
 synapse:
@@ -73,13 +75,13 @@ synapse:
             sidebar: ~
 ```
 
-Le namespace "synapse.acme_demo.zones" déclare les zones du thème, ainsi que leurs configurations (voir la [référence (wip)]() du fichier synapse.yml), et sont reliées à des templates via le prototype de la structure du thème.
+The namespace "synapse.acme_demo.zones" state the theme zones and  their configuration (see the [reference (wip)]() du fichier synapse.yml), and are linked to templates within theme structure prototype.
 
-## Rendre un contenu dans un template
+## Rendering a content in a template
 
-Après le paramétrage, il est temps de tester.
-La création d'une réponse HTTP avec Synapse se passe comme tout autre projet Symfony : via un Controller.
-Créons donc un Controller pour rendre un contenu Page dans le template "home".
+After the setting, it is time to test.
+The creation of a HTTP response with Synapse takes place in the Controller.
+Let's create a controller in order to render the content PAge in the template "home".
 ```php
 // src/Acme/Bundle/AppBundle/Controller/PageController.php
 
@@ -103,11 +105,12 @@ class PageController extends Controller
 }
 ```
 
+The rendering of a content in a template has two steps : first of all, we instantiate in a Decorator the theme prototype for the content with the template name as a paremeter. Then we resolve the Decorator in order to generate a HTTP response.
 Le rendu d'un contenu dans un template se passe en deux étapes : d'abord on instancie le prototype du thème pour le contenu et le template en paramètre dans un objet Decorator; puis on résout ce Decorator pour générer une réponse HTTP.
 
-Note : il est également possible de résoudre un rendu de template sous forme de chaine de caractères via la méthode `render()`, pour par exemple décorer des email, générer des Pdf etc...
+Note : it is possible to resolve a template rendering under a string form via the method `render()`, to decorate email, generate pdf...
 
-Ensuite, pour afficher la réponse générée, une route est nécessaire :
+Then, a route is required to display the generated response : 
 ```yml
 # src/Acme/Bundle/DemoThemeBundle/Resources/config/routing.yml
 
@@ -121,11 +124,11 @@ acme_page_render:
         path: "[^.]*"
 ```
 
-Notez bien qu'il s'agit ici d'une implémentation propre au type de contenu Page, natif à Synapse. L'implémentation de ce type de contenu peut varier dans vos propres types de contenu, de même qu'il est possible d'appeler les pages différemment, comme à partir de l'identifiant.
+Please notice that the code above is a specific implementation for the native content type Page. The implementation of this content type may vary in your own content types, as well as it is possible to call a page in a different way. Fore example, you can use the identifier.
 
-Dernière étape : créer un objet Page. Pour ce faire, vous pouvez utiliser l'interface inclue avec SynapsePageBundle, accessible à l'adresse `/synapse/admin/page/create` (si vous avez suivi l'installation d'exemple).
+Last step : create a Page object.  For this purpose, you can use the interface included in the SynapseBundle, available at this address : `/synapse/admin/page/create` (if you kept the default settings).
 
-  - Remplissez les champs, le nom est un nom back office, qui ne devrait jamais être utilisé en front, et le chemin, l'identifiant textuel (ou "slug") de la page, dans l'url. Lors de votre première utilisation, vous ne devriez pas pouvoir sélectionner de page parente, votre base étant vide.
-  - Une fois la page créée, dans le fieldset "Synapse", sélectionnez votre template "home", cochez la case pour initialiser ce template, vérifiez que votre page est en ligne, puis sauvegardez.
+  - Fill up the fields. The name is a backoffice identifier and will never be used in the frontoffice. The path is the textual identifier (or "slug") of the page in the URL. During your first use, you could not select the parent page, because your database is empty.
+  - Once the page is created, select your template named "home" in your fieldset "Synapse". Then check the box to initialize this template, check if your page is online, and save.
 
-Votre page sera du coup visible, décorée avec le template créé, à l'url choisie.
+From now, your page is visible at the chosen url, decorated with the created template.

@@ -1,22 +1,24 @@
-# Composants
+# Compnents
 
-Les thèmes / templates / zones sont la couche d'interface entre le contenu (votre objet métier), et la décoration, ils sont l'équivalent d'un uniforme muni de diverses accroches (velcro, boutons pressions etc...) à divers endroits, à partir desquelles il est possible de décorer l'uniforme à l'aide de badges, grades etc...
+The themes / templates / zones are the interface layer between the content (your business object) and the decoration. They are like a uniform with multiple slots for medals. It's up to you to decorate your uniform with your medals.
 
-Dans Synapse Cmf, ces décorations sont les composants.
+In Synaps Cmf, these medals are the components.
 
-Dans chaque zone de chaque template, il est possible d'en ajouter, tout composant pouvant être rendu de manière indifférenciée dans n'importe quelle zone. D'un point de vue back ! Côté front, il est évident qu'un composant menu ne se rendra pas de la même manière dans une top bar et dans un footer. Cette gestion du rendu se passe dans le fichier synapse.yml du thème actif.
+In each zone of each template, you can add some components. Each component can be rendered in any zone, from a backend point of view.
+From a frontend point of view, it is obvious that a component "menu" can't be rendered like a top bar or a footer. This rendering management is defined in `synapse.yml` of the active theme.
 
+## Activation and built-in component customization in a template
 ## Activation et personnalisation de composants built-in dans un template
 
-La version de base de Synapse Cmf ([SynapseCmfBundle](../../2_installation_configuration/distributions/1_cmf_bundle.md)) inclue cinq composants :
+The basic version of Synapse Cmf ([SynapseCmfBundle](../../2_installation_configuration/distributions/1_cmf_bundle.md)) includes 5 components :
 
-  - Texte : affiche du texte, brut ou html, et des images.
-  - Menu : affiche une liste de liens, sous un label paramétrable, sur plusieurs niveaux
-  - Gallerie : affiche une galerie d'images, à partir de la médiathèque
-  - Libre : affiche le texte brut saisi dans le back office
-  - Statique : affiche un template Twig, sélectionné en back office
+  - Text : display a raw text, html text, and images
+  - Menu : display a list of links, under a configurable label, with multiple levels
+  - Gallery : Display a image gallery from a media library
+  - Free : Display a raw text defined in the backoffice.
+  - Static : Display a Twig template, selected from the backoffice.
 
-Ces composants doivent être activés dans des zones pour pouvoir être ajoutés. Prenons un exemple simple à partir du thème d'exemple :
+These components must be activated in zones to be added. LEt's take a simple example from the example theme :
 ```yml
 # src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml
 synapse:
@@ -34,13 +36,15 @@ synapse:
         # ...
 ```
 
-Cette configuration active les composants built-in dans les zones dédiées, rendus dans les fichiers Twig définis par défaut.
-Le prototypage terminé, il ne reste plus qu'à inclure des composants dans les zones des templates. Tout se passe dans l'interface d'administration, prenons exemple avec les Pages; dans votre formulaire d'édition de Page :
+This configuration activate built-in components in the dedicated zones, rendered in Twig files, defined by default.
+The prototypung is finished. Only remains the inclusion of compoenents in the template zones.
+The prototyping is finished, now we need to include some components in template zones. Everything is managed from the administration interface. For example, in you Page edition form:
+  - Choose te template "home", then the zone "body"
+  - Create a new component named "text" via the select box
+  - Then, open the form to fill the title and your text and save it
+  - Now, open you front page
 
-  - choisissez le template "home", puis la zone "body"
-  - créez un nouveau composant "texte" via la select box
-  - ouvrez ensuite le formulaire pour entrer votre titre et votre texte, puis sauvegardez
-  - rendez vous sur votre page côté front
+
 
 Le rendu est celui par défaut des composants natifs, au sein de chaque thème, il est bien entendu possible de modifier leur rendu, comme suit :
 ```yml

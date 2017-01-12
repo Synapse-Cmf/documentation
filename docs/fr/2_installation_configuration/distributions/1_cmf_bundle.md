@@ -1,6 +1,6 @@
 # SynapseCmfBundle
 
-Cette distribution contient le strict minimum pour travailler avec Synapse; c'est en général celle que l'on va utiliser quand on dispose déjà de son back-office, où lorsque les modules métiers adjacents imposent une charte graphique ou un markup incompatible avec l'administration native.
+Cette distribution contient le strict minimum pour travailler avec Synapse; c'est en général celle que l'on va utiliser quand on dispose déjà de son back-office, ou lorsque les modules métiers adjacents imposent une charte graphique ou un markup incompatible avec l'administration native.
 
 Elle contient :
 

@@ -134,13 +134,13 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\GreaterThan;
-use Synapse\Cmf\Bundle\Form\Type\Framework\Component\DataType;
+use Synapse\Cmf\Bundle\Form\Type\Theme\ComponentDataType;
 
 class NewsListComponentType extends AbstractType
 {
     public function getParent()
     {
-        return DataType::class;
+        return ComponentDataType::class;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)

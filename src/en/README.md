@@ -1,4 +1,3 @@
-# Bienvenue sur la documentation du CMF Synapse
+# Welcome on the documentation of Synapse Cmf
 
-Ce document a pour but de vous familiariser avec toutes les composantes de Synapse, allant de l'installation à l'utilisation quotidienne dans ses cas simples comme complexes, en passant par sa configuration.
-
+This document aims to familiarize you with ll the Synapse components, from the installation to the daily use, from the simple to the complex cases, passing by its configuration.

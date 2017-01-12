@@ -1,12 +1,12 @@
-# Bonnes pratiques pour votre base de données Synapse
+# Good practices for your Synapse database
 
-## 1. Utilisez une base séparée
+## 1. Use a separate database
 
-Synapse essaye d'être le moins intrusif et le plus découplé possible. Cela va de pair avec toutes ses données, qui ne doivent polluer ou rentrer en conflit avec la base de données de votre projet métier.
+Synapse tries to be the less intrusive and the as decoupled as possible. It is the same for any data, which have not to create conflict with the database of your business project.
 
-Nous vous conseillons donc d'utiliser une base séparée pour synapse. Tout ce dont a besoin synapse est d'une base SQL compatible avec Doctrine.
+So, We adise you to create a separate database for Synapse. All Synapse needs is a SQL Doctrine compatible database.
 
-Voici un exemple de configuration pour définir une base indépendante pour Synapse :
+Here is an example of configuration to define an independent database for Synapse :
 
 ```yml
 # app/config/config.yml
@@ -16,7 +16,7 @@ doctrine:
     dbal:
         connections:
             default:
-                # default connection here
+                 # default connection here
             synapse:
                 driver:   "%synapse_database_driver%"
                 host:     "%synapse_database_host%"
@@ -44,5 +44,5 @@ parameters:
     synapse_database_password: your_password
 ```
 
-## 2.Migrations / déploiement ?
-Comment ça marche ?
+## 2.Migrations / deploy ?
+How it works ? To be continued... (wip)

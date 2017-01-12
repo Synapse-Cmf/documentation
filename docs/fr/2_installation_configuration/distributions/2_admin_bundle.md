@@ -16,7 +16,7 @@ Fonctionnalités ajoutées :
 
 ## Installation
 
-L'installation se passe via Composer (`synapse-cmf-bundle` est inclu) :
+L'installation de passe via Composer (`synapse-cmf-bundle` est inclu) :
 ```bash
 composer require synapse-cmf/synapse-admin-bundle ~1.0
 ```

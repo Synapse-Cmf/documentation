@@ -7,7 +7,7 @@
         <title>Page Bundle · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="GitBook 3.2.0">
         
         
         
@@ -452,18 +452,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="synapsepagebundle">SynapsePageBundle</h1>
-<p>Cette distribution rajoute un type de contenu nomm&#xE9; &quot;Page&quot;, ainsi que son interface d&apos;administration &#xE0; la distribution AdminBundle.</p>
-<p>Le type de contenu &quot;Page&quot; repr&#xE9;sente une page web simple, avec une gestion des m&#xE9;tadonn&#xE9;es HTML, une m&#xE9;canique de publication / archivage et une gestion d&apos;arborescence.</p>
-<p>L&apos;interface d&apos;administration des pages impl&#xE9;mente &#xE9;galement le formulaire de th&#xE8;me de Synapse.</p>
-<p>Cette distribution est id&#xE9;ale pour commencer &#xE0; utiliser Synapse Cmf, elle propose un cas d&apos;utilisation simple du framework. Elle peut &#xEA;tre &#xE9;galement utile pour les pages uniques d&apos;un site, comme par exemple la homepage, des landings, des r&#xE9;sultats de recherche et / ou comme base pour des features complexes comme par exemple un panier, un compte utilisateur etc...</p>
-<p><strong>Attention</strong> : cette distribution requiert le CmfBundle et l&apos;AdminBundle, qui doivent eux aussi initialis&#xE9;s et configur&#xE9;s, tel que d&#xE9;crit <a href="1_cmf_bundle.html">ici</a> et <a href="2_admin_bundle.html">l&#xE0;</a>.</p>
-<h2 id="installation">Installation</h2>
-<p>L&apos;installation de passe &#xE9;galement via Composer, et inclue <code>synapse-cmf-bundle</code> et <code>synapse-cmf/synapse-admin-bundle</code> :</p>
-<pre><code class="lang-bash">composer require synapse-cmf/synapse-page-bundle ~1.0
-</code></pre>
-<p>R&#xE9;f&#xE9;rencez ensuite le bundle dans le kernel de votre application :</p>
-<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+                                <h1 id="synapsepagebundle">SynapsePageBundle</h1><p>Cette distribution rajoute un type de contenu nomm&#xE9; &quot;Page&quot;, ainsi que son interface d&apos;administration &#xE0; la distribution AdminBundle.</p><p>Le type de contenu &quot;Page&quot; repr&#xE9;sente une page web simple, avec une gestion des m&#xE9;tadonn&#xE9;es HTML, une m&#xE9;canique de publication / archivage et une gestion d&apos;arborescence.</p><p>L&apos;interface d&apos;administration des pages impl&#xE9;mente &#xE9;galement le formulaire de th&#xE8;me de Synapse.</p><p>Cette distribution est id&#xE9;ale pour commencer &#xE0; utiliser Synapse Cmf, elle propose un cas d&apos;utilisation simple du framework. Elle peut &#xEA;tre &#xE9;galement utile pour les pages uniques d&apos;un site, comme par exemple la homepage, des landings, des r&#xE9;sultats de recherche et / ou comme base pour des features complexes comme par exemple un panier, un compte utilisateur etc...</p><p><strong>Attention</strong> : cette distribution requiert le CmfBundle et l&apos;AdminBundle, qui doivent eux aussi initialis&#xE9;s et configur&#xE9;s, tel que d&#xE9;crit <a href="1_cmf_bundle.html">ici</a> et <a href="2_admin_bundle.html">l&#xE0;</a>.</p><h2 id="installation">Installation</h2><p>L&apos;installation de passe &#xE9;galement via Composer, et inclue <code>synapse-cmf-bundle</code> et <code>synapse-cmf/synapse-admin-bundle</code> :</p><pre><code class="lang-bash">composer require synapse-cmf/synapse-page-bundle ~1.0</code></pre>
+<p>R&#xE9;f&#xE9;rencez ensuite le bundle dans le kernel de votre application :</p><pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
 <span class="hljs-comment">// app/AppKernel.php</span>
 
 <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">registerBundles</span><span class="hljs-params">()</span>
@@ -472,10 +462,8 @@
         <span class="hljs-comment">// ...</span>
         <span class="hljs-keyword">new</span> Synapse\Page\Bundle\SynapsePageBundle(),
     );
-}
-</code></pre>
-<h2 id="configuration-de-r&#xE9;f&#xE9;rence">Configuration de r&#xE9;f&#xE9;rence</h2>
-<pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
+}</code></pre>
+<h2 id="configuration-de-r&#xE9;f&#xE9;rence">Configuration de r&#xE9;f&#xE9;rence</h2><pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
 
 <span class="hljs-comment"># Synapse Cmf Configuration</span>
 <span class="hljs-attr">synapse_cmf:</span>
@@ -486,8 +474,7 @@
 
 <span class="hljs-comment"># Synapse Page Configuration</span>
 <span class="hljs-attr">synapse_page:</span>
-<span class="hljs-attr">    rendering_route:</span> synapse_content_type_page   <span class="hljs-comment"># page rendering route, used into admin to generate frontend links</span>
-</code></pre>
+<span class="hljs-attr">    rendering_route:</span> synapse_content_type_page   <span class="hljs-comment"># page rendering route, used into admin to generate frontend links</span></code></pre>
 <pre><code class="lang-yml"><span class="hljs-comment"># app/config/routing.yml</span>
 
 <span class="hljs-comment"># Front</span>
@@ -501,10 +488,8 @@
 <span class="hljs-attr">    resource:</span> <span class="hljs-string">&quot;@SynapsePageBundle/Resources/config/routing/admin.yml&quot;</span>
 <span class="hljs-attr">    prefix:</span> <span class="hljs-string">&quot;/synapse/admin/page&quot;</span>
 <span class="hljs-attr">    options:</span>
-<span class="hljs-attr">        synapse_theme:</span> bootstrap
-</code></pre>
+<span class="hljs-attr">        synapse_theme:</span> bootstrap</code></pre>
 <p>Note : vous n&apos;avez pas besoin d&apos;inclure le routing de l&apos;admin bundle, page bundle s&apos;en charge d&#xE9;j&#xE0;.</p>
-
                                 
                                 </section>
                             
@@ -547,7 +532,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Page Bundle","level":"3.3.3","depth":2,"next":{"title":"Table des matières","level":"4.1","depth":1,"path":"3_book/README.md","ref":"3_book/README.md","articles":[{"title":"Introduction","level":"4.1.1","depth":2,"path":"3_book/1_decorator/README.md","ref":"3_book/1_decorator/README.md","articles":[]},{"title":"Types de contenu","level":"4.1.2","depth":2,"path":"3_book/1_decorator/1_content_types.md","ref":"3_book/1_decorator/1_content_types.md","articles":[]},{"title":"Thèmes","level":"4.1.3","depth":2,"path":"3_book/1_decorator/2_themes.md","ref":"3_book/1_decorator/2_themes.md","articles":[]},{"title":"Templates et zones","level":"4.1.4","depth":2,"path":"3_book/1_decorator/3_templates_zones.md","ref":"3_book/1_decorator/3_templates_zones.md","articles":[]},{"title":"Composants","level":"4.1.5","depth":2,"path":"3_book/1_decorator/4_components.md","ref":"3_book/1_decorator/4_components.md","articles":[]}]},"previous":{"title":"Admin Bundle","level":"3.3.2","depth":2,"path":"2_installation_configuration/distributions/2_admin_bundle.md","ref":"2_installation_configuration/distributions/2_admin_bundle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"styles":{"website":"styles/website.css"},"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"2_installation_configuration/distributions/3_page_bundle.md","mtime":"2016-11-24T11:22:11.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-24T13:07:22.939Z"},"basePath":"../..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Page Bundle","level":"3.3.3","depth":2,"next":{"title":"Table des matières","level":"4.1","depth":1,"path":"3_book/README.md","ref":"3_book/README.md","articles":[{"title":"Introduction","level":"4.1.1","depth":2,"path":"3_book/1_decorator/README.md","ref":"3_book/1_decorator/README.md","articles":[]},{"title":"Types de contenu","level":"4.1.2","depth":2,"path":"3_book/1_decorator/1_content_types.md","ref":"3_book/1_decorator/1_content_types.md","articles":[]},{"title":"Thèmes","level":"4.1.3","depth":2,"path":"3_book/1_decorator/2_themes.md","ref":"3_book/1_decorator/2_themes.md","articles":[]},{"title":"Templates et zones","level":"4.1.4","depth":2,"path":"3_book/1_decorator/3_templates_zones.md","ref":"3_book/1_decorator/3_templates_zones.md","articles":[]},{"title":"Composants","level":"4.1.5","depth":2,"path":"3_book/1_decorator/4_components.md","ref":"3_book/1_decorator/4_components.md","articles":[]}]},"previous":{"title":"Admin Bundle","level":"3.3.2","depth":2,"path":"2_installation_configuration/distributions/2_admin_bundle.md","ref":"2_installation_configuration/distributions/2_admin_bundle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"2_installation_configuration/distributions/3_page_bundle.md","mtime":"2016-09-16T19:01:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2017-01-31T17:15:12.597Z"},"basePath":"../..","book":{"language":"fr"}});
         });
     </script>
 </div>

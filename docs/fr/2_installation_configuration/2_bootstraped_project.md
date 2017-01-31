@@ -8,7 +8,11 @@ Vous aurez aussi besoin d'une base de données SQL pour stocker la données de S
 Pour commencer, il vous faut rajouter les bundles Synapse Cmf à votre projet :
 
 ```bash
-composer require synapse-cmf/synapse-cmf ~1.1@dev
+# stable releases
+composer require synapse-cmf/synapse-cmf ~1.1
+
+# last updates
+composer require synapse-cmf/synapse-cmf 1.1.x-dev
 ```
 
 Puis les inclure dans votre application (comme n'importe quel autre bundle) :

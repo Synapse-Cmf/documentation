@@ -7,7 +7,7 @@
         <title>Installation basique · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="GitBook 3.2.0">
         
         
         
@@ -452,15 +452,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="installation-dans-un-projet-initialis&#xE9;">Installation dans un projet initialis&#xE9;</h1>
-<p>L&apos;installation se passe via <a href="https://getcomposer.org/" target="_blank">Composer</a>, comme n&apos;importe quel autre bundle / librairie compatible avec Symfony.
-Vous aurez aussi besoin d&apos;une base de donn&#xE9;es SQL pour stocker la donn&#xE9;es de Synapse Cmf.</p>
-<h2 id="ajout-des-bundles">Ajout des Bundles</h2>
-<p>Pour commencer, il vous faut rajouter les bundles Synapse Cmf &#xE0; votre projet :</p>
-<pre><code class="lang-bash">composer require synapse-cmf/synapse-cmf ~1.1@dev
-</code></pre>
-<p>Puis les inclure dans votre application (comme n&apos;importe quel autre bundle) :</p>
-<pre><code class="lang-php"><span class="hljs-comment">// app/AppKernel.php</span>
+                                <h1 id="installation-dans-un-projet-initialis&#xE9;">Installation dans un projet initialis&#xE9;</h1><p>L&apos;installation se passe via <a href="https://getcomposer.org/" target="_blank">Composer</a>, comme n&apos;importe quel autre bundle / librairie compatible avec Symfony.
+Vous aurez aussi besoin d&apos;une base de donn&#xE9;es SQL pour stocker la donn&#xE9;es de Synapse Cmf.</p><h2 id="ajout-des-bundles">Ajout des Bundles</h2><p>Pour commencer, il vous faut rajouter les bundles Synapse Cmf &#xE0; votre projet :</p><pre><code class="lang-bash"><span class="hljs-comment"># stable releases</span>
+composer require synapse-cmf/synapse-cmf ~1.1
+
+<span class="hljs-comment"># last updates</span>
+composer require synapse-cmf/synapse-cmf 1.1.x-dev</code></pre>
+<p>Puis les inclure dans votre application (comme n&apos;importe quel autre bundle) :</p><pre><code class="lang-php"><span class="hljs-comment">// app/AppKernel.php</span>
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppKernel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Kernel</span>
 </span>{
@@ -481,16 +479,13 @@ Vous aurez aussi besoin d&apos;une base de donn&#xE9;es SQL pour stocker la donn
             <span class="hljs-keyword">new</span> Synapse\Demo\Bundle\ThemeBundle\SynapseDemoThemeBundle(),
         ]
     }
-}
-</code></pre>
-<h2 id="configuration">Configuration</h2>
-<h3 id="bundles-de-synapse-cmf">Bundles de Synapse Cmf</h3>
-<p>Nous utiliserons ici les param&#xE8;tres par d&#xE9;faut de Synapse. Pour plus de d&#xE9;tails sur les configurations, veuillez vous reporter aux r&#xE9;f&#xE9;rences des configurations de chaque bundle :</p>
-<ul>
-<li><a href="distributions/1_cmf_bundle.html">SynapseCmfBundle</a></li>
-<li><a href="distributions/2_admin_bundle.html">SynapseAdminBundle</a></li>
-<li><a href="distributions/3_page_bundle.html">SynapsePageBundle</a></li>
-</ul>
+}</code></pre>
+<h2 id="configuration">Configuration</h2><h3 id="bundles-de-synapse-cmf">Bundles de Synapse Cmf</h3><p>Nous utiliserons ici les param&#xE8;tres par d&#xE9;faut de Synapse. Pour plus de d&#xE9;tails sur les configurations, veuillez vous reporter aux r&#xE9;f&#xE9;rences des configurations de chaque bundle :</p><ul><li><a href="distributions/1_cmf_bundle.html">SynapseCmfBundle</a>
+</li>
+<li><a href="distributions/2_admin_bundle.html">SynapseAdminBundle</a>
+</li>
+<li><a href="distributions/3_page_bundle.html">SynapsePageBundle</a>
+</li></ul>
 <pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
 
 <span class="hljs-comment"># Synapse Cmf Configuration</span>
@@ -498,12 +493,8 @@ Vous aurez aussi besoin d&apos;une base de donn&#xE9;es SQL pour stocker la donn
 <span class="hljs-attr">    content_types:</span>
         Synapse\Page\Bundle\Entity\Page:
 <span class="hljs-attr">            alias:</span> page
-<span class="hljs-attr">            provider:</span> synapse.page.loader
-</code></pre>
-<h3 id="d&#xE9;pendances">D&#xE9;pendances</h3>
-<p>Ensuite, configurez l&apos;acc&#xE8;s &#xE0; la base de donn&#xE9;e de Synapse.</p>
-<p>La configuration minimale est la suivante :</p>
-<pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
+<span class="hljs-attr">            provider:</span> synapse.page.loader</code></pre>
+<h3 id="d&#xE9;pendances">D&#xE9;pendances</h3><p>Ensuite, configurez l&apos;acc&#xE8;s &#xE0; la base de donn&#xE9;e de Synapse.</p><p>La configuration minimale est la suivante :</p><pre><code class="lang-yml"><span class="hljs-comment"># app/config/config.yml</span>
 
 <span class="hljs-comment"># Doctrine Configuration</span>
 <span class="hljs-attr">doctrine:</span>
@@ -525,13 +516,8 @@ Vous aurez aussi besoin d&apos;une base de donn&#xE9;es SQL pour stocker la donn
 <span class="hljs-attr">        entity_managers:</span>
 <span class="hljs-attr">            synapse:</span> ~
 <span class="hljs-attr">            default:</span>
-                <span class="hljs-comment"># your project default em configuration</span>
-</code></pre>
-<p>Synapse Cmf utilise un entity manager d&#xE9;di&#xE9;, pour permettre plus de flexibilit&#xE9;, pour plus de d&#xE9;tails, voir la configuration du <a href="distributions/1_cmf_bundle.html">CmfBundle</a>.</p>
-<p>Les autres d&#xE9;pendances <a href="https://github.com/LinkValue/MajoraFrameworkExtraBundle" target="_blank">MajoraFrameworkExtraBundle</a> et <a href="https://github.com/stof/StofDoctrineExtensionsBundle" target="_blank">StofDoctrineExtensionsBundle</a> sont configur&#xE9;es par d&#xE9;faut directement par le CmfBundle.</p>
-<h3 id="routing">Routing</h3>
-<p>Synapse Cmf fournit des routes &#xE0; ajouter au projet pour acc&#xE9;der aux modules d&apos;administration et aux pages en front.</p>
-<pre><code class="lang-yml"><span class="hljs-comment"># app/config/routing.yml</span>
+                <span class="hljs-comment"># your project default em configuration</span></code></pre>
+<p>Synapse Cmf utilise un entity manager d&#xE9;di&#xE9;, pour permettre plus de flexibilit&#xE9;, pour plus de d&#xE9;tails, voir la configuration du <a href="distributions/1_cmf_bundle.html">CmfBundle</a>.</p><p>Les autres d&#xE9;pendances <a href="https://github.com/LinkValue/MajoraFrameworkExtraBundle" target="_blank">MajoraFrameworkExtraBundle</a> et <a href="https://github.com/stof/StofDoctrineExtensionsBundle" target="_blank">StofDoctrineExtensionsBundle</a> sont configur&#xE9;es par d&#xE9;faut directement par le CmfBundle.</p><h3 id="routing">Routing</h3><p>Synapse Cmf fournit des routes &#xE0; ajouter au projet pour acc&#xE9;der aux modules d&apos;administration et aux pages en front.</p><pre><code class="lang-yml"><span class="hljs-comment"># app/config/routing.yml</span>
 
 <span class="hljs-comment"># Front</span>
 <span class="hljs-attr">synapse_page_content:</span>
@@ -547,32 +533,18 @@ Vous aurez aussi besoin d&apos;une base de donn&#xE9;es SQL pour stocker la donn
 <span class="hljs-attr">    resource:</span> <span class="hljs-string">&quot;@SynapsePageBundle/Resources/config/routing/admin.yml&quot;</span>
 <span class="hljs-attr">    prefix:</span> <span class="hljs-string">&quot;/synapse/admin&quot;</span>
 <span class="hljs-attr">    options:</span>
-<span class="hljs-attr">        synapse_theme:</span> bootstrap         <span class="hljs-comment"># theme actif du projet (voir configuration des th&#xE8;mes)</span>
-</code></pre>
-<p>Pour finir, testez votre installation avec les commandes suivantes :</p>
-<pre><code class="lang-bash">php bin/console debug:container | grep synapse
-php bin/console debug:router | grep synapse
-</code></pre>
-<h2 id="mise-en-route">Mise en route</h2>
-<p>Une fois toute la configuration op&#xE9;rationnelle, construisez la base de donn&#xE9;es avec les commandes suivantes :</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># Cr&#xE9;ation de la base si elle n&apos;existe pas</span>
+<span class="hljs-attr">        synapse_theme:</span> bootstrap         <span class="hljs-comment"># theme actif du projet (voir configuration des th&#xE8;mes)</span></code></pre>
+<p>Pour finir, testez votre installation avec les commandes suivantes :</p><pre><code class="lang-bash">php bin/console debug:container | grep synapse
+php bin/console debug:router | grep synapse</code></pre>
+<h2 id="mise-en-route">Mise en route</h2><p>Une fois toute la configuration op&#xE9;rationnelle, construisez la base de donn&#xE9;es avec les commandes suivantes :</p><pre><code class="lang-bash"><span class="hljs-comment"># Cr&#xE9;ation de la base si elle n&apos;existe pas</span>
 php bin/console doctrine:database:create --connection=synapse --if-not-exists
 <span class="hljs-comment"># Construction des tables</span>
-php bin/console doctrine:schema:update --force --em=synapse
-</code></pre>
-<p>Puis installez les assets et videz le cache :</p>
-<pre><code class="lang-bash">php bin/console assets:install
-php bin/console cache:clear
-</code></pre>
-<h2 id="bonnes-pratiques-pour-le-versioning">Bonnes pratiques pour le versioning</h2>
-<p>La m&#xE9;diath&#xE8;que de Synapse Cmf utilise le dossier <code>web/assets</code> pour d&#xE9;poser les m&#xE9;dias upload&#xE9;s (le chemin est configurable). En g&#xE9;n&#xE9;ral, nous ne souhaitons pas versionner ces donn&#xE9;es, ajoutez donc ce dossier &#xE0; votre <code>.gitignore</code>.</p>
-<pre><code>#.gitignore
-web/assets
-</code></pre><h2 id="construction-du-site">Construction du site</h2>
-<p>Synapse Cmf est &#xE0; pr&#xE9;sent op&#xE9;rationnel dans sa version la plus simple, &#xE0; vous de jouer pour construire vos pages via l&apos;interface d&apos;administration, &#xE0; l&apos;url <a href="http://your.env.dev/app_dev.php/synapse/admin/pages" target="_blank">http://your.env.dev/app_dev.php/synapse/admin/pages</a> pour cette configuration.</p>
-<p>Notez bien que le th&#xE8;me utilis&#xE9; est celui de d&#xE9;monstration, un th&#xE8;me simple construit avec Bootstrap 3. Il ne contient qu&apos;un seul template, un seul type de contenu (la &quot;page&quot;) et seulement les composants built-in.</p>
-<p>Pour cr&#xE9;er vos propres types de contenu, templates et composants, r&#xE9;f&#xE9;rez-vous aux sections d&#xE9;di&#xE9;es.</p>
-
+php bin/console doctrine:schema:update --force --em=synapse</code></pre>
+<p>Puis installez les assets et videz le cache :</p><pre><code class="lang-bash">php bin/console assets:install
+php bin/console cache:clear</code></pre>
+<h2 id="bonnes-pratiques-pour-le-versioning">Bonnes pratiques pour le versioning</h2><p>La m&#xE9;diath&#xE8;que de Synapse Cmf utilise le dossier <code>web/assets</code> pour d&#xE9;poser les m&#xE9;dias upload&#xE9;s (le chemin est configurable). En g&#xE9;n&#xE9;ral, nous ne souhaitons pas versionner ces donn&#xE9;es, ajoutez donc ce dossier &#xE0; votre <code>.gitignore</code>.</p><pre><code>#.gitignore
+web/assets</code></pre>
+<h2 id="construction-du-site">Construction du site</h2><p>Synapse Cmf est &#xE0; pr&#xE9;sent op&#xE9;rationnel dans sa version la plus simple, &#xE0; vous de jouer pour construire vos pages via l&apos;interface d&apos;administration, &#xE0; l&apos;url <a href="http://your.env.dev/app_dev.php/synapse/admin/pages" target="_blank">http://your.env.dev/app_dev.php/synapse/admin/pages</a> pour cette configuration.</p><p>Notez bien que le th&#xE8;me utilis&#xE9; est celui de d&#xE9;monstration, un th&#xE8;me simple construit avec Bootstrap 3. Il ne contient qu&apos;un seul template, un seul type de contenu (la &quot;page&quot;) et seulement les composants built-in.</p><p>Pour cr&#xE9;er vos propres types de contenu, templates et composants, r&#xE9;f&#xE9;rez-vous aux sections d&#xE9;di&#xE9;es.</p>
                                 
                                 </section>
                             
@@ -615,7 +587,7 @@ web/assets
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Installation basique","level":"3.2","depth":1,"next":{"title":"Distributions","level":"3.3","depth":1,"path":"2_installation_configuration/3_distributions.md","ref":"2_installation_configuration/3_distributions.md","articles":[{"title":"Cmf Bundle","level":"3.3.1","depth":2,"path":"2_installation_configuration/distributions/1_cmf_bundle.md","ref":"2_installation_configuration/distributions/1_cmf_bundle.md","articles":[]},{"title":"Admin Bundle","level":"3.3.2","depth":2,"path":"2_installation_configuration/distributions/2_admin_bundle.md","ref":"2_installation_configuration/distributions/2_admin_bundle.md","articles":[]},{"title":"Page Bundle","level":"3.3.3","depth":2,"path":"2_installation_configuration/distributions/3_page_bundle.md","ref":"2_installation_configuration/distributions/3_page_bundle.md","articles":[]}]},"previous":{"title":"QuickStart (wip)","level":"3.1","depth":1,"path":"2_installation_configuration/1_quick_start.md","ref":"2_installation_configuration/1_quick_start.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"styles":{"website":"styles/website.css"},"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"2_installation_configuration/2_bootstraped_project.md","mtime":"2016-11-24T11:24:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-24T13:07:22.939Z"},"basePath":"..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Installation basique","level":"3.2","depth":1,"next":{"title":"Distributions","level":"3.3","depth":1,"path":"2_installation_configuration/3_distributions.md","ref":"2_installation_configuration/3_distributions.md","articles":[{"title":"Cmf Bundle","level":"3.3.1","depth":2,"path":"2_installation_configuration/distributions/1_cmf_bundle.md","ref":"2_installation_configuration/distributions/1_cmf_bundle.md","articles":[]},{"title":"Admin Bundle","level":"3.3.2","depth":2,"path":"2_installation_configuration/distributions/2_admin_bundle.md","ref":"2_installation_configuration/distributions/2_admin_bundle.md","articles":[]},{"title":"Page Bundle","level":"3.3.3","depth":2,"path":"2_installation_configuration/distributions/3_page_bundle.md","ref":"2_installation_configuration/distributions/3_page_bundle.md","articles":[]}]},"previous":{"title":"QuickStart (wip)","level":"3.1","depth":1,"path":"2_installation_configuration/1_quick_start.md","ref":"2_installation_configuration/1_quick_start.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"2_installation_configuration/2_bootstraped_project.md","mtime":"2017-01-31T17:12:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2017-01-31T17:15:12.597Z"},"basePath":"..","book":{"language":"fr"}});
         });
     </script>
 </div>

@@ -46,11 +46,11 @@ Le composant texte expose toutes ses données, sa configuration compilée et le 
 
 Dans le détail :
 ```html
-# System vars
+<!-- System vars -->
 {{ config }}   # all compiled configurations from current theme / template / zone
 {{ content }}  # current displayed content object
 
-# Component vars
+<!-- Component vars -->
 {{ title }}      # component form title
 {{ text }}       # component form text, use "|raw" filter if html is allowed
 {{ headline }}   # component form headline, only defined if headline is allowed
@@ -63,7 +63,7 @@ Dans le détail :
 ### Exemple
 
 ```html
-# PathtoThemeBundle/Resources/views/xxxx/text.html.twig
+<!-- PathtoThemeBundle/Resources/views/xxxx/text.html.twig -->
 <article>
   <h3>{{ title|humanize }}</h3>
 {% if config.headline is not empty and headline is not empty %}

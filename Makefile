@@ -1,9 +1,9 @@
 build: bin/gitbook
 	bin/gitbook build
+	find _book -name "*.md" -type f -delete
 	rm -rf docs/*
 	mv _book/* docs
 	rm -r _book
-	rm -rf docs/**/*.md
 
 bin/gitbook: node_modules/.bin/gitbook
 	mkdir -p bin

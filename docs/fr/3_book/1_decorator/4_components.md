@@ -10,7 +10,7 @@ Dans chaque zone de chaque template, il est possible d'en ajouter, tout composan
 
 La version de base de Synapse Cmf ([SynapseCmfBundle](../../2_installation_configuration/distributions/1_cmf_bundle.md)) inclue cinq composants :
 
-  - Texte : affiche du texte, brut ou html, et des images.
+  - [Texte](../2_components/1_text.md) : affiche du texte, brut ou html, et des images.
   - Menu : affiche une liste de liens, sous un label paramétrable, sur plusieurs niveaux
   - Gallerie : affiche une galerie d'images, à partir de la médiathèque
   - Libre : affiche le texte brut saisi dans le back office

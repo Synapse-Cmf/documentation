@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Thèmes · GitBook</title>
+        <title>Texte · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.0">
@@ -47,10 +47,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="3_templates_zones.html" />
+    <link rel="next" href="../../4_cookbook/" />
     
     
-    <link rel="prev" href="1_content_types.html" />
+    <link rel="prev" href="../1_decorator/4_components.html" />
     
 
     </head>
@@ -246,9 +246,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1.1" data-path="./">
+        <li class="chapter " data-level="4.1.1" data-path="../1_decorator/">
             
-                <a href="./">
+                <a href="../1_decorator/">
             
                     
                     Introduction
@@ -259,9 +259,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.2" data-path="1_content_types.html">
+        <li class="chapter " data-level="4.1.2" data-path="../1_decorator/1_content_types.html">
             
-                <a href="1_content_types.html">
+                <a href="../1_decorator/1_content_types.html">
             
                     
                     Types de contenu
@@ -272,9 +272,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.1.3" data-path="2_themes.html">
+        <li class="chapter " data-level="4.1.3" data-path="../1_decorator/2_themes.html">
             
-                <a href="2_themes.html">
+                <a href="../1_decorator/2_themes.html">
             
                     
                     Thèmes
@@ -285,9 +285,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.4" data-path="3_templates_zones.html">
+        <li class="chapter " data-level="4.1.4" data-path="../1_decorator/3_templates_zones.html">
             
-                <a href="3_templates_zones.html">
+                <a href="../1_decorator/3_templates_zones.html">
             
                     
                     Templates et zones
@@ -298,9 +298,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.5" data-path="4_components.html">
+        <li class="chapter " data-level="4.1.5" data-path="../1_decorator/4_components.html">
             
-                <a href="4_components.html">
+                <a href="../1_decorator/4_components.html">
             
                     
                     Composants
@@ -312,9 +312,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1.5.1" data-path="../2_components/1_text.html">
+        <li class="chapter active" data-level="4.1.5.1" data-path="1_text.html">
             
-                <a href="../2_components/1_text.html">
+                <a href="1_text.html">
             
                     
                     Texte
@@ -456,7 +456,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Thèmes</a>
+        <a href="../.." >Texte</a>
     </h1>
 </div>
 
@@ -471,71 +471,62 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="th&#xE8;mes">Th&#xE8;mes</h1><p>Les &#xE9;l&#xE9;ments de d&#xE9;coration des types de contenu sont d&#xE9;clar&#xE9;s au sein d&apos;un th&#xE8;me.
-Ces th&#xE8;mes sont de v&#xE9;ritables namespaces au sein duquel chaque &#xE9;l&#xE9;ment et chaque configuration sont cloisonn&#xE9;s.</p><p>Au-del&#xE0; de l&apos;aspect technique, ils sont le moyen de changer facilement le th&#xE8;me graphique de toute une application.</p><h2 id="cr&#xE9;er-un-th&#xE8;me">Cr&#xE9;er un th&#xE8;me</h2><p>Un th&#xE8;me se cr&#xE9;&#xE9; &#xE0; partir d&apos;un bundle Symfony.
-L&apos;int&#xE9;r&#xEA;t est de pouvoir activer et partager des th&#xE8;mes Synapse aussi facilement que des bundles, et de pouvoir regrouper tout type de ressources &#xE0; l&apos;int&#xE9;rieur : templates, configurations, routes, assets...</p><p>Partons d&apos;un bundle vierge pour cr&#xE9;er notre nouveau th&#xE8;me, via la commande <code>php bin/console generate:bundle</code>.</p><p>Dans la classe de bundle, utilisez l&apos;h&#xE9;ritage Synapse au lieu de Symfony :</p><pre><code class="lang-php"><span class="hljs-comment">// src/Acme/Bundle/DemoThemeBundle/AcmeDemoThemeBundle.php</span>
-
-<span class="hljs-keyword">use</span> <span class="hljs-title">Synapse</span>\<span class="hljs-title">Cmf</span>\<span class="hljs-title">Bundle</span>\<span class="hljs-title">Distribution</span>\<span class="hljs-title">Theme</span>\<span class="hljs-title">Bundle</span>\<span class="hljs-title">Bundle</span> <span class="hljs-title">as</span> <span class="hljs-title">SynapseThemeBundle</span>;
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AcmeDemoThemeBundle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SynapseThemeBundle</span>
-</span>{
-}</code></pre>
-<p>Cet h&#xE9;ritage permet de fournir des configurations suppl&#xE9;mentaires, en particulier un fichier de configuration permettant de param&#xE9;trer facilement un th&#xE8;me.</p><p>Ce fichier de configuration est &#xE0; placer dans le dossier <code>Resources/config</code> de votre bundle :</p><pre><code class="lang-yml"><span class="hljs-comment"># src/Acme/Bundle/DemoThemeBundle/Resources/config/synapse.yml</span>
-
+                                <h1 id="composant-texte">Composant &quot;Texte&quot;</h1><p>Le composant texte permet d&apos;afficher un texte saisi par l&apos;utilisateur en mode &quot;riche&quot; (via CKEditor), ou en &quot;brut&quot;, aggr&#xE9;ment&#xE9; d&apos;images.</p><p>D&apos;autres champs sont disponibles, tels qu&apos;un titre, une accroche ou des liens.</p><h2 id="d&#xE9;finition">D&#xE9;finition</h2><p>Le composant texte est d&#xE9;fini dans la configuration par d&#xE9;faut de SynapseCmfBundle, sous la cl&#xE9; &quot;text&quot;.</p><p>Si il n&apos;est pas n&#xE9;cessaire, il est possible de ne pas l&apos;inclure via la configuration suivante</p><pre><code class="lang-yml"><span class="hljs-comment"># config.yml</span>
+<span class="hljs-attr">synapse_cmf:</span>
+<span class="hljs-attr">    components:</span>
+<span class="hljs-attr">        text:</span> ~</code></pre>
+<h2 id="int&#xE9;gration-dans-un-th&#xE8;me">Int&#xE9;gration dans un th&#xE8;me</h2><p>Le composant texte pr&#xE9;sente des configurations &#xE0; surcharger selon les besoins de th&#xE8;me qui l&apos;utilise.</p><pre><code class="lang-yml"><span class="hljs-comment"># src/Path/to/ThemeBundle/Resource/config/synapse.yml</span>
 <span class="hljs-attr">synapse:</span>
-<span class="hljs-attr">    acme_demo:</span>           <span class="hljs-comment"># your theme name</span>
-<span class="hljs-attr">        structure:</span>          <span class="hljs-comment"># all theme structure will be defined here (templates, zones, components)</span>
-<span class="hljs-attr">            home:</span>              <span class="hljs-comment"># template name</span>
-<span class="hljs-attr">                menu:</span>             <span class="hljs-comment"># zone name</span>
-<span class="hljs-attr">                    menu:</span> ~          <span class="hljs-comment"># allowed component in this zone</span>
-<span class="hljs-attr">                body:</span>
-<span class="hljs-attr">                    text:</span> ~
-<span class="hljs-attr">                    gallery:</span> ~
-<span class="hljs-attr">                    news_list:</span> ~
-<span class="hljs-attr">            landing:</span>
-<span class="hljs-attr">                menu:</span>
-<span class="hljs-attr">                    menu:</span> ~
-<span class="hljs-attr">                body:</span>
-<span class="hljs-attr">                    news_list:</span> ~
-<span class="hljs-attr">                sidebar:</span>
-<span class="hljs-attr">                    news_list:</span> ~
-<span class="hljs-attr">            news:</span>
-<span class="hljs-attr">                menu:</span>
-<span class="hljs-attr">                    menu:</span> ~
-<span class="hljs-attr">                body:</span>
-<span class="hljs-attr">                    news_body:</span> ~
-<span class="hljs-attr">                sidebar:</span>
-<span class="hljs-attr">                    news_list:</span> ~</code></pre>
-<p>La traduction litt&#xE9;rale d&apos;une partie de la configuration ci-dessus est :</p><pre><code>La structure du th&#xE8;me &quot;acme_demo&quot; est constitu&#xE9;e de 3 templates :
-  - home : deux zones,
-    - menu, n&apos;autorisant que le composante &quot;menu&quot;
-    - body, autorisant les composants &quot;text&quot;, &quot;gallery&quot; et &quot;news_list&quot;
-  - landing : trois zones,
-    - menu, n&apos;autorisant que le composante &quot;menu&quot;
-    - body, n&apos;autorisant cette fois que &quot;news_list&quot;
-    - sidebar, n&apos;autorisant lui aussi que &quot;news_list&quot;
-  etc...</code></pre>
-<p>Nous reviendrons en d&#xE9;tail sur le param&#xE9;trage des templates, zones et composants plus tard, l&apos;important ici est de remarquer qu&apos;un th&#xE8;me ne se d&#xE9;finit que par son nom, et sa structure.</p><p>Notez que le fichier <code>synapse.yml</code> est le <strong>coeur du pattern prototype de Synapse</strong>.</p><p>Pour finir, ne pas oublier d&apos;activer le bundle dans le Kernel de votre application.</p><h2 id="activation-dun-th&#xE8;me">Activation d&apos;un th&#xE8;me</h2><p>Synapse ne peut utiliser qu&apos;un seul th&#xE8;me &#xE0; la fois, et doit &#xEA;tre initialis&#xE9; avec ce th&#xE8;me.</p><p>Plusieurs options sont disponibles, la plus simple &#xE9;tant via le routing vers vos contr&#xF4;leurs front et admin :</p><pre><code class="lang-yml"><span class="hljs-comment"># app/config/routing.yml</span>
+<span class="hljs-attr">  my_theme:</span>
+    <span class="hljs-comment"># ...</span>
+<span class="hljs-attr">    components:</span>
+<span class="hljs-attr">      text:</span>
+<span class="hljs-attr">        path:</span> <span class="hljs-string">&apos;PathtoThemeBundle:xxxx:text.html.twig&apos;</span>  <span class="hljs-comment"># Symfony style template path for this component</span>
+<span class="hljs-attr">        config:</span>
+<span class="hljs-attr">          headline:</span> <span class="hljs-literal">false</span>       <span class="hljs-comment"># Activate &quot;headline&quot; field</span>
+<span class="hljs-attr">          html:</span> <span class="hljs-literal">false</span>           <span class="hljs-comment"># Activate rich editor or not</span>
+<span class="hljs-attr">          ckeditor_config:</span> []   <span class="hljs-comment"># CKEditor configuration, useless if html option is disabled</span>
+<span class="hljs-attr">          read_more:</span> <span class="hljs-literal">false</span>      <span class="hljs-comment"># Activate read more links, as a link and a label into form</span>
+<span class="hljs-attr">          images:</span>               <span class="hljs-comment"># &quot;~&quot; to disable images into text component</span>
+<span class="hljs-attr">            multiple:</span> <span class="hljs-literal">false</span>     <span class="hljs-comment"># Enable multi-image selection</span>
+<span class="hljs-attr">            format:</span> <span class="hljs-string">&quot;16/9&quot;</span>      <span class="hljs-comment"># Image format used in this component template</span></code></pre>
+<p><strong>NB</strong>: Toutes les configurations du composant texte supportent les variations.</p><h2 id="template">Template</h2><p>Le composant texte expose toutes ses donn&#xE9;es, sa configuration compil&#xE9;e et le contenu courant au template.</p><p>Dans le d&#xE9;tail :</p><pre><code class="lang-html"># System vars
+{{ config }}   # all compiled configurations from current theme / template / zone
+{{ content }}  # current displayed content object
 
-<span class="hljs-comment"># Synapse Admin</span>
-<span class="hljs-attr">synapse_admin:</span>
-<span class="hljs-attr">    resource:</span> <span class="hljs-string">&quot;@SynapsePageBundle/Resources/config/routing/admin.yml&quot;</span>
-<span class="hljs-attr">    prefix:</span> <span class="hljs-string">&quot;/synapse/admin/page&quot;</span>
-<span class="hljs-attr">    options:</span>
-<span class="hljs-attr">        synapse_theme:</span> acme_demo         <span class="hljs-comment"># Theme to activate</span>
+# Component vars
+{{ title }}      # component form title
+{{ text }}       # component form text, use &quot;|raw&quot; filter if html is allowed
+{{ headline }}   # component form headline, only defined if headline is allowed
+{{ images }}     # component form selected images, as Synapse image objects, could be empty
+{{ image }}      # shortcut to first image into collection, if only one image is allowed
+{{ link }}       # url of &quot;read more&quot; link, if read more is allowed
+{{ link_label }} # label of &quot;read more&quot; link, if read more is allowed</code></pre>
+<h3 id="exemple">Exemple</h3><pre><code class="lang-html"># PathtoThemeBundle/Resources/views/xxxx/text.html.twig
+<span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>{{ title|humanize }}<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+{% if config.headline is not empty and headline is not empty %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;headline&quot;</span>&gt;</span>{{ headline|capitalize }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+{% endif %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ config.html is empty ? html : html|raw }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+{% if config.image is not empty %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;gallery&quot;</span>&gt;</span>
+  {% if config.image.multiple is empty and image is not empty %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{{ asset(image.formatWebPath()) }}&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;{{ image.title }}&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;{{ image.alt }}&quot;</span>/&gt;</span>
+  {% else %}
+    {% for image in images %}
+      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{{ asset(image.formatWebPath()) }}&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;{{ image.title }}&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;{{ image.alt }}&quot;</span>/&gt;</span>
+    {% endfor %}
+  {% endif %}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+{% endif %}
+{% if config.read_more is not empty and link is not empty %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;links&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;{{ link }}&quot;</span>&gt;</span>{{ link_label }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+{% endif %}
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></code></pre>
 
-<span class="hljs-comment"># Acme front</span>
-acme_front :
-<span class="hljs-attr">    resource:</span> <span class="hljs-string">&quot;@AcmeAppBundle/Resources/config/routing/front.yml&quot;</span>
-<span class="hljs-attr">    options:</span>
-<span class="hljs-attr">        synapse_theme:</span> acme_demo
-
-<span class="hljs-comment"># Synapse Page</span>
-<span class="hljs-attr">synapse_page_content:</span>
-<span class="hljs-attr">    resource:</span> <span class="hljs-string">&quot;@SynapsePageBundle/Resources/config/routing/content_type.yml&quot;</span>
-<span class="hljs-attr">    options:</span>
-<span class="hljs-attr">        synapse_theme:</span> acme_demo</code></pre>
-<p>L&apos;admin de Synapse a &#xE9;galement besoin du th&#xE8;me qu&apos;il doit &#xE9;diter, pour activer certaines configurations &quot;lazy-load&#xE9;es&quot;.</p><p>D&apos;autres options sont disponibles pour g&#xE9;rer plus finement l&apos;activation des th&#xE8;mes, voir l&apos;article du <a href="../../4_cookbook/2_decorator/multi_themes.md">cookbook d&#xE9;di&#xE9; (wip)</a>.</p>
                                 
                                 </section>
                             
@@ -562,12 +553,12 @@ acme_front :
 
             
                 
-                <a href="1_content_types.html" class="navigation navigation-prev " aria-label="Previous page: Types de contenu">
+                <a href="../1_decorator/4_components.html" class="navigation navigation-prev " aria-label="Previous page: Composants">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="3_templates_zones.html" class="navigation navigation-next " aria-label="Next page: Templates et zones">
+                <a href="../../4_cookbook/" class="navigation navigation-next " aria-label="Next page: Table des matières">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -578,7 +569,7 @@ acme_front :
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Thèmes","level":"4.1.3","depth":2,"next":{"title":"Templates et zones","level":"4.1.4","depth":2,"path":"3_book/1_decorator/3_templates_zones.md","ref":"3_book/1_decorator/3_templates_zones.md","articles":[]},"previous":{"title":"Types de contenu","level":"4.1.2","depth":2,"path":"3_book/1_decorator/1_content_types.md","ref":"3_book/1_decorator/1_content_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/1_decorator/2_themes.md","mtime":"2016-11-23T17:14:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2017-02-07T17:55:41.416Z"},"basePath":"../..","book":{"language":"fr"}});
+            gitbook.page.hasChanged({"page":{"title":"Texte","level":"4.1.5.1","depth":3,"next":{"title":"Table des matières","level":"5.1","depth":1,"path":"4_cookbook/README.md","ref":"4_cookbook/README.md","articles":[{"title":"Architecture","level":"5.1.1","depth":2,"ref":"","articles":[{"title":"Bases de données","level":"5.1.1.1","depth":3,"path":"4_cookbook/1_architecture/1_base_de_donnees.md","ref":"4_cookbook/1_architecture/1_base_de_donnees.md","articles":[]}]}]},"previous":{"title":"Composants","level":"4.1.5","depth":2,"path":"3_book/1_decorator/4_components.md","ref":"3_book/1_decorator/4_components.md","articles":[{"title":"Texte","level":"4.1.5.1","depth":3,"path":"3_book/2_components/1_text.md","ref":"3_book/2_components/1_text.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-synapse"],"root":"","styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-synapse":{"showLevel":false,"styles":{"website":"styles/website.css"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"fr","gitbook":"*"},"file":{"path":"3_book/2_components/1_text.md","mtime":"2017-02-07T17:51:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2017-02-07T17:55:41.416Z"},"basePath":"../..","book":{"language":"fr"}});
         });
     </script>
 </div>

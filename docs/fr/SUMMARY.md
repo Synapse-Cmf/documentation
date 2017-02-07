@@ -24,6 +24,7 @@
   * [Thèmes](3_book/1_decorator/2_themes.md)
   * [Templates et zones](3_book/1_decorator/3_templates_zones.md)
   * [Composants](3_book/1_decorator/4_components.md)
+    * [Texte](3_book/2_components/1_text.md)
 
 ### Cookbook (WIP)
 
